@@ -31,7 +31,7 @@ environment = SubResource("Environment_rjyjm")
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4995, 0)
 use_collision = true
-size = Vector3(7, 0.001, 7)
+size = Vector3(16, 0.001, 16)
 
 [node name="Player" type="CharacterBody3D" parent="."]
 script = ExtResource("1_wcbn5")
