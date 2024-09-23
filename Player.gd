@@ -38,10 +38,13 @@ func toggle_camera():
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		player.rotate_y(-event.relative.x * SENSITIVITY)
-		campoint.rotate_x(-event.relative.y * SENSITIVITY)
-		campoint.rotation.x = clamp(campoint.rotation.x, deg_to_rad(-40), deg_to_rad(60))
-		#active_camera.rotate_x(-event.relative.y * SENSITIVITY)
-		#active_camera.rotation.x = clamp(active_camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		if active_camera == camera1:
+			active_camera.rotate_x(-event.relative.y * SENSITIVITY)
+			active_camera.rotation.x = clamp(active_camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		if active_camera == camera2:
+			campoint.rotate_x(-event.relative.y * SENSITIVITY * -1)
+			campoint.rotation.x = clamp(campoint.rotation.x, deg_to_rad(-40), deg_to_rad(20))
+
 	
 
 func _physics_process(delta: float) -> void:
