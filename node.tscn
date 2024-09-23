@@ -58,6 +58,9 @@ transform = Transform3D(1, 0, 0, 0, 2.08568, 0, 0, 0, 1, 0, -0.116039, 0)
 [node name="Camera3D" type="Camera3D" parent="Player/Head"]
 transform = Transform3D(1, 0, 0, 0, 0.479459, 0, 0, 0, 1, 0, 0.198522, 0)
 
+[node name="Camera3DF" type="Camera3D" parent="Player/Head"]
+transform = Transform3D(1, 0, 0, 0, 0.47946, 0, 0, 0, 1, 0, 0.198522, 3.87184)
+
 [node name="Campoint" type="Node3D" parent="Player/Head"]
 
 [node name="Camera3D2" type="Camera3D" parent="Player/Head/Campoint"]

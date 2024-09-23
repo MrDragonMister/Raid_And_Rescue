@@ -10,6 +10,7 @@ const SENSITIVITY = 0.003
 @onready var campoint: Node3D = $Head/Campoint
 @onready var camera1: Camera3D = $Head/Camera3D
 @onready var camera2: Camera3D = $Head/Campoint/Camera3D2
+@onready var cameraf: Camera3D = $Head/Camera3DF
 @onready var player: CharacterBody3D = $"."
 var active_camera: Camera3D
 
@@ -18,33 +19,52 @@ func _ready() -> void:
 	active_camera = camera1
 	camera1.current = true
 	camera2.current = false
+	cameraf.current = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("switch_camera"):
 		toggle_camera()
-		
+	if Input.is_action_just_pressed("freecam"):
+		if not active_camera == cameraf:
+			active_camera = cameraf
+			camera1.current = false
+			camera2.current = false
+			cameraf.current = true
+		else:
+			active_camera = camera1
+			camera1.current = true
+			camera2.current = false
+			cameraf.current = false
+	
 func toggle_camera():
 	if active_camera == camera1:
 		active_camera = camera2
 		camera1.current = false
 		camera2.current = true
+		cameraf.current = false
 	else:
-		active_camera = camera1
-		camera1.current = true
-		camera2.current = false
+		if active_camera == camera2:
+			active_camera = camera1
+			camera1.current = true
+			camera2.current = false
+			cameraf.current = false
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		player.rotate_y(-event.relative.x * SENSITIVITY)
 		if active_camera == camera1:
 			active_camera.rotate_x(-event.relative.y * SENSITIVITY)
 			active_camera.rotation.x = clamp(active_camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+			player.rotate_y(-event.relative.x * SENSITIVITY)
 		if active_camera == camera2:
 			campoint.rotate_x(-event.relative.y * SENSITIVITY * -1)
 			campoint.rotation.x = clamp(campoint.rotation.x, deg_to_rad(-20), deg_to_rad(20))
-
+			player.rotate_y(-event.relative.x * SENSITIVITY)
+		if active_camera == cameraf:
+			active_camera.rotate_x(-event.relative.y * SENSITIVITY)
+			active_camera.rotation.x = clamp(active_camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+			active_camera.rotate_y(-event.relative.x * SENSITIVITY)
 	
 
 func _physics_process(delta: float) -> void:
