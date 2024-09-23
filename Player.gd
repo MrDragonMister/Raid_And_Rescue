@@ -43,7 +43,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			active_camera.rotation.x = clamp(active_camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 		if active_camera == camera2:
 			campoint.rotate_x(-event.relative.y * SENSITIVITY * -1)
-			campoint.rotation.x = clamp(campoint.rotation.x, deg_to_rad(-40), deg_to_rad(20))
+			campoint.rotation.x = clamp(campoint.rotation.x, deg_to_rad(-20), deg_to_rad(20))
 
 	
 
