@@ -7,6 +7,7 @@ const SENSITIVITY = 0.003
 
 
 @onready var head: Node3D = $Head
+@onready var campoint: Node3D = $Head/Campoint
 @onready var camera1: Camera3D = $Head/Camera3D
 @onready var camera2: Camera3D = $Head/Campoint/Camera3D2
 @onready var player: CharacterBody3D = $"."
@@ -37,8 +38,10 @@ func toggle_camera():
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		player.rotate_y(-event.relative.x * SENSITIVITY)
-		active_camera.rotate_x(-event.relative.y * SENSITIVITY)
-		active_camera.rotation.x = clamp(active_camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		campoint.rotate_x(-event.relative.y * SENSITIVITY)
+		campoint.rotation.x = clamp(campoint.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		#active_camera.rotate_x(-event.relative.y * SENSITIVITY)
+		#active_camera.rotation.x = clamp(active_camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 	
 
 func _physics_process(delta: float) -> void:
