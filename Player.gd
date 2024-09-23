@@ -8,7 +8,8 @@ const SENSITIVITY = 0.003
 
 @onready var head: Node3D = $Head
 @onready var camera1: Camera3D = $Head/Camera3D
-@onready var camera2: Camera3D = $Head/Camera3D2
+@onready var camera2: Camera3D = $Head/Campoint/Camera3D2
+@onready var player: CharacterBody3D = $"."
 var active_camera: Camera3D
 
 
@@ -35,7 +36,7 @@ func toggle_camera():
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		head.rotate_y(-event.relative.x * SENSITIVITY)
+		player.rotate_y(-event.relative.x * SENSITIVITY)
 		active_camera.rotate_x(-event.relative.y * SENSITIVITY)
 		active_camera.rotation.x = clamp(active_camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 	
@@ -52,7 +53,7 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction: Vector3 = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction: Vector3 = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction.length() > 0:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED

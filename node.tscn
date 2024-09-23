@@ -14,7 +14,7 @@ background_mode = 2
 sky = SubResource("Sky_qouwx")
 tonemap_mode = 2
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_0jytv"]
+[sub_resource type="BoxMesh" id="BoxMesh_peee1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4tr4v"]
 vertex_color_use_as_albedo = true
@@ -44,17 +44,21 @@ platform_floor_layers = 4294901761
 script = ExtResource("1_wcbn5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1.00267, 0, 0, 0, 1.00267, 0, 0, 0, 1.00267, 0, 0, 0)
 layers = 2
-mesh = SubResource("CapsuleMesh_0jytv")
+mesh = SubResource("BoxMesh_peee1")
 surface_material_override/0 = SubResource("StandardMaterial3D_4tr4v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("ConvexPolygonShape3D_2dug5")
 
 [node name="Head" type="Node3D" parent="Player"]
-transform = Transform3D(1, -0.000105745, -0.000212826, 0.000105693, 1, -0.000279043, 0.000212853, 0.000279023, 1, 0, 0.754013, 0)
+transform = Transform3D(1, 0, 0, 0, 2.08568, 0, 0, 0, 1, 0, -0.116039, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player/Head"]
+transform = Transform3D(1, 0, 0, 0, 0.479459, 0, 0, 0, 1, 0, 0.198522, 0)
 
-[node name="Camera3D2" type="Camera3D" parent="Player/Head"]
-transform = Transform3D(1, -0.00012446, 2.40847e-05, 9.43668e-05, 0.857742, 0.51408, -8.46378e-05, -0.51408, 0.857742, 0, 2, 4)
+[node name="Campoint" type="Node3D" parent="Player/Head"]
+
+[node name="Camera3D2" type="Camera3D" parent="Player/Head/Campoint"]
+transform = Transform3D(1, -0.000212539, 2.69877e-05, 9.43668e-05, 0.460811, 0.132418, -8.46378e-05, -0.276183, 0.961105, 1.01863e-10, 2, 4)
