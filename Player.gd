@@ -65,21 +65,26 @@ func free_camera():
 
 func freecam_movement(delta: float) -> void:
 	var direction = Vector3()
+	var forward = -cameraf.global_transform.basis.z
+	var right = cameraf.transform.basis.x
+	
 	if Input.is_action_pressed("ui_up"):
-		direction -= cameraf.transform.basis.z
+		direction += forward
 	if Input.is_action_pressed("ui_down"):
-		direction += cameraf.transform.basis.z
+		direction -= forward
 	if Input.is_action_pressed("ui_left"):
-		direction -= cameraf.transform.basis.x
+		direction -= right
 	if Input.is_action_pressed("ui_right"):
-		direction += cameraf.transform.basis.x
+		direction += right
+		
 	if Input.is_action_pressed("ui_page_up"):
 		direction.y += 1
 	if Input.is_action_pressed("ui_page_down"):
 		direction.y -= 1
+		
 	if direction.length() > 0:
-		direction = direction.normalized() 
-	cameraf.translate(direction * freecam_speed * delta)
+		direction = direction.normalized() * freecam_speed * delta
+		cameraf.position += direction
 
 
 func _unhandled_input(event: InputEvent) -> void:

@@ -15,7 +15,7 @@ sky = SubResource("Sky_qouwx")
 tonemap_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mio8h"]
-albedo_color = Color(0.133711, 0.8409, 3.85046e-06, 1)
+albedo_color = Color(0.321569, 1, 0.25098, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_peee1"]
 
@@ -38,7 +38,7 @@ environment = SubResource("Environment_rjyjm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4995, 0)
 material_override = SubResource("StandardMaterial3D_mio8h")
 use_collision = true
-size = Vector3(16, 0.001, 16)
+size = Vector3(16, 0.1, 16)
 
 [node name="Player" type="CharacterBody3D" parent="."]
 visibility_parent = NodePath("MeshInstance3D")
@@ -62,7 +62,7 @@ transform = Transform3D(1, 0, 0, 0, 2.08568, 0, 0, 0, 1, 0, -0.116039, 0)
 transform = Transform3D(1, 0, 0, 0, 0.479459, 0, 0, 0, 1, 0, 0.198522, 0)
 
 [node name="Camera3DF" type="Camera3D" parent="Player/Head"]
-transform = Transform3D(1, 0, 0, 0, 0.47946, 0, 0, 0, 1, 0, 0.198522, 3.87184)
+transform = Transform3D(1, 0, 0, 0, 0.47946, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Campoint" type="Node3D" parent="Player/Head"]
 
