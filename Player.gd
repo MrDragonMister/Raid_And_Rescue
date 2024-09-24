@@ -23,7 +23,8 @@ func _ready() -> void:
 	camera2.current = false
 	cameraf.current = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	
+	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("switch_camera"):
 		toggle_camera()
@@ -31,6 +32,7 @@ func _process(delta: float) -> void:
 		free_camera()
 	if cameraf.current:
 		freecam_movement(delta)
+	
 	
 func toggle_camera():
 	if active_camera == camera1:
