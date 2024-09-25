@@ -5,18 +5,19 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.003
 
-
+@onready var player: CharacterBody3D = $"."
 @onready var head: Node3D = $Head
 @onready var campoint: Node3D = $Head/Campoint
+
 @onready var camera1: Camera3D = $Head/Camera3D
 @onready var camera2: Camera3D = $Head/Campoint/Camera3D2
 @onready var cameraf: Camera3D = $Head/Camera3DF
-@onready var player: CharacterBody3D = $"."
 var active_camera: Camera3D
 var freecam_speed = 10.0
 var freecam_sensitivity = 0.25
 
 
+#reset camera
 func _ready() -> void:
 	active_camera = camera1
 	camera1.current = true
@@ -24,7 +25,7 @@ func _ready() -> void:
 	cameraf.current = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	
+#switch camera input
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("switch_camera"):
 		toggle_camera()
@@ -33,7 +34,7 @@ func _process(delta: float) -> void:
 	if cameraf.current:
 		freecam_movement(delta)
 	
-	
+#toggle between 1st and 3rd camera
 func toggle_camera():
 	if active_camera == camera1:
 		active_camera = camera2
@@ -47,9 +48,11 @@ func toggle_camera():
 			camera2.current = false
 			cameraf.current = false
 
-
+#activate freecam
 func free_camera():
 	if not active_camera == cameraf:
+		cameraf.transform.origin = player.global_transform.origin
+		cameraf.rotation_degrees = player.rotation_degrees
 		active_camera = cameraf
 		camera1.current = false
 		camera2.current = false
@@ -62,7 +65,7 @@ func free_camera():
 		cameraf.current = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-
+#freecam movement
 func freecam_movement(delta: float) -> void:
 	var direction = Vector3()
 	var forward = -cameraf.global_transform.basis.z
@@ -86,7 +89,7 @@ func freecam_movement(delta: float) -> void:
 		direction = direction.normalized() * freecam_speed * delta
 		cameraf.position += direction
 
-
+#turn cameras
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if active_camera == camera1:
@@ -106,6 +109,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -115,7 +119,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction: Vector3 = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if not active_camera == cameraf:
