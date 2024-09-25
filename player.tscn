@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8ipg01oe1yw4"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_pqt6x"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nagvj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_beief"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0.443137, 0.678431, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ffuel"]
+
+[node name="Player" type="Node"]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+visibility_parent = NodePath("MeshInstance3D")
+collision_layer = 2
+platform_floor_layers = 4294901761
+script = ExtResource("1_pqt6x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1.00267, 0, 0, 0, 1.00267, 0, 0, 0, 1.00267, 0, 0, 0)
+layers = 2
+mesh = SubResource("BoxMesh_nagvj")
+surface_material_override/0 = SubResource("StandardMaterial3D_beief")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("BoxShape3D_ffuel")
+
+[node name="Head" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 2.08568, 0, 0, 0, 1, 0, -0.116039, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/Head"]
+transform = Transform3D(1, 0, 0, 0, 0.479459, 0, 0, 0, 1, 0, 0.198522, 0)
+
+[node name="Camera3DF" type="Camera3D" parent="Player/Head"]
+transform = Transform3D(1, 0, 0, 0, 0.47946, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Campoint" type="Node3D" parent="Player/Head"]
+
+[node name="Camera3D2" type="Camera3D" parent="Player/Head/Campoint"]
+transform = Transform3D(1, 0, 0, 0, 0.268619, 0.840204, 0, -0.465261, 0.485092, 0, 1, 2)

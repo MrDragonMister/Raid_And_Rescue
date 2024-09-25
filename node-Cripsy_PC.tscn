@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://ddcceg5jprxfy"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_wcbn5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ij0ug"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_qouwx"]
+sky_material = SubResource("ProceduralSkyMaterial_ij0ug")
+
+[sub_resource type="Environment" id="Environment_rjyjm"]
+background_mode = 2
+sky = SubResource("Sky_qouwx")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mio8h"]
+albedo_color = Color(0.321569, 1, 0.25098, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_peee1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4tr4v"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(3.65794e-06, 0.606515, 0.604949, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kecsp"]
+
+[node name="World" type="Node"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rjyjm")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4995, 0)
+material_override = SubResource("StandardMaterial3D_mio8h")
+use_collision = true
+size = Vector3(16, 0.1, 16)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+visibility_parent = NodePath("MeshInstance3D")
+collision_layer = 2
+platform_floor_layers = 4294901761
+script = ExtResource("1_wcbn5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1.00267, 0, 0, 0, 1.00267, 0, 0, 0, 1.00267, 0, 0, 0)
+layers = 2
+mesh = SubResource("BoxMesh_peee1")
+surface_material_override/0 = SubResource("StandardMaterial3D_4tr4v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("BoxShape3D_kecsp")
+
+[node name="Head" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 2.08568, 0, 0, 0, 1, 0, -0.116039, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/Head"]
+transform = Transform3D(1, 0, 0, 0, 0.479459, 0, 0, 0, 1, 0, 0.198522, 0)
+
+[node name="Camera3DF" type="Camera3D" parent="Player/Head"]
+transform = Transform3D(1, 0, 0, 0, 0.47946, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Campoint" type="Node3D" parent="Player/Head"]
+
+[node name="Camera3D2" type="Camera3D" parent="Player/Head/Campoint"]
+transform = Transform3D(1, 0, 0, 0, 0.268619, 0.840204, 0, -0.465261, 0.485092, 0, 1, 2)

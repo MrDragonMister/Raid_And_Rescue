@@ -1,6 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ddcceg5jprxfy"]
-
-[ext_resource type="Script" path="res://Player.gd" id="1_wcbn5"]
+[gd_scene load_steps=5 format=3 uid="uid://ddcceg5jprxfy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ij0ug"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -17,21 +15,6 @@ tonemap_mode = 2
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mio8h"]
 albedo_color = Color(0.321569, 1, 0.25098, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_peee1"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4tr4v"]
-vertex_color_use_as_albedo = true
-albedo_color = Color(0, 0.443137, 0.678431, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_kecsp"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_qsq4o"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_68im8"]
-albedo_color = Color(1, 0.141176, 0.14902, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_b6jmf"]
-
 [node name="World" type="Node"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -46,45 +29,3 @@ transform = Transform3D(2.1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4995, 0)
 material_override = SubResource("StandardMaterial3D_mio8h")
 use_collision = true
 size = Vector3(16, 0.1, 32)
-
-[node name="Player" type="CharacterBody3D" parent="."]
-visibility_parent = NodePath("MeshInstance3D")
-collision_layer = 2
-platform_floor_layers = 4294901761
-script = ExtResource("1_wcbn5")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-transform = Transform3D(1.00267, 0, 0, 0, 1.00267, 0, 0, 0, 1.00267, 0, 0, 0)
-layers = 2
-mesh = SubResource("BoxMesh_peee1")
-surface_material_override/0 = SubResource("StandardMaterial3D_4tr4v")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-shape = SubResource("BoxShape3D_kecsp")
-
-[node name="Head" type="Node3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 2.08568, 0, 0, 0, 1, 0, -0.116039, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Player/Head"]
-transform = Transform3D(1, 0, 0, 0, 0.479459, 0, 0, 0, 1, 0, 0.198522, 0)
-
-[node name="Camera3DF" type="Camera3D" parent="Player/Head"]
-transform = Transform3D(1, 0, 0, 0, 0.47946, 0, 0, 0, 1, 0, 2, 0)
-
-[node name="Campoint" type="Node3D" parent="Player/Head"]
-
-[node name="Camera3D2" type="Camera3D" parent="Player/Head/Campoint"]
-transform = Transform3D(1, 0, 0, 0, 0.268619, 0.840204, 0, -0.465261, 0.485092, 0, 1, 2)
-
-[node name="Enemies" type="Node3D" parent="."]
-
-[node name="Enemy" type="CharacterBody3D" parent="Enemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 6)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemies/Enemy"]
-mesh = SubResource("BoxMesh_qsq4o")
-surface_material_override/0 = SubResource("StandardMaterial3D_68im8")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemies/Enemy"]
-transform = Transform3D(1.43822, 0, 0, 0, 1.43822, 0, 0, 0, 1.43822, 0, 0, 0)
-shape = SubResource("BoxShape3D_b6jmf")
