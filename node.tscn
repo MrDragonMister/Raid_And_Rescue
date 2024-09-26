@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddcceg5jprxfy"]
+[gd_scene load_steps=7 format=3 uid="uid://ddcceg5jprxfy"]
 
-[ext_resource type="PackedScene" path="res://player.tscn" id="1_074d8"]
+[ext_resource type="PackedScene" uid="uid://b5kl60ubdsq4f" path="res://player.tscn" id="1_074d8"]
+[ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://enemies.tscn" id="2_lu4mq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ij0ug"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -33,3 +34,5 @@ use_collision = true
 size = Vector3(16, 0.1, 32)
 
 [node name="Player" parent="." instance=ExtResource("1_074d8")]
+
+[node name="Enemies" parent="." instance=ExtResource("2_lu4mq")]
