@@ -9,9 +9,9 @@ const SENSITIVITY = 0.003
 @onready var head: Node3D = $Head
 @onready var campoint: Node3D = $Head/Campoint
 
-@onready var camera1: Camera3D = $Head/Camera3D
-@onready var camera2: Camera3D = $Head/Campoint/Camera3D2
-@onready var cameraf: Camera3D = $Head/Camera3DF
+@onready var camera1: Camera3D = $Head/Camera3D				#first person
+@onready var camera2: Camera3D = $Head/Campoint/Camera3D2 	#third person
+@onready var cameraf: Camera3D = $Head/Camera3DF			#freecam
 var active_camera: Camera3D
 var freecam_speed = 10.0
 var freecam_sensitivity = 0.25
@@ -115,7 +115,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not active_camera == cameraf:
+	if Input.is_action_pressed("ui_accept") and is_on_floor() and not active_camera == cameraf:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
