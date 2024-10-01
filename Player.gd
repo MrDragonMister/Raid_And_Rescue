@@ -4,8 +4,8 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.003
-const air_speed = 3
-const air_drag = 0.9
+const air_speed = 5
+const air_drag = 0.05 # between 0 and 1
 
 @onready var player: CharacterBody3D = $"."
 @onready var head: Node3D = $Head
@@ -117,14 +117,14 @@ func _physics_process(delta: float) -> void:
 				velocity.x = direction.x * SPEED
 				velocity.z = direction.z * SPEED
 			else:
-				velocity.x += delta * (direction.x * air_speed * air_drag)
-				velocity.z += delta * (direction.z * air_speed * air_drag)
+				velocity.x = direction.x * air_speed - velocity.x * air_drag
+				velocity.z = direction.z * air_speed - velocity.x * air_drag
 		else:
 			if is_on_floor():
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 				velocity.z = move_toward(velocity.z, 0, SPEED)
 			else:
-				velocity.x += delta * (direction.x * air_drag)
-				velocity.z += delta * (direction.z * air_drag)
+				velocity.x -= velocity.x * air_drag
+				velocity.z -= velocity.z * air_drag
 
 	move_and_slide()
