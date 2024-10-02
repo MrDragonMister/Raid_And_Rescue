@@ -1,11 +1,11 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
+const SPEED = 4
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.003
 const air_speed = 5
-const air_drag = 0.05 # between 0 and 1
+const air_drag = 0
 
 @onready var player: CharacterBody3D = $"."
 @onready var head: Node3D = $Head
@@ -96,7 +96,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			rotation.x = clamp(rotation.x, -89, 89)
 			rotation.y -= event.relative.x * freecam_sensitivity
 			cameraf.rotation_degrees = Vector3(rotation.x, rotation.y, 0)
-	
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -117,14 +117,14 @@ func _physics_process(delta: float) -> void:
 				velocity.x = direction.x * SPEED
 				velocity.z = direction.z * SPEED
 			else:
-				velocity.x = direction.x * air_speed - velocity.x * air_drag
-				velocity.z = direction.z * air_speed - velocity.x * air_drag
+				velocity.x = move_toward(velocity.x, direction.x, air_speed * delta)
+				velocity.z = move_toward(velocity.z, direction.z, air_speed * delta)
 		else:
 			if is_on_floor():
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 				velocity.z = move_toward(velocity.z, 0, SPEED)
-			else:
-				velocity.x -= velocity.x * air_drag
-				velocity.z -= velocity.z * air_drag
+#			else:
+#				velocity.x = moving_direction.x
+#				velocity.z = moving_direction.z
 
 	move_and_slide()
