@@ -4,6 +4,8 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.003
+const air_speed = 5
+const air_drag = 0.05 # between 0 and 1
 
 @onready var player: CharacterBody3D = $"."
 @onready var head: Node3D = $Head
@@ -67,24 +69,12 @@ func free_camera():
 
 #freecam movement
 func freecam_movement(delta: float) -> void:
-	var direction = Vector3()
-	var forward = -cameraf.global_transform.basis.z
-	var right = cameraf.transform.basis.x
-	
-	if Input.is_action_pressed("ui_up"):
-		direction += forward
-	if Input.is_action_pressed("ui_down"):
-		direction -= forward
-	if Input.is_action_pressed("ui_left"):
-		direction -= right
-	if Input.is_action_pressed("ui_right"):
-		direction += right
-		
-	if Input.is_action_pressed("ui_page_up"):
+	var input_dir: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var direction: Vector3 = cameraf.transform.basis * Vector3(input_dir.x, 0, input_dir.y)
+	if Input.is_action_pressed("jump"):
 		direction.y += 1
-	if Input.is_action_pressed("ui_page_down"):
+	if Input.is_action_pressed("crouch"):
 		direction.y -= 1
-		
 	if direction.length() > 0:
 		direction = direction.normalized() * freecam_speed * delta
 		cameraf.position += direction
@@ -109,24 +99,32 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_pressed("ui_accept") and is_on_floor() and not active_camera == cameraf:
+	if Input.is_action_pressed("jump") and is_on_floor() and not active_camera == cameraf:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction: Vector3 = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
 	if not active_camera == cameraf:
 		if direction.length() > 0:
-			velocity.x = direction.x * SPEED
-			velocity.z = direction.z * SPEED
+			if is_on_floor():
+				velocity.x = direction.x * SPEED
+				velocity.z = direction.z * SPEED
+			else:
+				velocity.x = direction.x * air_speed - velocity.x * air_drag
+				velocity.z = direction.z * air_speed - velocity.x * air_drag
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-			velocity.z = move_toward(velocity.z, 0, SPEED)
+			if is_on_floor():
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+				velocity.z = move_toward(velocity.z, 0, SPEED)
+			else:
+				velocity.x -= velocity.x * air_drag
+				velocity.z -= velocity.z * air_drag
 
 	move_and_slide()
