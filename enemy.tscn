@@ -7,14 +7,14 @@ albedo_color = Color(1, 0.141176, 0.14902, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0kg7j"]
 
-[node name="Enemies" type="Node"]
+[node name="Enemy" type="CharacterBody3D"]
 
-[node name="Enemy" type="CharacterBody3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy"]
 mesh = SubResource("BoxMesh_cpjdi")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_8bxh4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 shape = SubResource("BoxShape3D_0kg7j")

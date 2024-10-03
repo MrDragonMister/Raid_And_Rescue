@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ddcceg5jprxfy"]
 
 [ext_resource type="PackedScene" uid="uid://b5kl60ubdsq4f" path="res://player.tscn" id="1_074d8"]
-[ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://enemies.tscn" id="2_lu4mq"]
+[ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://enemy.tscn" id="2_lu4mq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ij0ug"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -35,4 +35,12 @@ size = Vector3(16, 0.1, 32)
 
 [node name="Player" parent="." instance=ExtResource("1_074d8")]
 
-[node name="Enemies" parent="." instance=ExtResource("2_lu4mq")]
+[node name="enemies" type="Node3D" parent="."]
+
+[node name="Enemy" parent="enemies" instance=ExtResource("2_lu4mq")]
+
+[node name="Enemy2" parent="enemies" instance=ExtResource("2_lu4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96412, -0.463594, 0)
+
+[node name="Enemy3" parent="enemies" instance=ExtResource("2_lu4mq")]
+transform = Transform3D(0.831266, -0.555875, 0, 0.555875, 0.831266, 0, 0, 0, 1, -0.759367, -0.621116, 0.012496)
