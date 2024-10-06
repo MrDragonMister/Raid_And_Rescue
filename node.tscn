@@ -58,6 +58,9 @@ blend_shape_mode = 0
 albedo_color = Color(0.762404, 0.762404, 0.762404, 1)
 metallic = 1.0
 roughness = 0.5
+rim_enabled = true
+rim_tint = 0.2
+ao_light_affect = 1.0
 refraction_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1g8uo"]
@@ -88,7 +91,7 @@ size = Vector3(16, 0.1, 32)
 [node name="enemies" type="Node3D" parent="."]
 
 [node name="Shortsword" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0999675, 0.00126862, 0.00221204, 0.00220741, -0.000377704, 0.0999749, 0.00127665, 0.0999913, 0.000349576, 0, 1, 5)
+transform = Transform3D(-0.099971, 0.00142997, 0.00193568, 0.00193166, -0.000294028, 0.0999809, 0.00143539, 0.0999894, 0.000266318, 0, 1, 5)
 layers = 4
 mesh = SubResource("ArrayMesh_db7oy")
 surface_material_override/0 = SubResource("StandardMaterial3D_fgrqh")
