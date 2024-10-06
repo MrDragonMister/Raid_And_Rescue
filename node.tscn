@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://ddcceg5jprxfy"]
+[gd_scene load_steps=10 format=4 uid="uid://ddcceg5jprxfy"]
 
 [ext_resource type="PackedScene" uid="uid://b5kl60ubdsq4f" path="res://player.tscn" id="1_074d8"]
 
@@ -17,7 +17,7 @@ tonemap_mode = 2
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mio8h"]
 albedo_color = Color(0.321569, 1, 0.25098, 1)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_l3ogo"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_db7oy"]
 _surfaces = [{
 "aabb": AABB(-1, 0.731335, -5.09479, 2, 0.328665, 6.3014),
 "attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAID8AAIA/AADAPgAAgD8AACA/AABAPwAAwD4AAEA/AAAgPwAAID8AAMA+AAAgPwAAID8AAAA/AADAPgAAAD8AACA/AAAAPwAAwD4AAAA/AAAgPwAAgD4AAMA+AACAPgAAID8AAAA+AADAPgAAAD4AACA/AAAAAAAAwD4AAAAAAADAPgAAAD8AAIA+AAAAPwAAwD4AAIA+AACAPgAAgD4AAGA/AAAAPwAAQD8AAAA/AABgPwAAgD4AAEA/AACAPgAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAEA/AAAAPwAAID8AAAA/AABAPwAAgD4AACA/AACAPgAAgD4AAAA/AAAAPgAAAD8AAIA+AACAPgAAAD4AAIA+AAAgPwAAgD4AAMA+AACAPgAAID8AAEA/AADAPgAAQD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPw=="),
@@ -54,6 +54,20 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgrqh"]
+albedo_color = Color(0.762404, 0.762404, 0.762404, 1)
+metallic = 1.0
+roughness = 0.5
+refraction_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1g8uo"]
+albedo_color = Color(0.502522, 0.416656, 0.0745245, 1)
+metallic = 0.65
+roughness = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8jw1o"]
+albedo_color = Color(0.386696, 0.201499, 0.0155, 1)
+
 [node name="World" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -74,6 +88,9 @@ size = Vector3(16, 0.1, 32)
 [node name="enemies" type="Node3D" parent="."]
 
 [node name="Shortsword" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-09, 0.1, -4.37114e-09, 0, -4.37114e-09, -0.1, -0.1, -4.37114e-09, 1.91069e-16, 4, 0.504, 0.001)
+transform = Transform3D(-0.0999675, 0.00126862, 0.00221204, 0.00220741, -0.000377704, 0.0999749, 0.00127665, 0.0999913, 0.000349576, 0, 1, 5)
 layers = 4
-mesh = SubResource("ArrayMesh_l3ogo")
+mesh = SubResource("ArrayMesh_db7oy")
+surface_material_override/0 = SubResource("StandardMaterial3D_fgrqh")
+surface_material_override/1 = SubResource("StandardMaterial3D_1g8uo")
+surface_material_override/2 = SubResource("StandardMaterial3D_8jw1o")
