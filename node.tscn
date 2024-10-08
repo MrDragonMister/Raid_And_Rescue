@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://ddcceg5jprxfy"]
+[gd_scene load_steps=11 format=4 uid="uid://ddcceg5jprxfy"]
 
 [ext_resource type="PackedScene" uid="uid://b5kl60ubdsq4f" path="res://player.tscn" id="1_074d8"]
+[ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://enemy.tscn" id="2_4ll5h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ij0ug"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -89,6 +90,16 @@ size = Vector3(16, 0.1, 32)
 [node name="Player" parent="." instance=ExtResource("1_074d8")]
 
 [node name="enemies" type="Node3D" parent="."]
+visible = false
+
+[node name="Enemy" parent="enemies" instance=ExtResource("2_4ll5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Enemy2" parent="enemies" instance=ExtResource("2_4ll5h")]
+transform = Transform3D(0.728227, 0.685336, 0, -0.685336, 0.728227, 0, 0, 0, 1, 3.132, -0.592, -5)
+
+[node name="Enemy3" parent="enemies" instance=ExtResource("2_4ll5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.82971, -0.283652, -4.88856)
 
 [node name="Shortsword" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.099971, 0.00142997, 0.00193568, 0.00193166, -0.000294028, 0.0999809, 0.00143539, 0.0999894, 0.000266318, 0, 1, 5)
