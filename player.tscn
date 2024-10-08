@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://b5kl60ubdsq4f"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_pqt6x"]
+[ext_resource type="Script" path="res://player.gd" id="1_cg11q"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nagvj"]
 
@@ -61,40 +61,39 @@ roughness = 0.7
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4vsut"]
 albedo_color = Color(0.386696, 0.201499, 0.0155, 1)
 
-[node name="Player" type="Node"]
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_cg11q")
 
-[node name="Player" type="CharacterBody3D" parent="."]
-collision_layer = 2
-platform_floor_layers = 4294901761
-script = ExtResource("1_pqt6x")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.00267, 0, 0, 0, 1.00267, 0, 0, 0, 1.00267, 0, 0, 0)
 layers = 2
 mesh = SubResource("BoxMesh_nagvj")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_beief")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_ffuel")
 
-[node name="Head" type="Node3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 2.08568, 0, 0, 0, 1, 0, -0.116039, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Player/Head"]
-transform = Transform3D(1, 0, 0, 0, 0.479459, 0, 0, 0, 1, 0, 0.198522, 0)
-
-[node name="Camera3DF" type="Camera3D" parent="Player/Head"]
-transform = Transform3D(1, 0, 0, 0, 0.47946, 0, 0, 0, 1, 0, 2, 0)
-
-[node name="Campoint" type="Node3D" parent="Player/Head"]
-
-[node name="Camera3D2" type="Camera3D" parent="Player/Head/Campoint"]
-transform = Transform3D(1, 0, 0, 0, 0.268619, 0.840204, 0, -0.465261, 0.485092, 0, 1, 2)
-
-[node name="Shortsword" type="MeshInstance3D" parent="Player"]
+[node name="Shortsword" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-09, -0.1, 0, 0.092388, -4.03841e-09, -0.0382683, 0.0382683, -1.67276e-09, 0.092388, 1.07111, -0.00266936, -0.937565)
 layers = 4
 mesh = SubResource("ArrayMesh_851ws")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_6hxts")
 surface_material_override/1 = SubResource("StandardMaterial3D_ftafy")
 surface_material_override/2 = SubResource("StandardMaterial3D_4vsut")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.08568, 0, 0, 0, 1, 0, -0.116039, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 0.479459, 0, 0, 0, 1, 0, 0.198522, 0)
+current = true
+
+[node name="Camera3DF" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 0.47946, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Campoint" type="Node3D" parent="Head"]
+
+[node name="Camera3D2" type="Camera3D" parent="Head/Campoint"]
+transform = Transform3D(1, 0, 0, 0, 0.268619, 0.840204, 0, -0.465261, 0.485092, 0, 1, 2)
