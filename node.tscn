@@ -90,7 +90,6 @@ size = Vector3(16, 0.1, 32)
 [node name="Player" parent="." instance=ExtResource("1_074d8")]
 
 [node name="enemies" type="Node3D" parent="."]
-visible = false
 
 [node name="Enemy" parent="enemies" instance=ExtResource("2_4ll5h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
