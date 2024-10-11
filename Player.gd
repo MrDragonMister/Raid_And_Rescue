@@ -6,6 +6,11 @@ const JUMP_VELOCITY = 6
 const SENSITIVITY = 0.003
 const AIR_SPEED = 5
 
+#headbob variables
+const BOB_FREQ = 2.0
+const BOB_AMP = 0.02
+var t_bob = 0.0
+
 @onready var player: CharacterBody3D = $"."
 @onready var head: Node3D = $Head
 @onready var campoint: Node3D = $Head/Campoint
@@ -136,8 +141,16 @@ func _physics_process(delta: float) -> void:
 			if is_on_floor():
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 				velocity.z = move_toward(velocity.z, 0, SPEED)
-#			else:
-#				velocity.x = moving_direction.x
-#				velocity.z = moving_direction.z
+				
+	#head bob
+	t_bob += delta * velocity.length() * float(is_on_floor())
+	camera1.transform.origin = _headbob(t_bob)
 
 	move_and_slide()
+	
+func _headbob(time) -> Vector3:
+	var pos = Vector3.ZERO
+	pos.y = BOB_AMP * sin(time * BOB_FREQ)+0.3
+	return pos
+	
+	

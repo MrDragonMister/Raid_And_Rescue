@@ -88,6 +88,7 @@ transform = Transform3D(1, 0, 0, 0, 2.08568, 0, 0, 0, 1, 0, -0.116039, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 0.479459, 0, 0, 0, 1, 0, 0.198522, 0)
+cull_mask = 1048573
 current = true
 
 [node name="Camera3DF" type="Camera3D" parent="Head"]
