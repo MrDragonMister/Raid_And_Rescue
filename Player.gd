@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 const SPEED = 5
-const JUMP_VELOCITY = 4
+const JUMP_VELOCITY = 6
 const SENSITIVITY = 0.003
 const AIR_SPEED = 5
 
@@ -69,11 +69,25 @@ func free_camera():
 #freecam movement
 func freecam_movement(delta: float) -> void:
 	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
-	var direction: Vector3 = cameraf.transform.basis * Vector3(input_dir.x, 0, input_dir.y)
+	
+	#get forward direction
+	var forward = cameraf.transform.basis.z
+	forward.y = 0  # Ignore vertical component
+	forward = forward.normalized()
+	
+	#get right direction
+	var right = cameraf.transform.basis.x.normalized()
+	
+	#calculate movement direction
+	var direction: Vector3 = right * input_dir.x + forward * input_dir.y
+	
+	#vertical movement
 	if Input.is_action_pressed("jump"):
 		direction.y += 1
 	if Input.is_action_pressed("crouch"):
 		direction.y -= 1
+		
+	#apply movement
 	if direction.length() > 0:
 		direction = direction.normalized() * freecam_speed * delta
 		cameraf.position += direction
@@ -96,7 +110,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			rotation.y -= event.relative.x * freecam_sensitivity
 			cameraf.rotation_degrees = Vector3(rotation.x, rotation.y, 0)
 
-
+#player movement
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
