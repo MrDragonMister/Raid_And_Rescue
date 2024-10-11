@@ -116,8 +116,8 @@ func _physics_process(delta: float) -> void:
 				velocity.x = direction.x * SPEED
 				velocity.z = direction.z * SPEED
 			else:
-				velocity.x = move_toward(velocity.x, direction.x, air_speed * delta)
-				velocity.z = move_toward(velocity.z, direction.z, air_speed * delta)
+				velocity.x = move_toward(velocity.x, direction.x, AIR_SPEED * delta)
+				velocity.z = move_toward(velocity.z, direction.z, AIR_SPEED * delta)
 		else:
 			if is_on_floor():
 				velocity.x = move_toward(velocity.x, 0, SPEED)
