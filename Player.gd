@@ -148,9 +148,9 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
+#head bobbing
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
 	pos.y = BOB_AMP * sin(time * BOB_FREQ)+0.3
 	return pos
-	
 	
