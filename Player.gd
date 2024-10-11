@@ -4,8 +4,7 @@ extends CharacterBody3D
 const SPEED = 5
 const JUMP_VELOCITY = 4
 const SENSITIVITY = 0.003
-const air_speed = 5
-const air_drag = 0
+const AIR_SPEED = 5
 
 @onready var player: CharacterBody3D = $"."
 @onready var head: Node3D = $Head
