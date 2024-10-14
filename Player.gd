@@ -142,11 +142,11 @@ func _physics_process(delta: float) -> void:
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 				velocity.z = move_toward(velocity.z, 0, SPEED)
 				
-	#head bob
-	t_bob += delta * velocity.length() * float(is_on_floor())
-	camera1.transform.origin = _headbob(t_bob)
-
-	move_and_slide()
+		move_and_slide()
+	
+		#head bob
+		t_bob += delta * velocity.length() * float(is_on_floor())
+		camera1.transform.origin = _headbob(t_bob)
 	
 #head bobbing
 func _headbob(time) -> Vector3:
