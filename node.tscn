@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://ddcceg5jprxfy"]
+[gd_scene load_steps=18 format=4 uid="uid://ddcceg5jprxfy"]
 
 [ext_resource type="PackedScene" uid="uid://b5kl60ubdsq4f" path="res://player.tscn" id="1_074d8"]
-[ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://enemy.tscn" id="2_4ll5h"]
+[ext_resource type="PackedScene" uid="uid://crttcu8mu1p3b" path="res://enemy.tscn" id="2_4ll5h"]
+[ext_resource type="ArrayMesh" uid="uid://dwqs16ln38cmi" path="res://Axeversion3.obj" id="3_8trma"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ij0ug"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -72,6 +73,28 @@ roughness = 0.7
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8jw1o"]
 albedo_color = Color(0.386696, 0.201499, 0.0155, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vcfj0"]
+albedo_color = Color(0.839216, 0.839216, 0.839216, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m68fl"]
+albedo_color = Color(0.839216, 0.839216, 0.839216, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1x7h"]
+albedo_color = Color(0.400533, 0.300377, 0.0900074, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wp4x"]
+albedo_color = Color(0.839216, 0.839216, 0.839216, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1185t"]
+albedo_color = Color(0.539161, 0.161385, 0.11227, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bsm0x"]
+albedo_color = Color(0.839216, 0.839216, 0.839216, 1)
+metallic = 1.0
+
 [node name="World" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -107,3 +130,13 @@ mesh = SubResource("ArrayMesh_db7oy")
 surface_material_override/0 = SubResource("StandardMaterial3D_fgrqh")
 surface_material_override/1 = SubResource("StandardMaterial3D_1g8uo")
 surface_material_override/2 = SubResource("StandardMaterial3D_8jw1o")
+
+[node name="Axeversion3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.00775519, 0.010673, -0.0687455, 0.06947, 0.00250087, 0.00822519, 0.00371016, -0.0691363, -0.0103151, -0.800222, 0.719835, 5.2582)
+mesh = ExtResource("3_8trma")
+surface_material_override/0 = SubResource("StandardMaterial3D_vcfj0")
+surface_material_override/1 = SubResource("StandardMaterial3D_m68fl")
+surface_material_override/2 = SubResource("StandardMaterial3D_i1x7h")
+surface_material_override/3 = SubResource("StandardMaterial3D_5wp4x")
+surface_material_override/4 = SubResource("StandardMaterial3D_1185t")
+surface_material_override/5 = SubResource("StandardMaterial3D_bsm0x")
