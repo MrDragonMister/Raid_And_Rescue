@@ -1,16 +1,27 @@
-[gd_scene load_steps=9 format=4 uid="uid://c4uk6bgfdo1jq"]
+[gd_scene load_steps=20 format=4 uid="uid://ddcceg5jprxfy"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_cg11q"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_0ry1g"]
+[ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="1_k73xw"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="2_5re44"]
+[ext_resource type="ArrayMesh" uid="uid://dwqs16ln38cmi" path="res://assets/Axeversion3.obj" id="3_30sd7"]
+[ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://scenes/enemy.tscn" id="3_121qe"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_nagvj"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ij0ug"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_beief"]
-vertex_color_use_as_albedo = true
-albedo_color = Color(0, 0.443137, 0.678431, 1)
+[sub_resource type="Sky" id="Sky_qouwx"]
+sky_material = SubResource("ProceduralSkyMaterial_ij0ug")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ffuel"]
+[sub_resource type="Environment" id="Environment_rjyjm"]
+background_mode = 2
+sky = SubResource("Sky_qouwx")
+tonemap_mode = 2
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_851ws"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mio8h"]
+albedo_color = Color(0.321569, 1, 0.25098, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_db7oy"]
 _surfaces = [{
 "aabb": AABB(-1, 0.731335, -5.09479, 2, 0.328665, 6.3014),
 "attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAID8AAIA/AADAPgAAgD8AACA/AABAPwAAwD4AAEA/AAAgPwAAID8AAMA+AAAgPwAAID8AAAA/AADAPgAAAD8AACA/AAAAPwAAwD4AAAA/AAAgPwAAgD4AAMA+AACAPgAAID8AAAA+AADAPgAAAD4AACA/AAAAAAAAwD4AAAAAAADAPgAAAD8AAIA+AAAAPwAAwD4AAIA+AACAPgAAgD4AAGA/AAAAPwAAQD8AAAA/AABgPwAAgD4AAEA/AACAPgAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAEA/AAAAPwAAID8AAAA/AABAPwAAgD4AACA/AACAPgAAgD4AAAA/AAAAPgAAAD8AAIA+AACAPgAAAD4AAIA+AAAgPwAAgD4AAMA+AACAPgAAID8AAEA/AADAPgAAQD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPw=="),
@@ -47,54 +58,103 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hxts"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgrqh"]
 albedo_color = Color(0.762404, 0.762404, 0.762404, 1)
 metallic = 1.0
 roughness = 0.5
+rim_enabled = true
+rim_tint = 0.2
+ao_light_affect = 1.0
 refraction_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftafy"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1g8uo"]
 albedo_color = Color(0.502522, 0.416656, 0.0745245, 1)
 metallic = 0.65
 roughness = 0.7
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4vsut"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8jw1o"]
 albedo_color = Color(0.386696, 0.201499, 0.0155, 1)
 
-[node name="Player" type="CharacterBody3D"]
-script = ExtResource("1_cg11q")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnx3v"]
+albedo_color = Color(1, 0, 0, 1)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.00267, 0, 0, 0, 1.00267, 0, 0, 0, 1.00267, 0, 0, 0)
-layers = 2
-mesh = SubResource("BoxMesh_nagvj")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_beief")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ueobj"]
+albedo_color = Color(0, 1, 1, 1)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_ffuel")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hkf4"]
+albedo_color = Color(0, 0, 1, 1)
 
-[node name="Shortsword" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-09, -0.1, 0, 0.092388, -4.03841e-09, -0.0382683, 0.0382683, -1.67276e-09, 0.092388, 1.07111, -0.00266936, -0.937565)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sibq6"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ejrw"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bqy7l"]
+albedo_color = Color(0, 1, 1, 1)
+
+[node name="World" type="Node3D"]
+
+[node name="game_manager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_0ry1g")
+
+[node name="world_objects" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="world_objects"]
+environment = SubResource("Environment_rjyjm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="world_objects"]
+transform = Transform3D(0.760284, -0.562563, 0.324794, 0, 0.499998, 0.866027, -0.649591, -0.658426, 0.38014, 11.1888, 11.8845, -0.0877705)
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="world_objects"]
+transform = Transform3D(2.1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4995, 0)
+material_override = SubResource("StandardMaterial3D_mio8h")
+use_collision = true
+size = Vector3(16, 0.1, 32)
+
+[node name="Player" parent="world_objects" instance=ExtResource("1_k73xw")]
+script = ExtResource("2_5re44")
+
+[node name="enemies" type="Node3D" parent="world_objects"]
+
+[node name="Enemy" parent="world_objects/enemies" instance=ExtResource("3_121qe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Enemy2" parent="world_objects/enemies" instance=ExtResource("3_121qe")]
+transform = Transform3D(0.728227, 0.685336, 0, -0.685336, 0.728227, 0, 0, 0, 1, 3.132, -0.592, -5)
+
+[node name="Enemy3" parent="world_objects/enemies" instance=ExtResource("3_121qe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.82971, -0.283652, -4.88856)
+
+[node name="Shortsword" type="MeshInstance3D" parent="world_objects"]
+transform = Transform3D(-0.099971, 0.00142997, 0.00193568, 0.00193166, -0.000294028, 0.0999809, 0.00143539, 0.0999894, 0.000266318, 0, 1, 5)
 layers = 4
-mesh = SubResource("ArrayMesh_851ws")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_6hxts")
-surface_material_override/1 = SubResource("StandardMaterial3D_ftafy")
-surface_material_override/2 = SubResource("StandardMaterial3D_4vsut")
+mesh = SubResource("ArrayMesh_db7oy")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_fgrqh")
+surface_material_override/1 = SubResource("StandardMaterial3D_1g8uo")
+surface_material_override/2 = SubResource("StandardMaterial3D_8jw1o")
 
-[node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 2.08568, 0, 0, 0, 1, 0, -0.116039, 0)
+[node name="Axeversion3" type="MeshInstance3D" parent="world_objects"]
+transform = Transform3D(0.00775519, 0.010673, -0.0687455, 0.06947, 0.00250087, 0.00822519, 0.00371016, -0.0691363, -0.0103151, -0.800222, 0.719835, 5.2582)
+mesh = ExtResource("3_30sd7")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_bnx3v")
+surface_material_override/1 = SubResource("StandardMaterial3D_ueobj")
+surface_material_override/2 = SubResource("StandardMaterial3D_6hkf4")
+surface_material_override/3 = SubResource("StandardMaterial3D_sibq6")
+surface_material_override/4 = SubResource("StandardMaterial3D_8ejrw")
+surface_material_override/5 = SubResource("StandardMaterial3D_bqy7l")
 
-[node name="Camera3D" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 0.479459, 0, 0, 0, 1, 0, 0.198522, 0)
-cull_mask = 1048573
-current = true
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Camera3DF" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 0.47946, 0, 0, 0, 1, 0, 2, 0)
-
-[node name="Campoint" type="Node3D" parent="Head"]
-
-[node name="Camera3D2" type="Camera3D" parent="Head/Campoint"]
-transform = Transform3D(1, 0, 0, 0, 0.268619, 0.840204, 0, -0.465261, 0.485092, 0, 1, 2)
+[node name="health_bar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0

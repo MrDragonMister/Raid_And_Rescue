@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=4 uid="uid://b5kl60ubdsq4f"]
+[gd_scene load_steps=9 format=4 uid="uid://c4uk6bgfdo1jq"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_cg11q"]
+[ext_resource type="Script" path="res://player.gd" id="1_grftv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nagvj"]
 
@@ -62,7 +62,7 @@ roughness = 0.7
 albedo_color = Color(0.386696, 0.201499, 0.0155, 1)
 
 [node name="Player" type="CharacterBody3D"]
-script = ExtResource("1_cg11q")
+script = ExtResource("1_grftv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.00267, 0, 0, 0, 1.00267, 0, 0, 0, 1.00267, 0, 0, 0)

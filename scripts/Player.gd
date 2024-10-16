@@ -102,7 +102,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if active_camera == camera1:
 			active_camera.rotate_x(-event.relative.y * SENSITIVITY)
-			active_camera.rotation.x = clamp(active_camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+			active_camera.rotation.x = clamp(active_camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 			player.rotate_y(-event.relative.x * SENSITIVITY)
 		elif active_camera == camera2:
 			campoint.rotate_x(-event.relative.y * SENSITIVITY)
@@ -142,12 +142,11 @@ func _physics_process(delta: float) -> void:
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 				velocity.z = move_toward(velocity.z, 0, SPEED)
 				
+	move_and_slide()
 	#head bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera1.transform.origin = _headbob(t_bob)
 
-	move_and_slide()
-	
 #head bobbing
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
