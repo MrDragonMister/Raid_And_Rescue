@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=4 uid="uid://ddcceg5jprxfy"]
+[gd_scene load_steps=21 format=4 uid="uid://ddcceg5jprxfy"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_6oyjt"]
 [ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="2_7s55m"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="3_bx532"]
 [ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://scenes/enemy.tscn" id="4_pccng"]
 [ext_resource type="ArrayMesh" uid="uid://dwqs16ln38cmi" path="res://assets/Axeversion3.obj" id="5_sjbiw"]
+[ext_resource type="Script" path="res://scripts/health_bar.gd" id="6_uyi58"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ij0ug"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -156,5 +157,8 @@ offset_bottom = 40.0
 
 [node name="health_bar" type="ProgressBar" parent="Control"]
 layout_mode = 0
-offset_right = 4.0
-offset_bottom = 27.0
+offset_left = 626.0
+offset_top = 6.0
+offset_right = 1273.0
+offset_bottom = 45.0
+script = ExtResource("6_uyi58")
