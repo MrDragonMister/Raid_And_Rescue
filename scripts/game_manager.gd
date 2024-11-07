@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 		for n in 10:
 			health += 1
 			if health >= health_bar.max_value:
-				health = health_bar.max.value
+				health = health_bar.max_value
 			health_bar.value = health
 			await get_tree().create_timer(0.01).timeout
 		
