@@ -2,7 +2,6 @@ extends Node
 
 @onready var health := 10
 @onready var health_bar := $"../Control/health_bar"
-#@onready health_bar.set_value(health)
 
 func _ready():
 	health_bar.value = health	

@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 const SPEED = 5
-const JUMP_VELOCITY = 6
+const JUMP_VELOCITY = 7
 const SENSITIVITY = 0.003
 const AIR_SPEED = 5
 const JUMP_XZ_ACCELERATION = 1.2
@@ -107,7 +107,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			player.rotate_y(-event.relative.x * SENSITIVITY)
 		elif active_camera == camera2:
 			campoint.rotate_x(-event.relative.y * SENSITIVITY)
-			campoint.rotation.x = clamp(campoint.rotation.x, deg_to_rad(-20), deg_to_rad(20))
+			campoint.rotation.x = clamp(campoint.rotation.x, deg_to_rad(-30), deg_to_rad(30))
 			player.rotate_y(-event.relative.x * SENSITIVITY)
 		elif active_camera == cameraf:
 			var rotation = cameraf.rotation_degrees
@@ -149,10 +149,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	#head bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
-	camera1.transform.origin = _headbob(t_bob)
+	camera1.transform.origin = headbob(t_bob)
 
 #head bobbing
-func _headbob(time) -> Vector3:
+func headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
 	pos.y = BOB_AMP * sin(time * BOB_FREQ)+0.3
 	return pos

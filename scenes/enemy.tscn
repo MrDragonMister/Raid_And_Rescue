@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cny8rnjsf4uw5"]
+[gd_scene load_steps=5 format=3 uid="uid://cny8rnjsf4uw5"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_4h4db"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_cpjdi"]
 
@@ -8,6 +10,7 @@ albedo_color = Color(1, 0.141176, 0.14902, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_0kg7j"]
 
 [node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_4h4db")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_cpjdi")
