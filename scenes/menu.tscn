@@ -1,10 +1,21 @@
-[gd_scene format=3 uid="uid://cb3nlcngtsxd0"]
+[gd_scene load_steps=2 format=3 uid="uid://cb3nlcngtsxd0"]
+
+[ext_resource type="Texture2D" uid="uid://3lqed4q2842m" path="res://assets/inv_slot.png" id="1_8wu8t"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -149.0
-offset_right = 709.0
-offset_bottom = 40.0
+offset_left = -226.0
+offset_right = -48.0
+offset_bottom = 173.0
+
+[node name="TextureButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 897.0
+offset_top = 336.0
+offset_right = 1407.0
+offset_bottom = 688.0
+texture_normal = ExtResource("1_8wu8t")
+stretch_mode = 3
