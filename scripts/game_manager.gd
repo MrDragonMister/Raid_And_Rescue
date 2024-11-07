@@ -11,15 +11,15 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		for n in 10:
 			health -= 1
-			if health <= 0:
-				health = 0
+			if health <= health_bar.min_value:
+				health = health_bar.min_value
 			health_bar.value = health
 			await get_tree().create_timer(0.01).timeout
 	if Input.is_action_just_pressed("interact"):
 		for n in 10:
 			health += 1
-			if health >= 100:
-				health = 100
+			if health >= health_bar.max_value:
+				health = health_bar.max.value
 			health_bar.value = health
 			await get_tree().create_timer(0.01).timeout
 		
