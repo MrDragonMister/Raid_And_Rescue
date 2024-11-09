@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cny8rnjsf4uw5"]
+[gd_scene load_steps=6 format=3 uid="uid://cny8rnjsf4uw5"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_4h4db"]
 
@@ -8,6 +8,9 @@
 albedo_color = Color(1, 0.141176, 0.14902, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0kg7j"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_f24jm"]
+viewport_path = NodePath("SubViewport")
 
 [node name="Enemy" type="CharacterBody3D"]
 script = ExtResource("1_4h4db")
@@ -19,3 +22,30 @@ surface_material_override/0 = SubResource("StandardMaterial3D_8bxh4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_0kg7j")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(200, 40)
+size_2d_override = Vector2i(200, 40)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 40.0
+
+[node name="enemy_health_bar" type="ProgressBar" parent="SubViewport/Control"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="health_display" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+flip_h = true
+texture = SubResource("ViewportTexture_f24jm")

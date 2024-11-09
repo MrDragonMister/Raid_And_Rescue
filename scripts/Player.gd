@@ -4,7 +4,7 @@ extends CharacterBody3D
 const SPEED = 5
 const JUMP_VELOCITY = 7
 const SENSITIVITY = 0.003
-const AIR_SPEED = 5
+const AIR_SPEED = 1
 const JUMP_XZ_ACCELERATION = 1.2
 
 #headbob variables
@@ -142,11 +142,11 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_pressed("jump") and is_on_floor() and not active_camera == cameraf:
 		velocity.y = JUMP_VELOCITY
-		
 		velocity.x *= JUMP_XZ_ACCELERATION
 		velocity.z *= JUMP_XZ_ACCELERATION 
-				
+		
 	move_and_slide()
+	
 	#head bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera1.transform.origin = headbob(t_bob)
