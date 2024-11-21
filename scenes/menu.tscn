@@ -1,21 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://cb3nlcngtsxd0"]
+[gd_scene load_steps=3 format=3 uid="uid://cb3nlcngtsxd0"]
 
-[ext_resource type="Texture2D" uid="uid://3lqed4q2842m" path="res://assets/inv_slot.png" id="1_8wu8t"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_4ootf"]
+
+[sub_resource type="GDScript" id="GDScript_3xfio"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_4ootf")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -226.0
-offset_right = -48.0
-offset_bottom = 173.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
-[node name="TextureButton" type="TextureButton" parent="Control"]
-layout_mode = 0
-offset_left = 897.0
-offset_top = 336.0
-offset_right = 1407.0
-offset_bottom = 688.0
-texture_normal = ExtResource("1_8wu8t")
-stretch_mode = 3
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -16.0
+offset_right = 50.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play demo"
+script = SubResource("GDScript_3xfio")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
