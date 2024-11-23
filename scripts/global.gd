@@ -1,6 +1,10 @@
 extends Node
 
-@onready var target = Vector3(0, 0, 0)
+@onready var target_pos = Vector3()
+@onready var player_pos = Vector3(1, 0, 0)
 
-func set_target(new_pos):
-	target = new_pos
+func set_target(new_target_pos):
+	target_pos = new_target_pos
+
+func set_player_pos(new_player_pos):
+	player_pos = new_player_pos

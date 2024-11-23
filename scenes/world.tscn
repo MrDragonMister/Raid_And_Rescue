@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://i2ludwu5nrhj"]
+[gd_scene load_steps=23 format=4 uid="uid://i2ludwu5nrhj"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_6oyjt"]
 [ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="2_7s55m"]
@@ -17,6 +17,10 @@ sky_material = SubResource("ProceduralSkyMaterial_ij0ug")
 background_mode = 2
 sky = SubResource("Sky_w3uha")
 tonemap_mode = 2
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_n6vw8"]
+vertices = PackedVector3Array(-24.25, 0.5, -24.25, -24.25, 0.5, 24.25, 24.5, 0.5, 24.25, 24.5, 0.5, -24.25)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfbbd"]
 albedo_color = Color(0, 0.552941, 0, 1)
@@ -114,7 +118,8 @@ environment = SubResource("Environment_rjyjm")
 transform = Transform3D(0.760284, -0.562563, 0.324794, 0, 0.499998, 0.866027, -0.649591, -0.658426, 0.38014, 11.1888, 11.8845, -0.0877705)
 shadow_enabled = true
 
-[node name="Map" type="Node" parent="world_objects"]
+[node name="Map" type="NavigationRegion3D" parent="world_objects"]
+navigation_mesh = SubResource("NavigationMesh_n6vw8")
 
 [node name="Levelbox" type="CSGBox3D" parent="world_objects/Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5, 0)

@@ -147,6 +147,8 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 	
+	Global.set_player_pos(position)
+	
 	#head bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera1.transform.origin = headbob(t_bob)
