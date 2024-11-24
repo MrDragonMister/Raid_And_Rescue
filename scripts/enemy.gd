@@ -7,9 +7,9 @@ const ENEMY_SPEED = 3
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 @onready var enemy_health_display := $health_display
 
-
 func _ready():
-	health_bar.value = health	
+	health_bar.value = health
+	position = Vector3(0, 1, 0)
 
 func _process(delta: float) -> void:
 	# Get the camera from the current viewport
@@ -18,9 +18,6 @@ func _process(delta: float) -> void:
 		# Rotate the Sprite3D to face the camera's position
 		enemy_health_display.look_at(camera.global_transform.origin, Vector3.UP)
 
-	
-	
-	
 	if Input.is_action_just_pressed("attack"):
 		if health > health_bar.min_value:
 			for n in 10:
