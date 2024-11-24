@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 func toggle_camera():
 	if not active_camera == cameraf:
 		camera1.current = active_camera == camera2	# toggle what camera is true
-		camera2.current = active_camera == camera1
+		camera2.current = active_camera != camera2
 		if active_camera == camera1:
 			active_camera = camera2
 		else:	

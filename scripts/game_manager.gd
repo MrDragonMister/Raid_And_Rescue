@@ -2,17 +2,12 @@ extends Node
 
 @onready var health := 10
 @onready var health_bar := $"../Control/health_bar"
-@onready var enemy_health_display := $"../world_objects/Characters/Enemy/health_display"
 
 func _ready():
 	health_bar.value = health	
 	
 func _process(delta: float) -> void:
-	# Get the camera from the current viewport
-	var camera = get_viewport().get_camera_3d()
-	if camera:
-		# Rotate the Sprite3D to face the camera's position
-		enemy_health_display.look_at(camera.global_transform.origin, Vector3.UP)
+	pass
 """
 	if Input.is_action_just_pressed("attack"):
 		for n in 10:
