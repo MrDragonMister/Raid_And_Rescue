@@ -9,7 +9,7 @@ const ENEMY_SPEED = 3
 
 func _ready():
 	health_bar.value = health
-	position = Vector3(0, 1, 0)
+	position = Global.enemy_spawnpos
 
 func _process(delta: float) -> void:
 	# Get the camera from the current viewport

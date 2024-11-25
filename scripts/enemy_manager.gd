@@ -7,9 +7,9 @@ extends Node3D
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("spawn enemy"):
-		spawn_enemy()
+		spawn_enemy(Vector3(10, 10, 10))
 	
-func spawn_enemy():
+func spawn_enemy(pos):
 	var mob = enemy_scene.instantiate()
-	#spawn_pos = position
+	Global.set_enemy_spawnpos(pos)
 	add_child(mob)
