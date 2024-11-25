@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=4 uid="uid://i2ludwu5nrhj"]
+[gd_scene load_steps=24 format=4 uid="uid://i2ludwu5nrhj"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_6oyjt"]
 [ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="2_7s55m"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="3_bx532"]
 [ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://scenes/enemy.tscn" id="4_pccng"]
+[ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="5_b121a"]
 [ext_resource type="ArrayMesh" uid="uid://dwqs16ln38cmi" path="res://assets/Axeversion3.obj" id="5_sjbiw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ij0ug"]
@@ -17,6 +18,10 @@ sky_material = SubResource("ProceduralSkyMaterial_ij0ug")
 background_mode = 2
 sky = SubResource("Sky_w3uha")
 tonemap_mode = 2
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_n6vw8"]
+vertices = PackedVector3Array(-24.25, 0.5, -24.25, -24.25, 0.5, 24.25, 24.5, 0.5, 24.25, 24.5, 0.5, -24.25)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfbbd"]
 albedo_color = Color(0, 0.552941, 0, 1)
@@ -105,7 +110,7 @@ albedo_color = Color(0, 1, 1, 1)
 unique_name_in_owner = true
 script = ExtResource("1_6oyjt")
 
-[node name="world_objects" type="Node" parent="."]
+[node name="world_objects" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="world_objects"]
 environment = SubResource("Environment_rjyjm")
@@ -114,7 +119,8 @@ environment = SubResource("Environment_rjyjm")
 transform = Transform3D(0.760284, -0.562563, 0.324794, 0, 0.499998, 0.866027, -0.649591, -0.658426, 0.38014, 11.1888, 11.8845, -0.0877705)
 shadow_enabled = true
 
-[node name="Map" type="Node" parent="world_objects"]
+[node name="Map" type="NavigationRegion3D" parent="world_objects"]
+navigation_mesh = SubResource("NavigationMesh_n6vw8")
 
 [node name="Levelbox" type="CSGBox3D" parent="world_objects/Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5, 0)
@@ -167,14 +173,17 @@ surface_material_override/3 = SubResource("StandardMaterial3D_sibq6")
 surface_material_override/4 = SubResource("StandardMaterial3D_8ejrw")
 surface_material_override/5 = SubResource("StandardMaterial3D_bqy7l")
 
-[node name="Characters" type="Node" parent="world_objects"]
-
-[node name="Enemy" parent="world_objects/Characters" instance=ExtResource("4_pccng")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1.05, 14)
-
-[node name="Player" parent="world_objects/Characters" instance=ExtResource("2_7s55m")]
+[node name="Player" parent="world_objects" instance=ExtResource("2_7s55m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0.55, 23)
 script = ExtResource("3_bx532")
+
+[node name="Enemy_manager" type="Node3D" parent="world_objects"]
+unique_name_in_owner = true
+script = ExtResource("5_b121a")
+enemy_scene = ExtResource("4_pccng")
+
+[node name="Enemy" parent="world_objects/Enemy_manager" instance=ExtResource("4_pccng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1.05, 14)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

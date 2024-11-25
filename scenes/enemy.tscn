@@ -49,3 +49,5 @@ grow_vertical = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 flip_h = true
 texture = SubResource("ViewportTexture_f24jm")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

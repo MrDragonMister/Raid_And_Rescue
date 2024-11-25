@@ -24,67 +24,56 @@ var freecam_speed = 10.0
 var freecam_sensitivity = 0.25
 
 
-#reset camera
 func _ready() -> void:
+	#reset camera
 	active_camera = camera1
 	camera1.current = true
 	camera2.current = false
 	cameraf.current = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-#switch camera input
+
 func _process(delta: float) -> void:
+	#switch camera input
 	if Input.is_action_just_pressed("switch_camera"):
 		toggle_camera()
 	if Input.is_action_just_pressed("freecam"):
 		free_camera()
 	if cameraf.current:
 		freecam_movement(delta)
-	
+
 #toggle between 1st and 3rd camera
 func toggle_camera():
-	if active_camera == camera1:
-		active_camera = camera2
-		camera1.current = false
-		camera2.current = true
-		cameraf.current = false
-	else:
-		if active_camera == camera2:
+	if not active_camera == cameraf:
+		camera1.current = active_camera == camera2	# toggle what camera is true
+		camera2.current = active_camera != camera2
+		if active_camera == camera1:
+			active_camera = camera2
+		else:	
 			active_camera = camera1
-			camera1.current = true
-			camera2.current = false
-			cameraf.current = false
 
 #activate freecam
 func free_camera():
-	if not active_camera == cameraf:
-		cameraf.transform.origin = player.global_transform.origin
-		cameraf.rotation_degrees = player.rotation_degrees
-		active_camera = cameraf
-		camera1.current = false
-		camera2.current = false
-		cameraf.current = true
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	else:
+	camera1.current = active_camera == cameraf # toggle what camera is true
+	cameraf.current = active_camera != cameraf
+	if active_camera == cameraf:
 		active_camera = camera1
-		camera1.current = true
-		camera2.current = false
-		cameraf.current = false
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	else:
+		cameraf.transform.origin = player.global_transform.origin	# TODO Deze 2 regels moeten beter werken
+		cameraf.rotation_degrees = player.rotation_degrees
+		active_camera = cameraf	
+	camera2.current = false		# waarom weet ik niet, maar zonder deze regel loopt een enemy niet als je er op staat
 
 #freecam movement
 func freecam_movement(delta: float) -> void:
 	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
 	
-	#get forward direction
+	#get forward and right directions
+	var right = cameraf.transform.basis.x.normalized()
 	var forward = cameraf.transform.basis.z
 	forward.y = 0  # Ignore vertical component
 	forward = forward.normalized()
 	
-	#get right direction
-	var right = cameraf.transform.basis.x.normalized()
-	
-	#calculate movement direction
+	#calculate XZ movement
 	var direction: Vector3 = right * input_dir.x + forward * input_dir.y
 	
 	#vertical movement
@@ -98,8 +87,8 @@ func freecam_movement(delta: float) -> void:
 		direction = direction.normalized() * freecam_speed * delta
 		cameraf.position += direction
 
-#turn cameras
 func _unhandled_input(event: InputEvent) -> void:
+	#turn cameras
 	if event is InputEventMouseMotion:
 		if active_camera == camera1:
 			active_camera.rotate_x(-event.relative.y * SENSITIVITY)
@@ -138,6 +127,8 @@ func _physics_process(delta: float) -> void:
 			if is_on_floor():
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 				velocity.z = move_toward(velocity.z, 0, SPEED)
+	else:
+		velocity = Vector3.ZERO
 
 	# Handle jump.
 	if Input.is_action_pressed("jump") and is_on_floor() and not active_camera == cameraf:
@@ -147,7 +138,9 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 	
-	#head bob
+	Global.set_player_pos(position)
+	
+	# head bobbing
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera1.transform.origin = headbob(t_bob)
 
