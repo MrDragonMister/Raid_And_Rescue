@@ -24,11 +24,19 @@ func _ready():
 	health_bar.value = health	
 	
 func _process(delta: float) -> void:
+	var player = get_node("../Player")
+	var player_position = player.global_transform.origin
+	var enemy_position = global_transform.origin
+	var playerdir_to_enemy = player.direction_to(enemy)
+	var playerinput_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
+	var playerdir: Vector3 = (player.transform.basis * Vector3(playerinput_dir.x, 0, playerinput_dir.y)).normalized()
 	if Input.is_action_just_pressed("attack"):
-		for n in 10:
-			health = max(health - 1, health_bar.min_value)
-			health_bar.value = health
-			await get_tree().create_timer(0.01).timeout
+		if enemy_position.distance_to(player_position) <= 3:
+			if playerdir_to_enemy.dot(playerdir):
+				for n in 10:
+					health = max(health - 1, health_bar.min_value)
+					health_bar.value = health
+					await get_tree().create_timer(0.01).timeout
 	if Input.is_action_just_pressed("interact"):
 		for n in 10:
 			health = min(health + 1, health_bar.max_value)
