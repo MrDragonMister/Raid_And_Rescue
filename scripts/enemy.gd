@@ -6,12 +6,19 @@ const ENEMY_SPEED = 3
 @onready var health_bar := $"SubViewport/Control/enemy_health_bar"
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 @onready var enemy_health_display := $health_display
+@onready var enemy_manager = %Enemy_manager
 
 func _ready():
 	health_bar.value = health
-	position = Global.enemy_spawnpos
+	print("enemy", enemy_manager.enemy_spawnpos)
+	position = enemy_manager.enemy_spawnpos
+	
 
 func _process(delta: float) -> void:
+	"""
+	if nav.distance_to_target() <= 10:
+		print("attack")
+	"""
 	# Get the camera from the current viewport
 	var camera = get_viewport().get_camera_3d()
 	if camera:
@@ -30,25 +37,6 @@ func _process(delta: float) -> void:
 				health += 1
 				health_bar.value = health
 				await get_tree().create_timer(0.01).timeout
-				
-	var player = get_node("../Player")
-	var player_position = player.global_transform.origin
-	var enemy_position = global_transform.origin
-	var playerdir_to_enemy = player.direction_to(enemy)
-	var playerinput_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
-	var playerdir: Vector3 = (player.transform.basis * Vector3(playerinput_dir.x, 0, playerinput_dir.y)).normalized()
-	if Input.is_action_just_pressed("attack"):
-		if enemy_position.distance_to(player_position) <= 3:
-			if playerdir_to_enemy.dot(playerdir):
-				for n in 10:
-					health = max(health - 1, health_bar.min_value)
-					health_bar.value = health
-					await get_tree().create_timer(0.01).timeout
-	if Input.is_action_just_pressed("interact"):
-		for n in 10:
-			health = min(health + 1, health_bar.max_value)
-			health_bar.value = health
-			await get_tree().create_timer(0.01).timeout
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector3()
@@ -63,4 +51,3 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta * 2
 		
 	move_and_slide()
-	
