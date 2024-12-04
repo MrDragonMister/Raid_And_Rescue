@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://i2ludwu5nrhj"]
+[gd_scene load_steps=25 format=4 uid="uid://i2ludwu5nrhj"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_6oyjt"]
 [ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="2_7s55m"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://scenes/enemy.tscn" id="4_pccng"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="5_b121a"]
 [ext_resource type="ArrayMesh" uid="uid://dwqs16ln38cmi" path="res://assets/Axeversion3.obj" id="5_sjbiw"]
+[ext_resource type="Script" path="res://scripts/health_bar.gd" id="7_3o73v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ij0ug"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -207,3 +208,4 @@ offset_top = -360.0
 offset_right = 324.0
 offset_bottom = -312.0
 grow_horizontal = 2
+script = ExtResource("7_3o73v")

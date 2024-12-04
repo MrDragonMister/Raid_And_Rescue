@@ -7,12 +7,13 @@ const ENEMY_SPEED = 3
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 @onready var enemy_health_display := $health_display
 @onready var enemy_manager = %Enemy_manager
+@onready var player = $"../../Player"
+@onready var game_manager = %game_manager
 
 func _ready():
 	health_bar.value = health
-	print("enemy", enemy_manager.enemy_spawnpos)
-	position = enemy_manager.enemy_spawnpos
-	
+	position = Global.enemy_spawn_pos
+
 
 func _process(delta: float) -> void:
 	"""
@@ -25,12 +26,20 @@ func _process(delta: float) -> void:
 		# Rotate the Sprite3D to face the camera's position
 		enemy_health_display.look_at(camera.global_transform.origin, Vector3.UP)
 
-	if Input.is_action_just_pressed("attack"):
+	var v3distance2player = position - player.position
+	# use 3d pythagoras to go from a 3d vector to a float
+	var float_distance_2_player =  sqrt(v3distance2player.x**2 + v3distance2player.y**2 + v3distance2player**2)
+	if Input.is_action_just_pressed("attack") and float_distance_2_player < 10:
 		if health > health_bar.min_value:
 			for n in 10:
 				health -= 1
 				health_bar.value = health
 				await get_tree().create_timer(0.01).timeout
+		if health <= health_bar.min_value:
+			print(self)
+			get_tree().create_timer(3).timeout
+			Global.change_amount_of_enemies(-1)
+			queue_free()
 	if Input.is_action_just_pressed("interact"):
 		if health < health_bar.max_value:
 			for n in 10:
@@ -43,6 +52,9 @@ func _physics_process(delta: float) -> void:
 	nav.target_position = Global.player_pos
 	direction = nav.get_next_path_position() - global_position
 	direction = direction.normalized()
+	
+	var player_xz_pos = Vector3(player.position.x, position.y, player.position.z)
+	look_at(player_xz_pos)
 
 	if is_on_floor():
 		velocity = direction * ENEMY_SPEED
