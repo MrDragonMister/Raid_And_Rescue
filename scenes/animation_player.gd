@@ -1,11 +1,10 @@
 extends AnimationPlayer
 
+@onready var enemy = $"../.."
 
-# Called when the node enters the scene tree for the first time.
-
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-		
-		play("Walking")
+#	if is_zero_approx(enemy.velocity.length()):
+#		print("walk")
+	play("Walking")
+#	else:
+#		print("stop")
