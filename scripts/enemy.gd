@@ -28,8 +28,8 @@ func _process(delta: float) -> void:
 
 	var v3distance2player = position - player.position
 	# use 3d pythagoras to go from a 3d vector to a float
-	var float_distance_2_player =  sqrt(v3distance2player.x**2 + v3distance2player.y**2 + v3distance2player**2)
-	if Input.is_action_just_pressed("attack") and float_distance_2_player < 10:
+	var float_distance_2_player =  sqrt(v3distance2player.x**2 + v3distance2player.y**2 + v3distance2player.z**2)
+	if Input.is_action_just_pressed("attack") and float_distance_2_player < 3:
 		if health > health_bar.min_value:
 			for n in 10:
 				health -= 1
