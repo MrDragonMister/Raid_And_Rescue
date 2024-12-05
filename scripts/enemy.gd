@@ -24,24 +24,31 @@ func _process(delta: float) -> void:
 		# Rotate the Sprite3D to face the camera's position
 		enemy_health_display.look_at(camera.global_transform.origin, Vector3.UP)
 	
-	var angle_from_player_2_enemy = Global.get_angle_to(player, self)
-	var distance_2_player = (position - player.position).length()
-	if Input.is_action_just_pressed("attack") and distance_2_player < player.WEAPON_FORWARD_RANGE and angle_from_player_2_enemy < deg_to_rad(player.WEAPON_ANGLE_RANGE):
-		if health > health_bar.min_value:
-			for n in 10:
-				health -= 1
-				health_bar.value = health
-				await get_tree().create_timer(0.01).timeout
-		if health <= health_bar.min_value:
-			print(self)
-			Global.change_amount_of_enemies(-1)
-			queue_free()
+	if Input.is_action_just_pressed("attack"):
+		# attack animatie
+		var angle_from_player_2_enemy = Global.get_angle_to(player, self)
+		var distance_2_player = (position - player.position).length()
+		if distance_2_player < player.WEAPON_FORWARD_RANGE and angle_from_player_2_enemy < deg_to_rad(player.WEAPON_ANGLE_RANGE):
+			if health > health_bar.min_value:
+				for n in 10:
+					health -= 1
+					health_bar.value = health
+					await get_tree().create_timer(0.01).timeout
+				if health <= health_bar.min_value:
+					print(self)
+					Global.change_amount_of_enemies(-1)
+					queue_free()
+		else:
+			# miss sound effect
+			pass
+	"""
 	if Input.is_action_just_pressed("interact"):
 		if health < health_bar.max_value:
 			for n in 10:
 				health += 1
 				health_bar.value = health
 				await get_tree().create_timer(0.01).timeout
+	"""
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector3()
