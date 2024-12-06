@@ -14,10 +14,11 @@ func _ready():
 	position = Global.enemy_spawn_pos
 
 func _process(delta: float) -> void:
-	"""
-	if nav.distance_to_target() <= 10:
+	
+	if nav.distance_to_target() <= player.WEAPON_FORWARD_RANGE:
+		# the enemy always looks at the player so an angle check is not needed
 		print("attack")
-	"""
+	
 	# Get the camera from the current viewport
 	var camera = get_viewport().get_camera_3d()
 	if camera:
