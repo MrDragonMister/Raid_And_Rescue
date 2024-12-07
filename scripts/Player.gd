@@ -3,13 +3,13 @@ extends CharacterBody3D
 const SPEED = 5
 const JUMP_VELOCITY = 7
 const SENSITIVITY = 0.003
-const AIR_SPEED = 1
+const AIR_SPEED = 3
 const JUMP_XZ_ACCELERATION = 1.2
 
 # player testing needed
 # sfx en in de toekomst mischien nog particles nodig om duidelijk te maken of je raakt of niet
 const WEAPON_ANGLE_RANGE = 45 # nu nog in graden voor testen, later in rad voor optimalisatie
-const WEAPON_FORWARD_RANGE = 3
+const WEAPON_FORWARD_RANGE = 2
 
 #headbob variables
 const BOB_FREQ = 2.0
@@ -125,8 +125,9 @@ func _physics_process(delta: float) -> void:
 				velocity.x = direction.x * SPEED
 				velocity.z = direction.z * SPEED
 			else:
-				velocity.x = move_toward(velocity.x, direction.x, AIR_SPEED * delta)
-				velocity.z = move_toward(velocity.z, direction.z, AIR_SPEED * delta)
+				# needs player testing
+				velocity.x = move_toward(velocity.x, direction.x * AIR_SPEED, 5)
+				velocity.z = move_toward(velocity.z, direction.z * AIR_SPEED, 5)
 		else:
 			if is_on_floor():
 				velocity.x = move_toward(velocity.x, 0, SPEED)
