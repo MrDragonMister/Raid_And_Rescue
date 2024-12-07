@@ -159,8 +159,9 @@ func _headbob(time) -> Vector3:
 	return pos
 "
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_kta7g"]
-size = Vector3(1, 1.5, 1)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dj3um"]
+radius = 0.375
+height = 1.628
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_851ws"]
 _surfaces = [{
@@ -431,8 +432,8 @@ _data = {
 script = SubResource("GDScript_ig5vo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
-shape = SubResource("BoxShape3D_kta7g")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.814, 0)
+shape = SubResource("CapsuleShape3D_dj3um")
 
 [node name="Shortsword" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-09, -0.1, 0, 0.092388, -4.03841e-09, -0.0382683, 0.0382683, -1.67276e-09, 0.092388, 0.489266, 0.734507, -0.779858)

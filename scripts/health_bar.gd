@@ -1,7 +1,11 @@
 extends ProgressBar
 
-@onready var health_bar = $"."
-@onready var enemy_manager = %Enemy_manager
+func _ready():
+	self.value = 100
+	#pass
+
 
 func _process(delta):
-	health_bar.value = Global.amount_of_enemies
+	#self.value = Global.amount_of_enemies
+	pass
+	

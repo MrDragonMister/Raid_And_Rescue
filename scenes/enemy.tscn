@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_4h4db"]
 [ext_resource type="Script" path="res://scenes/animation_player.gd" id="2_huilv"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_0kg7j"]
-size = Vector3(1, 1.5, 1)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eca12"]
+radius = 0.375
+height = 1.6276
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_f24jm"]
 viewport_path = NodePath("SubViewport")
@@ -227,8 +228,8 @@ _data = {
 script = ExtResource("1_4h4db")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
-shape = SubResource("BoxShape3D_0kg7j")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.814, 0)
+shape = SubResource("CapsuleShape3D_eca12")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
@@ -486,3 +487,9 @@ libraries = {
 "": SubResource("AnimationLibrary_jhmar")
 }
 script = ExtResource("2_huilv")
+
+[node name="attack_cooldown" type="Timer" parent="."]
+process_callback = 0
+one_shot = true
+
+[connection signal="timeout" from="attack_cooldown" to="." method="_on_timer_timeout"]

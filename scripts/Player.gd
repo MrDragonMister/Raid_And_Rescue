@@ -9,7 +9,7 @@ const JUMP_XZ_ACCELERATION = 1.2
 # player testing needed
 # sfx en in de toekomst mischien nog particles nodig om duidelijk te maken of je raakt of niet
 const WEAPON_ANGLE_RANGE = 45 # nu nog in graden voor testen, later in rad voor optimalisatie
-const WEAPON_FORWARD_RANGE = 2
+const WEAPON_FORWARD_RANGE = 3
 
 #headbob variables
 const BOB_FREQ = 2.0
@@ -141,8 +141,6 @@ func _physics_process(delta: float) -> void:
 		velocity.z *= JUMP_XZ_ACCELERATION 
 		
 	move_and_slide()
-	
-	Global.set_player_pos(position)
 	
 	# head bobbing
 	t_bob += delta * velocity.length() * float(is_on_floor())
