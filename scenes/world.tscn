@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://i2ludwu5nrhj"]
+[gd_scene load_steps=28 format=3 uid="uid://i2ludwu5nrhj"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_6oyjt"]
 [ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="2_7s55m"]
@@ -35,6 +35,21 @@ albedo_color = Color(0.0509804, 0.364706, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ukmkf"]
 albedo_color = Color(0.69553, 1.38617e-05, 0.484068, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ym20n"]
+albedo_color = Color(0.54099, 0.54099, 0.54099, 1)
+metallic = 1.0
+metallic_texture_channel = 2
+roughness = 0.0
+roughness_texture_channel = 2
+rim_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vijik"]
+albedo_color = Color(1, 0.552941, 0.164706, 1)
+metallic = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kuvxj"]
+albedo_color = Color(0.29, 0.176127, 0.0696, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnx3v"]
 albedo_color = Color(1, 0, 0, 1)
@@ -109,9 +124,12 @@ snap = 0.1
 size = Vector3(2, 0.1, 2)
 
 [node name="Shortsword2Test" type="MeshInstance3D" parent="world_objects"]
-transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, -0.00297803, 1.47586, 5.36682)
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0.48633, 1.46635, 5.40756)
 mesh = ExtResource("2_h5d0j")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ym20n")
+surface_material_override/1 = SubResource("StandardMaterial3D_vijik")
+surface_material_override/2 = SubResource("StandardMaterial3D_kuvxj")
 
 [node name="Axeversion3" type="MeshInstance3D" parent="world_objects"]
 transform = Transform3D(0.00775519, 0.010673, -0.0687455, 0.06947, 0.00250087, 0.00822519, 0.00371016, -0.0691363, -0.0103151, -0.800222, 0.719835, 5.2582)
@@ -161,6 +179,7 @@ grow_horizontal = 2
 script = ExtResource("7_3o73v")
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
