@@ -18,4 +18,3 @@ func _process(delta: float) -> void:
 			#health = min(health + 1, health_bar.max_value)
 			#health_bar.value = health
 			#await get_tree().create_timer(0.01).timeout
-	$"../Control/PanelContainer/MarginContainer/GridContainer/Label".set_cash(200)

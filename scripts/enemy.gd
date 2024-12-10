@@ -31,7 +31,6 @@ func _process(delta: float) -> void:
 	if nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE and attack_ready:
 		attack_ready = false
 		timer.start()
-		print("attack")
 		player_health_bar.value -= 1 
 
 
@@ -48,8 +47,8 @@ func _unhandled_input(event):
 					health_bar.value = health
 					await get_tree().create_timer(0.01).timeout
 				if health <= health_bar.min_value:
-					print(self)
 					Global.amount_of_enemies -= 1
+					%cash.change_cash(3)
 					queue_free()
 		else:
 			# miss sound effect
