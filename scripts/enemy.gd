@@ -37,7 +37,6 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("attack"):
-<<<<<<< Updated upstream
 		# attack animatie
 		var angle_from_player_2_enemy = Global.get_angle_to(player, self)
 		var distance_2_player = (position - player.position).length()
@@ -46,13 +45,6 @@ func _unhandled_input(event):
 			if health > health_bar.min_value:
 				for n in 10:
 					health -= 1
-=======
-		print("attack, distance =", enemy_position.distance_to(player_position))
-		if enemy_position.distance_to(player_position) <= 5:
-			if playerdir_to_enemy.dot(playerdir):
-				for n in 10:
-					health = max(health - 1, health_bar.min_value)
->>>>>>> Stashed changes
 					health_bar.value = health
 					await get_tree().create_timer(0.01).timeout
 				if health <= health_bar.min_value:

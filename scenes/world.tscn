@@ -6,11 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://scenes/enemy.tscn" id="4_pccng"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="5_b121a"]
 [ext_resource type="ArrayMesh" uid="uid://dwqs16ln38cmi" path="res://assets/Axeversion3.obj" id="5_sjbiw"]
-<<<<<<< Updated upstream
 [ext_resource type="Script" path="res://scripts/health_bar.gd" id="7_3o73v"]
-=======
-[ext_resource type="ArrayMesh" uid="uid://dmi8gtjqp8x6t" path="res://shortsword2test.obj" id="7_k8ng5"]
->>>>>>> Stashed changes
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ij0ug"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -212,11 +208,4 @@ offset_top = -360.0
 offset_right = 324.0
 offset_bottom = -312.0
 grow_horizontal = 2
-<<<<<<< Updated upstream
 script = ExtResource("7_3o73v")
-=======
-
-[node name="Shortsword2Test" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.64527, 0, 1.06403)
-mesh = ExtResource("7_k8ng5")
->>>>>>> Stashed changes

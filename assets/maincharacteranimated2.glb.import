@@ -3,12 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b1you7d16tkml"
-valid=false
+uid="uid://xkgx1i5cmcq"
+path="res://.godot/imported/maincharacteranimated2.glb-6f452a9c7d4ea3a0d26634df5d549ef1.scn"
 
 [deps]
 
 source_file="res://assets/maincharacteranimated2.glb"
+dest_files=["res://.godot/imported/maincharacteranimated2.glb-6f452a9c7d4ea3a0d26634df5d549ef1.scn"]
 
 [params]
 
@@ -31,5 +32,5 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-gltf/naming_version=0
+gltf/naming_version=1
 gltf/embedded_image_handling=1
