@@ -1,10 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cb3nlcngtsxd0"]
+[gd_scene load_steps=7 format=3 uid="uid://cb3nlcngtsxd0"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_4ootf"]
+[ext_resource type="Texture2D" uid="uid://b4bbxlbd4ui6x" path="res://assets/backcircleship.png" id="2_v5b3g"]
+[ext_resource type="Texture2D" uid="uid://7gerdq4g6fka" path="res://assets/gamelogo.png" id="3_2it0q"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fvqsf"]
 
 [sub_resource type="GDScript" id="GDScript_3xfio"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xcp3m"]
+load_path = "res://.godot/imported/ship.png-0b2a8e7064d2d88a0149f9491a8ea676.ctex"
+
 [node name="Node2D" type="Node2D"]
+material = SubResource("CanvasItemMaterial_fvqsf")
 script = ExtResource("1_4ootf")
 
 [node name="Control" type="Control" parent="."]
@@ -29,5 +37,18 @@ grow_vertical = 2
 text = "Play demo"
 script = SubResource("GDScript_3xfio")
 metadata/_edit_use_anchors_ = true
+
+[node name="Ship" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(956, 804)
+texture = SubResource("CompressedTexture2D_xcp3m")
+
+[node name="Backcircleship" type="Sprite2D" parent="."]
+position = Vector2(956, 780)
+texture = ExtResource("2_v5b3g")
+
+[node name="Gamelogo" type="Sprite2D" parent="."]
+position = Vector2(960, 320)
+texture = ExtResource("3_2it0q")
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
