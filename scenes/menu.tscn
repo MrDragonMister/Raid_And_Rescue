@@ -41,10 +41,12 @@ metadata/_edit_use_anchors_ = true
 [node name="Ship" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(956, 804)
+scale = Vector2(0.7, 0.7)
 texture = SubResource("CompressedTexture2D_xcp3m")
 
 [node name="Backcircleship" type="Sprite2D" parent="."]
 position = Vector2(956, 780)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_v5b3g")
 
 [node name="Gamelogo" type="Sprite2D" parent="."]

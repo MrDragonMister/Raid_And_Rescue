@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://cny8rnjsf4uw5"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_4h4db"]
-[ext_resource type="Script" path="res://scenes/animation_player.gd" id="2_huilv"]
+[ext_resource type="Script" path="res://scripts/animation_player.gd" id="2_huilv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eca12"]
 radius = 0.375

@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=4 uid="uid://c4uk6bgfdo1jq"]
 
-[ext_resource type="Script" path="res://scenes/animation_player.gd" id="1_4osq4"]
+[ext_resource type="Script" path="res://scripts/animation_player.gd" id="1_4osq4"]
 
 [sub_resource type="GDScript" id="GDScript_ig5vo"]
 script/source = "extends CharacterBody3D
