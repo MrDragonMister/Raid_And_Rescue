@@ -1,10 +1,10 @@
 extends Node
 
-@onready var health := 10
+@onready var health := 100
 @onready var health_bar := $"../gamegui/health_bar"
 
 func _ready():
-	health_bar.value = health	
+	health_bar.value = health
 	
 func _process(_delta: float) -> void:
 	pass
