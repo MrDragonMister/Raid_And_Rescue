@@ -1,5 +1,8 @@
 extends Label
 
-func change_cash(change):
-	Global.gold += change
-	text = "Cash: %d" % Global.gold
+@onready var coins: int = Global.gold
+
+func _process(_delta):
+	if coins != Global.gold:
+		coins = Global.gold
+		text = "Cash: %d" % coins

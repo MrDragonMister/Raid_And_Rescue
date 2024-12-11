@@ -20,7 +20,7 @@ func _ready():
 	health_bar.value = health
 	position = Global.enemy_spawn_pos
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Get the camera from the current viewport
 	var camera = get_viewport().get_camera_3d()
 	if camera:
@@ -33,8 +33,7 @@ func _process(delta: float) -> void:
 		timer.start()
 		player_health_bar.value -= 1 
 
-
-func _unhandled_input(event):
+func _unhandled_input(_envent):
 	if Input.is_action_just_pressed("attack"):
 		# attack animatie
 		var angle_from_player_2_enemy = Global.get_angle_to(player, self)
@@ -48,7 +47,7 @@ func _unhandled_input(event):
 					await get_tree().create_timer(0.01).timeout
 				if health <= health_bar.min_value:
 					Global.amount_of_enemies -= 1
-					%cash.change_cash(3)
+					Global.gold += 3
 					queue_free()
 		else:
 			# miss sound effect

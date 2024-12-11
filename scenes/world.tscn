@@ -199,5 +199,6 @@ vertical_alignment = 1
 script = ExtResource("8_2tph2")
 
 [node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/MarginContainer/GridContainer"]
+visible = false
 layout_mode = 2
 texture = ExtResource("10_avo77")

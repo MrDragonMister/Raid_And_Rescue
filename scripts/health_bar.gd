@@ -5,7 +5,7 @@ func _ready():
 	#pass
 
 
-func _process(delta):
+func _process(_delta):
 	#self.value = Global.amount_of_enemies
 	pass
 	

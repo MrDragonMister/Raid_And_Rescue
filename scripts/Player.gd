@@ -103,7 +103,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			campoint.rotation.x = clamp(campoint.rotation.x, deg_to_rad(-30), deg_to_rad(30))
 			player.rotate_y(-event.relative.x * SENSITIVITY)
 		elif active_camera == cameraf:
-			var rotation = cameraf.rotation_degrees
+			rotation = cameraf.rotation_degrees
 			rotation.x -= event.relative.y * freecam_sensitivity
 			rotation.x = clamp(rotation.x, -89, 89)
 			rotation.y -= event.relative.x * freecam_sensitivity
