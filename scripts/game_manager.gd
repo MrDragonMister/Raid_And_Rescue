@@ -1,7 +1,7 @@
 extends Node
 
 @onready var health := 10
-@onready var health_bar := $"../Control/health_bar"
+@onready var health_bar := $"../gamegui/health_bar"
 
 func _ready():
 	health_bar.value = health	

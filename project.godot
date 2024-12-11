@@ -31,6 +31,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Raid And Rescue"
 
+[gui]
+
+theme/custom="res://assets/GUI theme.tres"
+
 [input]
 
 ui_left={
