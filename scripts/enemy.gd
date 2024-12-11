@@ -14,7 +14,7 @@ var direction: Vector3 = Vector3.ZERO
 @onready var player = $"../../Player"
 @onready var game_manager = %game_manager
 @onready var timer: Timer = $attack_cooldown
-@onready var player_health_bar = $"../../../Control/health_bar"
+@onready var player_health_bar = $"../../../gamegui/health_bar"
 
 func _ready():
 	health_bar.value = health
@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	if nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE and attack_ready:
 		attack_ready = false
 		timer.start()
-		player_health_bar.value -= 1 
+		player_health_bar.value -= 1
 
 
 func _unhandled_input(event):
@@ -48,14 +48,14 @@ func _unhandled_input(event):
 					await get_tree().create_timer(0.01).timeout
 				if health <= health_bar.min_value:
 					Global.amount_of_enemies -= 1
-					%cash.change_cash(3)
+					%gold.change_golds(3)
 					queue_free()
 		else:
 			# miss sound effect
 			pass
 	"""
 	if Input.is_action_just_pressed("interact"):
-		if health < health_bar.max_value:
+		if health < health_bar.max_value:aa
 			for n in 10:
 				health += 1
 				health_bar.value = health
