@@ -10,7 +10,7 @@ var direction: Vector3 = Vector3.ZERO
 @onready var health_bar: = $"SubViewport/Control/enemy_health_bar"
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 @onready var enemy_health_display := $health_display
-@onready var enemy_manager = %Enemy_manager
+@onready var enemy_manager = $".."
 @onready var player = $"../../Player"
 @onready var game_manager = %game_manager
 @onready var timer: Timer = $attack_cooldown
@@ -46,8 +46,7 @@ func _unhandled_input(_envent):
 					health_bar.value = health
 					await get_tree().create_timer(0.01).timeout
 				if health <= health_bar.min_value:
-					Global.amount_of_enemies -= 1
-					Global.gold += 3
+					enemy_manager.enemy_die()
 					queue_free()
 		else:
 			# miss sound effect

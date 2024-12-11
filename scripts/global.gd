@@ -1,6 +1,6 @@
 extends Node
 
-@onready var enemy_spawn_pos = Vector3.ZERO
+@onready var enemy_spawn_pos: Vector3 = Vector3.ZERO
 @onready var amount_of_enemies: int = 1
 @onready var gold: int = 0
 
