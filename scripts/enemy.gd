@@ -49,8 +49,7 @@ func _process(_delta: float) -> void:
 
 func _unhandled_input(_envent):
 	if Input.is_action_just_pressed("attack"):
-
-		sword_swing.
+		
 		var angle_from_player_2_enemy = Global.get_angle_to(player, self)
 		var distance_2_player = (position - player.position).length()
 		if distance_2_player < player.WEAPON_FORWARD_RANGE and angle_from_player_2_enemy < deg_to_rad(player.WEAPON_ANGLE_RANGE):

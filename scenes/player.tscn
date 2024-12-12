@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://c4uk6bgfdo1jq"]
+[gd_scene load_steps=18 format=4 uid="uid://c4uk6bgfdo1jq"]
 
 [ext_resource type="Script" path="res://scripts/animation_player.gd" id="1_4osq4"]
 [ext_resource type="Script" path="res://scenes/sword_animation.gd" id="1_31wct"]
@@ -489,6 +489,10 @@ _data = {
 "Walking": SubResource("Animation_xu2ru")
 }
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hj65t"]
+radius = 0.375
+height = 1.628
+
 [node name="Player" type="CharacterBody3D"]
 script = SubResource("GDScript_ig5vo")
 
@@ -754,3 +758,8 @@ libraries = {
 "": SubResource("AnimationLibrary_jhmar")
 }
 script = ExtResource("1_4osq4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.814, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_hj65t")
