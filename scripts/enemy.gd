@@ -19,6 +19,7 @@ var direction: Vector3 = Vector3.ZERO
 @onready var slash2 = $slash2
 @onready var slash3 = $slash3
 @onready var slash4 = $slash4
+@onready var explosion = $explosion
 
 
 func _ready():
@@ -51,11 +52,18 @@ func _unhandled_input(_envent):
 					health_bar.value = health
 					await get_tree().create_timer(0.01).timeout
 				if health <= health_bar.min_value:
+					explosion.play()
+					self.visible = false
+					await _wait_for_explosion_to_finish(explosion)
 					enemy_manager.enemy_die()
 					queue_free()
 		else:
 			# miss sound effect
 			pass
+func _wait_for_explosion_to_finish(player: AudioStreamPlayer) -> void:
+	while player.playing:
+		await get_tree().create_timer(0.1).timeout
+
 	"""
 	if Input.is_action_just_pressed("interact"):
 		if health < health_bar.max_value:aa
