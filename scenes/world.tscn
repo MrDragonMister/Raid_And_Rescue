@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://i2ludwu5nrhj"]
+[gd_scene load_steps=29 format=3 uid="uid://i2ludwu5nrhj"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_6oyjt"]
 [ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="2_7s55m"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/health_bar.gd" id="7_3o73v"]
 [ext_resource type="Script" path="res://scripts/cash_label.gd" id="8_2tph2"]
 [ext_resource type="Texture2D" uid="uid://b30ncgp55kww5" path="res://assets/81PfRRG2F1L._AC_UF894,1000_QL80_.png" id="9_1cn78"]
+[ext_resource type="FontFile" uid="uid://bs4fhxtxfaswr" path="res://assets/fonts/ARIAL.TTF" id="9_egb4x"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ij0ug"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -77,7 +78,6 @@ outline_color = Color(0.301961, 0.301961, 0.301961, 1)
 [node name="world" type="Node3D"]
 
 [node name="game_manager" type="Node" parent="."]
-unique_name_in_owner = true
 script = ExtResource("1_6oyjt")
 
 [node name="world_objects" type="Node3D" parent="."]
@@ -102,29 +102,34 @@ size = Vector3(50, 25, 50)
 
 [node name="PlayerSpawn" type="CSGBox3D" parent="world_objects/Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0.05, 23)
+visible = false
 material_overlay = SubResource("StandardMaterial3D_kqdm1")
 size = Vector3(2, 0.1, 2)
 
 [node name="EnemySpawn" type="CSGBox3D" parent="world_objects/Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0.05, 14)
+visible = false
 material_overlay = SubResource("StandardMaterial3D_ukmkf")
 snap = 0.1
 size = Vector3(2, 0.1, 2)
 
 [node name="EnemySpawn2" type="CSGBox3D" parent="world_objects/Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.05, 4)
+visible = false
 material_overlay = SubResource("StandardMaterial3D_ukmkf")
 snap = 0.1
 size = Vector3(2, 0.1, 2)
 
 [node name="EnemySpawn3" type="CSGBox3D" parent="world_objects/Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.05, -6)
+visible = false
 material_overlay = SubResource("StandardMaterial3D_ukmkf")
 snap = 0.1
 size = Vector3(2, 0.1, 2)
 
 [node name="Shortsword2Test" type="MeshInstance3D" parent="world_objects"]
 transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0.48633, 1.46635, 5.40756)
+visible = false
 mesh = ExtResource("2_h5d0j")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ym20n")
@@ -133,6 +138,7 @@ surface_material_override/2 = SubResource("StandardMaterial3D_kuvxj")
 
 [node name="Axeversion3" type="MeshInstance3D" parent="world_objects"]
 transform = Transform3D(0.00775519, 0.010673, -0.0687455, 0.06947, 0.00250087, 0.00822519, 0.00371016, -0.0691363, -0.0103151, -0.800222, 0.719835, 5.2582)
+visible = false
 mesh = ExtResource("5_sjbiw")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_bnx3v")
@@ -175,7 +181,15 @@ offset_top = -509.0
 offset_right = 324.0
 offset_bottom = -461.0
 grow_horizontal = 2
+show_percentage = false
 script = ExtResource("7_3o73v")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="gamegui/health_bar"]
+layout_mode = 0
+offset_right = 639.0
+offset_bottom = 45.0
+theme_override_fonts/normal_font = ExtResource("9_egb4x")
+theme_override_font_sizes/normal_font_size = 40
 
 [node name="PanelContainer" type="PanelContainer" parent="gamegui"]
 layout_mode = 0
