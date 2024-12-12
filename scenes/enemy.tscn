@@ -750,7 +750,7 @@ bones/31/rotation = Quaternion(-0.0202971, 0.0202971, 0.706815, 0.706815)
 bones/31/scale = Vector3(1, 1, 1)
 
 [node name="Cylinder" type="BoneAttachment3D" parent="Wachter_zwaard_animated2/Armature/Skeleton3D"]
-transform = Transform3D(-5.51343e-07, 4.79258e-08, -0.3, 0.3, 4.35351e-07, -5.1409e-07, 4.15906e-07, -0.3, -5.52751e-08, -1.16229, 1.92073, 0.971655)
+transform = Transform3D(-5.21541e-07, 6.13368e-08, -0.3, 0.3, 4.2194e-07, -4.69387e-07, 4.17904e-07, -0.3, -5.92744e-08, -1.16229, 1.92073, 0.971655)
 bone_name = "Cylinder"
 bone_idx = 19
 
