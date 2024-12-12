@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://c4uk6bgfdo1jq"]
+[gd_scene load_steps=14 format=4 uid="uid://c4uk6bgfdo1jq"]
 
 [ext_resource type="Script" path="res://scripts/animation_player.gd" id="1_4osq4"]
 
@@ -107,16 +107,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if active_camera == camera1:
 			active_camera.rotate_x(-event.relative.y * SENSITIVITY)
-			active_camera.rotation.x = clamp(active_camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
+			active_camera.rotation.x = clamp(active_camera.rotation.x, deg_to_rad(0), deg_to_rad(10))#-80,80
 			player.rotate_y(-event.relative.x * SENSITIVITY)
 		elif active_camera == camera2:
 			campoint.rotate_x(-event.relative.y * SENSITIVITY)
-			campoint.rotation.x = clamp(campoint.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+			campoint.rotation.x = clamp(campoint.rotation.x, deg_to_rad(0), deg_to_rad(10))#-90,90
 			player.rotate_y(-event.relative.x * SENSITIVITY)
 		elif active_camera == cameraf:
 			rotation = cameraf.rotation_degrees
 			rotation.x -= event.relative.y * freecam_sensitivity
-			rotation.x = clamp(rotation.x, -89, 89)
+			rotation.x = clamp(rotation.x, deg_to_rad(0), deg_to_rad(10))#-89,89
 			rotation.y -= event.relative.x * freecam_sensitivity
 			cameraf.rotation_degrees = Vector3(rotation.x, rotation.y, 0)
 
@@ -428,6 +428,10 @@ _data = {
 "Walking": SubResource("Animation_xu2ru")
 }
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_llvop"]
+radius = 0.375
+height = 1.628
+
 [node name="Player" type="CharacterBody3D"]
 script = SubResource("GDScript_ig5vo")
 
@@ -462,6 +466,7 @@ transform = Transform3D(1, 0, 0, 0, 0.268619, 0.840204, 0, -0.465261, 0.485092, 
 
 [node name="maincharacteranimated3" type="Node3D" parent="."]
 transform = Transform3D(-0.25, 0, -2.18557e-08, 0, 0.25, 0, 2.18557e-08, 0, -0.25, 0, 0, 0)
+visible = false
 
 [node name="Armature" type="Node3D" parent="maincharacteranimated3"]
 
@@ -687,3 +692,8 @@ libraries = {
 "": SubResource("AnimationLibrary_jhmar")
 }
 script = ExtResource("1_4osq4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.814, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_llvop")

@@ -56,7 +56,10 @@ func toggle_camera():
 			active_camera = camera1
 
 #activate freecam
+
 func free_camera():
+	pass
+"""
 	camera1.current = active_camera == cameraf # toggle what camera is true
 	cameraf.current = active_camera != cameraf
 	if active_camera == cameraf:
@@ -66,6 +69,7 @@ func free_camera():
 		cameraf.rotation_degrees = player.rotation_degrees
 		active_camera = cameraf	
 	camera2.current = false		# waarom weet ik niet, maar zonder deze regel loopt een enemy niet als je er op staat
+"""
 
 #freecam movement
 func freecam_movement(delta: float) -> void:
@@ -96,13 +100,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if active_camera == camera1:
 			active_camera.rotate_x(-event.relative.y * SENSITIVITY)
-			active_camera.rotation.x = clamp(active_camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
+			active_camera.rotation.x = clamp(active_camera.rotation.x, deg_to_rad(-60), deg_to_rad(80))
 			player.rotate_y(-event.relative.x * SENSITIVITY)
 		elif active_camera == camera2:
 			campoint.rotate_x(-event.relative.y * SENSITIVITY)
 			campoint.rotation.x = clamp(campoint.rotation.x, deg_to_rad(-30), deg_to_rad(30))
 			player.rotate_y(-event.relative.x * SENSITIVITY)
-		elif active_camera == cameraf:
+		elif active_camera == cameraf: # TODO werkt niet
 			rotation = cameraf.rotation_degrees
 			rotation.x -= event.relative.y * freecam_sensitivity
 			rotation.x = clamp(rotation.x, -89, 89)
