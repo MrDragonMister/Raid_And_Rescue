@@ -20,6 +20,7 @@ var direction: Vector3 = Vector3.ZERO
 @onready var slash3 = $slash3
 @onready var slash4 = $slash4
 @onready var explosion = $explosion
+@onready var miss = $miss
 
 
 func _ready():
@@ -39,6 +40,7 @@ func _process(_delta: float) -> void:
 		timer.start()
 		player_health_bar.value -= 1
 
+
 func _unhandled_input(_envent):
 	if Input.is_action_just_pressed("attack"):
 		# attack animatie
@@ -54,13 +56,14 @@ func _unhandled_input(_envent):
 				if health <= health_bar.min_value:
 					explosion.play()
 					self.visible = false
-					await _wait_for_explosion_to_finish(explosion)
+					await _wait_for_player_to_finish(explosion)
 					enemy_manager.enemy_die()
 					queue_free()
 		else:
-			# miss sound effect
+			miss.play()
 			pass
-func _wait_for_explosion_to_finish(player: AudioStreamPlayer) -> void:
+
+func _wait_for_player_to_finish(player: AudioStreamPlayer) -> void:
 	while player.playing:
 		await get_tree().create_timer(0.1).timeout
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cny8rnjsf4uw5"]
+[gd_scene load_steps=16 format=4 uid="uid://cny8rnjsf4uw5"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_4h4db"]
 [ext_resource type="Script" path="res://scripts/animation_player.gd" id="2_huilv"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://djr58mceawmon" path="res://assets/Slash3.wav" id="5_62jkh"]
 [ext_resource type="AudioStream" uid="uid://ws2x5tjywmdn" path="res://assets/Slash4.wav" id="6_8p5rh"]
 [ext_resource type="AudioStream" uid="uid://v7k0jw3pe022" path="res://assets/explosion-sound-effect-1-free-on-gamesfxpackscom-241821.mp3" id="7_60srj"]
+[ext_resource type="AudioStream" uid="uid://3686spnkhh7d" path="res://assets/near-miss-swing-whoosh-18-233442.mp3" id="8_871po"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eca12"]
 radius = 0.375
@@ -511,5 +512,8 @@ stream = ExtResource("6_8p5rh")
 
 [node name="explosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_60srj")
+
+[node name="miss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_871po")
 
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_timer_timeout"]
