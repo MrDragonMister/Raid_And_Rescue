@@ -217,6 +217,7 @@ albedo_color = Color(0.386696, 0.201499, 0.0155, 1)
 
 [sub_resource type="Animation" id="Animation_s8xr8"]
 length = 0.001
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
