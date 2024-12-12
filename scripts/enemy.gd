@@ -10,7 +10,7 @@ var direction: Vector3 = Vector3.ZERO
 var going_to_home_pos: bool = true
 
 @onready var Sword_animation = $Shortsword/Sword_animation
-@onready var enemy_animation = $Wachter_zwaard_animated3/enemy_animation
+@onready var enemy_animation = $Wachter_zwaard_animated2/Enemy_animation
 @onready var health_bar: = $"SubViewport/Control/enemy_health_bar"
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 @onready var enemy_health_display := $health_display
@@ -41,23 +41,14 @@ func _process(_delta: float) -> void:
 	
 	# Attacking
 	# the enemy always looks at the player so an angle check is not needed
-	if attack_ready and nav.target_position == player.position and nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
-		attack
-		attack_ready = false
-		timer.start()
-		player_health_bar.value -= 1
-		player_health_bar.update_health_bar_text()
-		
-func attack():
-	enemy_animation.attack()
-
+	enemy_animation.attack(player.position)
 	if attack_ready and nav.target_position == player.position and nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
 	#	enemy_animation.attack()
 		dmge.play()
 		attack_ready = false
 		timer.start()
 		player_health_bar.value -= 1
-		
+		player_health_bar.update_health_bar_text()
 
 
 func _unhandled_input(_envent):
