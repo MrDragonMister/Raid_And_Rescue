@@ -1,6 +1,7 @@
 [gd_scene load_steps=17 format=4 uid="uid://c4uk6bgfdo1jq"]
 
 [ext_resource type="Script" path="res://scripts/animation_player.gd" id="1_4osq4"]
+[ext_resource type="Script" path="res://scenes/sword_animation.gd" id="1_31wct"]
 
 [sub_resource type="GDScript" id="GDScript_ig5vo"]
 script/source = "extends CharacterBody3D
@@ -274,20 +275,6 @@ _data = {
 "swing": SubResource("Animation_wj4l0")
 }
 
-[sub_resource type="GDScript" id="GDScript_6idin"]
-script/source = "extends AnimationPlayer
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tx6vp"]
 resource_name = "Material"
 cull_mode = 2
@@ -522,7 +509,7 @@ surface_material_override/2 = SubResource("StandardMaterial3D_4vsut")
 libraries = {
 "": SubResource("AnimationLibrary_7d0eh")
 }
-script = SubResource("GDScript_6idin")
+script = ExtResource("1_31wct")
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2.08568, 0, 0, 0, 1, 0, 1, 0)
@@ -542,6 +529,7 @@ transform = Transform3D(1, 0, 0, 0, 0.268619, 0.840204, 0, -0.465261, 0.485092, 
 
 [node name="maincharacteranimated3" type="Node3D" parent="."]
 transform = Transform3D(-0.25, 0, -2.18557e-08, 0, 0.25, 0, 2.18557e-08, 0, -0.25, 0, 0, 0)
+visible = false
 
 [node name="Armature" type="Node3D" parent="maincharacteranimated3"]
 
