@@ -5,7 +5,7 @@ const ENEMY_WEAPON_FORWARD_RANGE = 1
 const PLAYER_SEEKING_RANGE = 15
 
 var health : int = 100
-var attack_ready: bool = true
+var attack_cooldown_ready: bool = true
 var direction: Vector3 = Vector3.ZERO
 var going_to_home_pos: bool = true
 
@@ -23,9 +23,13 @@ var going_to_home_pos: bool = true
 @onready var slash2 = $slash2
 @onready var slash3 = $slash3
 @onready var slash4 = $slash4
-@onready var explosion = $explosion
 @onready var miss = $miss
+<<<<<<< Updated upstream
 @onready var home_position: Vector3 = Global.enemy_spawn_pos
+=======
+@onready var dmge =$dmge
+
+>>>>>>> Stashed changes
 
 func _ready():
 	health_bar.value = health
@@ -40,6 +44,7 @@ func _process(_delta: float) -> void:
 	
 	# Attacking
 	# the enemy always looks at the player so an angle check is not needed
+<<<<<<< Updated upstream
 	if attack_ready and nav.target_position == player.position and nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
 		#enemy_animation.attack() TODO
 		attack_ready = false
@@ -47,6 +52,16 @@ func _process(_delta: float) -> void:
 		player_health_bar.value -= 1
 		player_health_bar.update_health_bar_text()
 
+=======
+
+	if attack_cooldown_ready and nav.target_position == player.position and nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
+	#	enemy_animation.attack()
+		dmge.play()
+		attack_cooldown_ready = false
+		timer.start()
+		player_health_bar.value -= 1
+		
+>>>>>>> Stashed changes
 
 
 func _unhandled_input(_envent):
@@ -63,18 +78,12 @@ func _unhandled_input(_envent):
 					health_bar.value = health
 					await get_tree().create_timer(0.01).timeout
 				if health <= health_bar.min_value:
-					explosion.play()
-					self.visible = false
-					await _wait_for_player_to_finish(explosion)
 					enemy_manager.enemy_die()
 					queue_free()
 		else:
 			miss.play()
 			pass
 
-func _wait_for_player_to_finish(player: AudioStreamPlayer) -> void:
-	while player.playing:
-		await get_tree().create_timer(0.1).timeout
 
 	"""
 	if Input.is_action_just_pressed("interact"):
@@ -136,4 +145,4 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_timer_timeout():
-	attack_ready = true
+	attack_cooldown_ready = true
