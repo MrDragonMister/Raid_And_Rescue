@@ -7,6 +7,8 @@ func _ready():
 	health_bar.value = health
 	
 func _process(_delta: float) -> void:
+	if health_bar.value <= 0 or Input.is_action_just_pressed("die"):
+		get_tree().change_scene_to_file("res://scenes/menu.tscn")
 	pass
 	#if Input.is_action_just_pressed("attack"):
 		#for n in 10:

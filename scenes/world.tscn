@@ -9,6 +9,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dwqs16ln38cmi" path="res://assets/Axeversion3.obj" id="5_sjbiw"]
 [ext_resource type="Script" path="res://scripts/health_bar.gd" id="7_3o73v"]
 [ext_resource type="Script" path="res://scripts/cash_label.gd" id="8_2tph2"]
+[ext_resource type="AudioStream" uid="uid://v7k0jw3pe022" path="res://assets/explosion-sound-effect-1-free-on-gamesfxpackscom-241821.mp3" id="8_kudrf"]
 [ext_resource type="Texture2D" uid="uid://b30ncgp55kww5" path="res://assets/81PfRRG2F1L._AC_UF894,1000_QL80_.png" id="9_1cn78"]
 [ext_resource type="FontFile" uid="uid://bs4fhxtxfaswr" path="res://assets/fonts/ARIAL.TTF" id="9_egb4x"]
 
@@ -159,6 +160,9 @@ enemy_scene = ExtResource("4_pccng")
 [node name="Enemy" parent="world_objects/Enemy_manager" instance=ExtResource("4_pccng")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1.05, 14)
 
+[node name="explosion" type="AudioStreamPlayer" parent="world_objects/Enemy_manager"]
+stream = ExtResource("8_kudrf")
+
 [node name="gamegui" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 8
@@ -221,3 +225,23 @@ text = "Gold: 0"
 label_settings = SubResource("LabelSettings_hbqaq")
 vertical_alignment = 1
 script = ExtResource("8_2tph2")
+
+[node name="PanelContainer2" type="PanelContainer" parent="gamegui"]
+layout_mode = 0
+offset_left = -920.0
+offset_top = -241.0
+offset_right = -692.0
+offset_bottom = -181.0
+
+[node name="MarginContainer" type="MarginContainer" parent="gamegui/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="instructions" type="Label" parent="gamegui/PanelContainer2/MarginContainer"]
+layout_mode = 2
+text = "Instructions"
+label_settings = SubResource("LabelSettings_hbqaq")
+vertical_alignment = 1
