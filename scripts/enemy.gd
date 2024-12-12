@@ -16,7 +16,6 @@ var going_to_home_pos: bool = true
 @onready var enemy_health_display := $health_display
 @onready var enemy_manager = $".."
 @onready var player = $"../../Player"
-@onready var game_manager = %game_manager
 @onready var timer: Timer = $attack_cooldown
 @onready var player_health_bar = $"../../../gamegui/health_bar"
 @onready var slash1 = $slash1
@@ -41,9 +40,9 @@ func _process(_delta: float) -> void:
 	
 	# Attacking
 	# the enemy always looks at the player so an angle check is not needed
-	enemy_animation.attack(player.position)
-	if attack_ready and nav.target_position == player.position and nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
-	#	enemy_animation.attack()
+	if attack_ready and not going_to_home_pos and nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
+		enemy_animation.attack()
+		print("attack enemy")
 		dmge.play()
 		attack_ready = false
 		timer.start()
@@ -53,7 +52,6 @@ func _process(_delta: float) -> void:
 
 func _unhandled_input(_envent):
 	if Input.is_action_just_pressed("attack"):
-
 		var angle_from_player_2_enemy = Global.get_angle_to(player, self)
 		var distance_2_player = (position - player.position).length()
 		if distance_2_player < player.WEAPON_FORWARD_RANGE and angle_from_player_2_enemy < deg_to_rad(player.WEAPON_ANGLE_RANGE):
@@ -68,9 +66,6 @@ func _unhandled_input(_envent):
 					queue_free()
 		else:
 			miss.play()
-			pass
-
-
 	"""
 	if Input.is_action_just_pressed("interact"):
 		if health < health_bar.max_value:aa
