@@ -2,10 +2,12 @@ extends CharacterBody3D
 
 const ENEMY_SPEED = 3
 const ENEMY_WEAPON_FORWARD_RANGE = 1
+const PLAYER_SEEKING_RANGE = 15
 
 var health : int = 100
 var attack_ready: bool = true
 var direction: Vector3 = Vector3.ZERO
+var going_to_home_pos: bool = true
 
 @onready var sword_swing = $Shortsword/Sword_animation
 @onready var enemy_animation = $Wachter_zwaard_animated3/enemy_animation
@@ -22,7 +24,7 @@ var direction: Vector3 = Vector3.ZERO
 @onready var slash3 = $slash3
 @onready var slash4 = $slash4
 @onready var explosion = $explosion
-
+@onready var home_position: Vector3 = Global.enemy_spawn_pos
 
 func _ready():
 	health_bar.value = health
@@ -35,15 +37,19 @@ func _process(_delta: float) -> void:
 		# Rotate the Sprite3D to face the camera's position
 		enemy_health_display.look_at(camera.global_transform.origin, Vector3.UP)
 	
+	# Attacking
 	# the enemy always looks at the player so an angle check is not needed
 	if attack_ready and nav.target_position == player.position and nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
-		enemy_animation.attack()
+		#enemy_animation.attack() TODO
 		attack_ready = false
 		timer.start()
 		player_health_bar.value -= 1
+		player_health_bar.update_health_bar_text()
+
 
 func _unhandled_input(_envent):
 	if Input.is_action_just_pressed("attack"):
+
 		sword_swing.
 		var angle_from_player_2_enemy = Global.get_angle_to(player, self)
 		var distance_2_player = (position - player.position).length()
@@ -99,17 +105,29 @@ func play_random_sound():
 
 
 func _physics_process(delta: float) -> void:
-	nav.target_position = player.position
+	if (position - player.position).length() > PLAYER_SEEKING_RANGE: # distance to player
+		nav.target_position = home_position
+		going_to_home_pos = true
+		look_at(Vector3(home_position.x, position.y, home_position.z ))
+	else:
+		nav.target_position = player.position
+		going_to_home_pos = false
+		var player_xz_pos = Vector3()
+		look_at(Vector3(player.position.x, position.y, player.position.z)) #player_xz_pos
+		# position.y is used so the enemy always looks straight ahead
+		
 	direction = nav.get_next_path_position() - global_position
 	direction = direction.normalized()
 	
-	var player_xz_pos = Vector3(player.position.x, position.y, player.position.z)
-	look_at(player_xz_pos)
-
 	if is_on_floor():
 		velocity = direction * ENEMY_SPEED
+		if going_to_home_pos and (position - home_position).length() < 1:
+			 # Without this the enemy will jump in place
+			velocity = Vector3.ZERO
+		else:
+			velocity = direction * ENEMY_SPEED
 	else:
-	# Add the gravity.
+		# Add the gravity.
 		velocity += get_gravity() * delta * 2
 		
 	move_and_slide()

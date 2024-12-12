@@ -485,6 +485,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+show_percentage = false
 
 [node name="health_display" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
@@ -744,7 +745,7 @@ bones/31/rotation = Quaternion(-0.0202971, 0.0202971, 0.706815, 0.706815)
 bones/31/scale = Vector3(1, 1, 1)
 
 [node name="Cylinder" type="BoneAttachment3D" parent="Wachter_zwaard_animated3/Armature/Skeleton3D"]
-transform = Transform3D(4.47035e-08, 6.58072e-08, -0.3, 0.3, 1.06682e-08, 2.98023e-08, 2.00563e-08, -0.3, -7.30811e-08, -1.16229, 1.92072, 0.971656)
+transform = Transform3D(-5.21541e-07, 6.13368e-08, -0.3, 0.3, 4.2194e-07, -4.69387e-07, 4.17904e-07, -0.3, -5.92744e-08, -1.16229, 1.92073, 0.971655)
 bone_name = "Cylinder"
 bone_idx = 19
 
