@@ -9,7 +9,7 @@ var attack_ready: bool = true
 var direction: Vector3 = Vector3.ZERO
 var going_to_home_pos: bool = true
 
-@onready var Sword_animation = $Shortsword/Sword_animation
+# @onready var Sword_animation = $Shortsword/Sword_animation
 @onready var enemy_animation = $Wachter_zwaard_animated2/Enemy_animation
 @onready var health_bar: = $"SubViewport/Control/enemy_health_bar"
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
@@ -102,11 +102,11 @@ func _physics_process(delta: float) -> void:
 	if (position - player.position).length() > PLAYER_SEEKING_RANGE: # distance to player
 		nav.target_position = home_position
 		going_to_home_pos = true
-		look_at(Vector3(home_position.x, position.y, home_position.z ))
+		if position != home_position:
+			look_at(Vector3(home_position.x, position.y, home_position.z ))
 	else:
 		nav.target_position = player.position
 		going_to_home_pos = false
-		var player_xz_pos = Vector3()
 		look_at(Vector3(player.position.x, position.y, player.position.z)) #player_xz_pos
 		# position.y is used so the enemy always looks straight ahead
 		
