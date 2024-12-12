@@ -9,14 +9,13 @@ var attack_ready: bool = true
 var direction: Vector3 = Vector3.ZERO
 var going_to_home_pos: bool = true
 
-@onready var sword_swing = $Shortsword/Sword_animation
-@onready var enemy_animation = $Wachter_zwaard_animated3/enemy_animation
+@onready var Sword_animation = $Shortsword/Sword_animation
+@onready var enemy_animation = $Wachter_zwaard_animated2/Enemy_animation
 @onready var health_bar: = $"SubViewport/Control/enemy_health_bar"
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 @onready var enemy_health_display := $health_display
 @onready var enemy_manager = $".."
 @onready var player = $"../../Player"
-@onready var game_manager = %game_manager
 @onready var timer: Timer = $attack_cooldown
 @onready var player_health_bar = $"../../../gamegui/health_bar"
 @onready var slash1 = $slash1
@@ -31,7 +30,7 @@ var going_to_home_pos: bool = true
 func _ready():
 	health_bar.value = health
 	position = Global.enemy_spawn_pos
-
+	
 func _process(_delta: float) -> void:
 	# Get the camera from the current viewport
 	var camera = get_viewport().get_camera_3d()
@@ -41,26 +40,17 @@ func _process(_delta: float) -> void:
 	
 	# Attacking
 	# the enemy always looks at the player so an angle check is not needed
-	if attack_ready and nav.target_position == player.position and nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
-		#enemy_animation.attack() TODO
+	if attack_ready and not going_to_home_pos and nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
+		enemy_animation.attack()
+		dmge.play()
 		attack_ready = false
 		timer.start()
 		player_health_bar.value -= 1
 		player_health_bar.update_health_bar_text()
 
 
-	if attack_ready and nav.target_position == player.position and nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
-	#	enemy_animation.attack()
-		dmge.play()
-		attack_ready = false
-		timer.start()
-		player_health_bar.value -= 1
-		
-
-
 func _unhandled_input(_envent):
 	if Input.is_action_just_pressed("attack"):
-		#sword_swing.
 		var angle_from_player_2_enemy = Global.get_angle_to(player, self)
 		var distance_2_player = (position - player.position).length()
 		if distance_2_player < player.WEAPON_FORWARD_RANGE and angle_from_player_2_enemy < deg_to_rad(player.WEAPON_ANGLE_RANGE):
@@ -75,8 +65,7 @@ func _unhandled_input(_envent):
 					queue_free()
 		else:
 			miss.play()
-			pass
-
+			
 
 	"""
 	if Input.is_action_just_pressed("interact"):

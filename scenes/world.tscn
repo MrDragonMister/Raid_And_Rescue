@@ -1302,9 +1302,11 @@ script = ExtResource("7_3o73v")
 [node name="RichTextLabel" type="RichTextLabel" parent="gamegui/health_bar"]
 layout_mode = 0
 offset_right = 639.0
-offset_bottom = 45.0
+offset_bottom = 42.0
 theme_override_fonts/normal_font = ExtResource("9_egb4x")
 theme_override_font_sizes/normal_font_size = 40
+text = "					  100/100"
+scroll_active = false
 
 [node name="PanelContainer" type="PanelContainer" parent="gamegui"]
 layout_mode = 0
