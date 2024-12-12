@@ -42,7 +42,6 @@ func _process(_delta: float) -> void:
 	# the enemy always looks at the player so an angle check is not needed
 	if attack_ready and not going_to_home_pos and nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
 		enemy_animation.attack()
-		print("attack enemy")
 		dmge.play()
 		attack_ready = false
 		timer.start()
@@ -66,6 +65,8 @@ func _unhandled_input(_envent):
 					queue_free()
 		else:
 			miss.play()
+			
+
 	"""
 	if Input.is_action_just_pressed("interact"):
 		if health < health_bar.max_value:aa

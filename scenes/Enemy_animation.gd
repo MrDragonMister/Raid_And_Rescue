@@ -7,7 +7,5 @@ func _process(_delta: float) -> void:
 		play("Walking")
 
 func attack():
-	print("attack animation 1")
+	stop()
 	play("ArmatureAction")
-	print("attack animation 2")
-	
