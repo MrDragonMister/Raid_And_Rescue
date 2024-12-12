@@ -16,6 +16,6 @@ func spawn_enemy(pos):
 	Global.amount_of_enemies += 1
 	
 func enemy_die():
-	#explosion.play()
+	explosion.play()
 	Global.amount_of_enemies -= 1
 	gold.change_coins(3)
