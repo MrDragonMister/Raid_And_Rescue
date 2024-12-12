@@ -7,6 +7,7 @@ var health : int = 100
 var attack_ready: bool = true
 var direction: Vector3 = Vector3.ZERO
 
+@onready var enemy_animation = $Wachter_zwaard_animated3/enemy_animation
 @onready var health_bar: = $"SubViewport/Control/enemy_health_bar"
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 @onready var enemy_health_display := $health_display
@@ -34,7 +35,9 @@ func _process(_delta: float) -> void:
 		enemy_health_display.look_at(camera.global_transform.origin, Vector3.UP)
 	
 	# the enemy always looks at the player so an angle check is not needed
-	if nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE and attack_ready:
+
+	if attack_ready and nav.target_position == player.position and nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
+		enemy_animation.attack()
 		attack_ready = false
 		timer.start()
 		player_health_bar.value -= 1

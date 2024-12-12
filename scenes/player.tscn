@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://c4uk6bgfdo1jq"]
+[gd_scene load_steps=17 format=4 uid="uid://c4uk6bgfdo1jq"]
 
 [ext_resource type="Script" path="res://scripts/animation_player.gd" id="1_4osq4"]
 
@@ -213,6 +213,80 @@ roughness = 0.7
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4vsut"]
 albedo_color = Color(0.386696, 0.201499, 0.0155, 1)
+
+[sub_resource type="Animation" id="Animation_wj4l0"]
+resource_name = "swing"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.489266, 0.734507, -0.779858), Vector3(0.489266, 1.21441, -0.680158), Vector3(-0.0252149, 0.774201, -0.680158), Vector3(0.489266, 0.734507, -0.779858)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.392699, 1.68237e-14, 1.5708), Vector3(0.644891, -0.181182, 1.27498), Vector3(0.223078, 0.340836, 0.292657), Vector3(0.392699, 1.68237e-14, 1.5708)]
+}
+
+[sub_resource type="Animation" id="Animation_s8xr8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.489266, 0.734507, -0.779858)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.392699, 1.68237e-14, 1.5708)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7d0eh"]
+_data = {
+"RESET": SubResource("Animation_s8xr8"),
+"swing": SubResource("Animation_wj4l0")
+}
+
+[sub_resource type="GDScript" id="GDScript_6idin"]
+script/source = "extends AnimationPlayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tx6vp"]
 resource_name = "Material"
@@ -436,13 +510,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.814, 0)
 shape = SubResource("CapsuleShape3D_dj3um")
 
 [node name="Shortsword" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-09, -0.1, 0, 0.092388, -4.03841e-09, -0.0382683, 0.0382683, -1.67276e-09, 0.092388, 0.489266, 0.734507, -0.779858)
+transform = Transform3D(-4.37114e-09, -0.1, 1.55431e-15, 0.092388, -4.03841e-09, -0.0382683, 0.0382683, -1.67276e-09, 0.092388, 0.489266, 0.734507, -0.779858)
 layers = 4
 mesh = SubResource("ArrayMesh_851ws")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_6hxts")
 surface_material_override/1 = SubResource("StandardMaterial3D_ftafy")
 surface_material_override/2 = SubResource("StandardMaterial3D_4vsut")
+
+[node name="Sword_animation" type="AnimationPlayer" parent="Shortsword"]
+libraries = {
+"": SubResource("AnimationLibrary_7d0eh")
+}
+script = SubResource("GDScript_6idin")
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2.08568, 0, 0, 0, 1, 0, 1, 0)
@@ -681,8 +761,7 @@ bones/29/scale = Vector3(1, 1, 1)
 mesh = SubResource("ArrayMesh_c34co")
 skin = SubResource("Skin_ea6h8")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="maincharacteranimated3"]
-root_node = NodePath("../../maincharacteranimated3")
+[node name="player_animation" type="AnimationPlayer" parent="maincharacteranimated3"]
 libraries = {
 "": SubResource("AnimationLibrary_jhmar")
 }
