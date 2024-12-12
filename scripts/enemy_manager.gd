@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var enemy_scene : PackedScene
-@onready var cash = $"../../gamegui/PanelContainer/MarginContainer/GridContainer/cash"
+@onready var gold = $"../../gamegui/PanelContainer/MarginContainer/GridContainer/gold"
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("spawn enemy"):
@@ -16,4 +16,4 @@ func spawn_enemy(pos):
 	
 func enemy_die():
 	Global.amount_of_enemies -= 1
-	cash.change_coins(3)
+	gold.change_coins(3)

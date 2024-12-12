@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://i2ludwu5nrhj"]
+[gd_scene load_steps=28 format=3 uid="uid://i2ludwu5nrhj"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_6oyjt"]
 [ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="2_7s55m"]
@@ -9,6 +9,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dwqs16ln38cmi" path="res://assets/Axeversion3.obj" id="5_sjbiw"]
 [ext_resource type="Script" path="res://scripts/health_bar.gd" id="7_3o73v"]
 [ext_resource type="Script" path="res://scripts/cash_label.gd" id="8_2tph2"]
+[ext_resource type="Texture2D" uid="uid://b30ncgp55kww5" path="res://assets/81PfRRG2F1L._AC_UF894,1000_QL80_.png" id="9_1cn78"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ij0ug"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -185,17 +186,24 @@ offset_bottom = -463.0
 
 [node name="MarginContainer" type="MarginContainer" parent="gamegui/PanelContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
 
 [node name="GridContainer" type="GridContainer" parent="gamegui/PanelContainer/MarginContainer"]
 layout_mode = 2
 columns = 2
 
-[node name="cash" type="Label" parent="gamegui/PanelContainer/MarginContainer/GridContainer"]
+[node name="TextureRect" type="TextureRect" parent="gamegui/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-text = "Cash: 0"
+texture = ExtResource("9_1cn78")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="gold" type="Label" parent="gamegui/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Gold: 0"
 label_settings = SubResource("LabelSettings_hbqaq")
 vertical_alignment = 1
 script = ExtResource("8_2tph2")
-
-[node name="TextureRect" type="TextureRect" parent="gamegui/PanelContainer/MarginContainer/GridContainer"]
-layout_mode = 2

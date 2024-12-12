@@ -1,7 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://cny8rnjsf4uw5"]
+[gd_scene load_steps=14 format=4 uid="uid://cny8rnjsf4uw5"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_4h4db"]
 [ext_resource type="Script" path="res://scripts/animation_player.gd" id="2_huilv"]
+[ext_resource type="AudioStream" uid="uid://8rxcrefsn6is" path="res://assets/Slash1.wav" id="3_tvia6"]
+[ext_resource type="AudioStream" uid="uid://dttyf1usfjsix" path="res://assets/Slash2.wav" id="4_1udhy"]
+[ext_resource type="AudioStream" uid="uid://djr58mceawmon" path="res://assets/Slash3.wav" id="5_62jkh"]
+[ext_resource type="AudioStream" uid="uid://ws2x5tjywmdn" path="res://assets/Slash4.wav" id="6_8p5rh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eca12"]
 radius = 0.375
@@ -491,5 +495,17 @@ script = ExtResource("2_huilv")
 [node name="attack_cooldown" type="Timer" parent="."]
 process_callback = 0
 one_shot = true
+
+[node name="slash1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tvia6")
+
+[node name="slash2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1udhy")
+
+[node name="slash3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_62jkh")
+
+[node name="slash4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_8p5rh")
 
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_timer_timeout"]

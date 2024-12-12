@@ -15,6 +15,11 @@ var direction: Vector3 = Vector3.ZERO
 @onready var game_manager = %game_manager
 @onready var timer: Timer = $attack_cooldown
 @onready var player_health_bar = $"../../../gamegui/health_bar"
+@onready var slash1 = $slash1
+@onready var slash2 = $slash2
+@onready var slash3 = $slash3
+@onready var slash4 = $slash4
+
 
 func _ready():
 	health_bar.value = health
@@ -39,7 +44,7 @@ func _unhandled_input(_envent):
 		var angle_from_player_2_enemy = Global.get_angle_to(player, self)
 		var distance_2_player = (position - player.position).length()
 		if distance_2_player < player.WEAPON_FORWARD_RANGE and angle_from_player_2_enemy < deg_to_rad(player.WEAPON_ANGLE_RANGE):
-			# hit sound effect
+			play_random_sound()
 			if health > health_bar.min_value:
 				for n in 10:
 					health -= 1
@@ -59,6 +64,28 @@ func _unhandled_input(_envent):
 				health_bar.value = health
 				await get_tree().create_timer(0.01).timeout
 	"""
+
+func play_random_sound():
+	print("play sound")
+	var random_number = randi_range(1, 4)  # Genereer een willekeurig getal tussen 1 en 4
+	
+	var selected_player : AudioStreamPlayer = null  # Zorg ervoor dat dit een AudioStreamPlayer is
+	print(random_number)
+	if random_number == 1:
+		selected_player = slash1
+	elif random_number == 2:
+		selected_player = slash2
+	elif random_number == 3:
+		selected_player = slash3
+	elif random_number == 4:
+		selected_player = slash4
+
+	# Controleer of selected_player daadwerkelijk een AudioStreamPlayer is
+	if selected_player != null:
+		selected_player.play()  # Speel het geluid af
+	else:
+		print("Fout: selected_player is null, controleer de naam van de nodes.")
+
 
 func _physics_process(delta: float) -> void:
 	nav.target_position = player.position
