@@ -85,7 +85,7 @@ transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 84.789, 0, -0.5, 0)
 use_collision = true
 
 [node name="PlayerSpawn" type="CSGBox3D" parent="world_objects/NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, -0.097, 0.05, 12.399)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 12.399)
 visible = false
 material_overlay = SubResource("StandardMaterial3D_s7uxg")
 use_collision = true
