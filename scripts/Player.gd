@@ -10,6 +10,8 @@ const JUMP_XZ_ACCELERATION = 1.2
 # sfx en in de toekomst mischien nog particles nodig om duidelijk te maken of je raakt of niet
 const WEAPON_ANGLE_RANGE = 45 # nu nog in graden voor testen, later in rad voor optimalisatie
 const WEAPON_FORWARD_RANGE = 2
+const FOO: int = 1
+const BAR: int = 2
 
 #headbob variables
 const BOB_FREQ = 2.0

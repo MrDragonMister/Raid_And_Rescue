@@ -114,12 +114,13 @@ func _physics_process(delta: float) -> void:
 	direction = direction.normalized()
 	
 	if is_on_floor():
-		velocity = direction * ENEMY_SPEED
 		if going_to_home_pos and (position - home_position).length() < 1:
 			 # Without this the enemy will jump in place
 			velocity = Vector3.ZERO
 		else:
 			velocity = direction * ENEMY_SPEED
+		if not going_to_home_pos and nav.distance_to_target() < ENEMY_WEAPON_FORWARD_RANGE:
+			velocity = Vector3.ZERO
 	else:
 		# Add the gravity.
 		velocity += get_gravity() * delta * 2

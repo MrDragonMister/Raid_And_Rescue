@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://iaxpvyiopg2w"]
+[gd_scene load_steps=2 format=3 uid="uid://da25hiyod03sb"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_t44i5"]
 
@@ -6,10 +6,12 @@
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(3.98793, 0, 0, 0, 0.15996, 0, 0, 0, 5.19407, -0.0532753, 0.0415821, 0.0421207)
+use_collision = true
 size = Vector3(1.25781, 1, 1)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(4.85104, 0, 0, 0, 4.63295, 0, 0, 0, 2.21799, -0.0898668, 1.70854, 0.0212152)
+use_collision = true
 size = Vector3(1, 0.733276, 2.18945)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D2"]
@@ -44,4 +46,5 @@ size = Vector3(0.335815, 1, 0.37439)
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(6.15864, 0, 0, 0, 1.77872, 0, 0, 0, 5.24194, -0.138516, 4.16798, -0.131966)
+use_collision = true
 mesh = SubResource("PrismMesh_t44i5")

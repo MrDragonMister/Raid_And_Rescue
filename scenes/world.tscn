@@ -1,9 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://i2ludwu5nrhj"]
+[gd_scene load_steps=33 format=3 uid="uid://i2ludwu5nrhj"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_6oyjt"]
 [ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="2_7s55m"]
 [ext_resource type="ArrayMesh" uid="uid://bcwbka1s71mx0" path="res://assets/shortsword2test.obj" id="2_h5d0j"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="3_bx532"]
 [ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://scenes/enemy.tscn" id="4_pccng"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="5_b121a"]
 [ext_resource type="ArrayMesh" uid="uid://dwqs16ln38cmi" path="res://assets/Axeversion3.obj" id="5_sjbiw"]
@@ -18,12 +17,12 @@
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_w3uha"]
+[sub_resource type="Sky" id="Sky_j6bck"]
 sky_material = SubResource("ProceduralSkyMaterial_ij0ug")
 
 [sub_resource type="Environment" id="Environment_rjyjm"]
 background_mode = 2
-sky = SubResource("Sky_w3uha")
+sky = SubResource("Sky_j6bck")
 tonemap_mode = 2
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_n6vw8"]
@@ -177,7 +176,7 @@ surface_material_override/5 = SubResource("StandardMaterial3D_bqy7l")
 
 [node name="Player" parent="world_objects" instance=ExtResource("2_7s55m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0.55, 23)
-script = ExtResource("3_bx532")
+visible = false
 
 [node name="Enemy_manager" type="Node3D" parent="world_objects"]
 script = ExtResource("5_b121a")

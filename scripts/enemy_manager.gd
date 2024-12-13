@@ -5,13 +5,19 @@ extends Node3D
 @onready var explosion = $explosion
 @onready var moneysound = $moneysound
 
+func _ready():
+	# Spawn first enemies
+	spawn_enemy(10, 0, 0)
+	spawn_enemy(-20, 0, 10)
+	spawn_enemy(-20, 0, 15)
+
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("spawn enemy"):
-		spawn_enemy(Vector3(randi_range(-10, 10), 0, randi_range(-10, 10)))
+		spawn_enemy(randi_range(-10, 10), 0, randi_range(-10, 10))
 	
-func spawn_enemy(pos):
+func spawn_enemy(x, y, z):
 	var mob = enemy_scene.instantiate()
-	Global.enemy_spawn_pos = pos
+	Global.enemy_spawn_pos = Vector3(x, y, z)
 	add_child(mob)
 	# This needs to be global because you get a null instance when 2 enemies die at the same time
 	Global.amount_of_enemies += 1
