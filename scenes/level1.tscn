@@ -319,6 +319,7 @@ mouse to look around
 WASD to walk
 spacebar to jump
 left-click to attack
+C to spawn new enemies
 shift + esc to quit game
 _____________________________"
 label_settings = SubResource("LabelSettings_1x25p")
