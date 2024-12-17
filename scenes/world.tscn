@@ -174,7 +174,7 @@ surface_material_override/3 = SubResource("StandardMaterial3D_sibq6")
 surface_material_override/4 = SubResource("StandardMaterial3D_8ejrw")
 surface_material_override/5 = SubResource("StandardMaterial3D_bqy7l")
 
-[node name="Player" parent="world_objects" instance=ExtResource("2_7s55m")]
+[node name="player" parent="world_objects" instance=ExtResource("2_7s55m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0.55, 23)
 visible = false
 
