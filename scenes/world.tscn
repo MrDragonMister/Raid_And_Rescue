@@ -222,8 +222,9 @@ offset_right = 639.0
 offset_bottom = 42.0
 theme_override_fonts/normal_font = ExtResource("9_egb4x")
 theme_override_font_sizes/normal_font_size = 40
-text = "					  100/100"
+text = "			  	Health: 100/100"
 scroll_active = false
+text_direction = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="gamegui"]
 layout_mode = 0
