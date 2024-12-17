@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="3_82y08"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="4_l0vb5"]
 [ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://scenes/enemy.tscn" id="5_tr3a2"]
-[ext_resource type="AudioStream" uid="uid://v7k0jw3pe022" path="res://assets/explosion-sound-effect-1-free-on-gamesfxpackscom-241821.mp3" id="6_ik658"]
-[ext_resource type="AudioStream" uid="uid://b8jg5wbivnw7b" path="res://assets/money-pickup-2-89563.mp3" id="7_a20ky"]
+[ext_resource type="AudioStream" uid="uid://v7k0jw3pe022" path="res://assets/sounds/explosion-sound-effect-1-free-on-gamesfxpackscom-241821.mp3" id="6_ik658"]
+[ext_resource type="AudioStream" uid="uid://b8jg5wbivnw7b" path="res://assets/sounds/money-pickup-2-89563.mp3" id="7_a20ky"]
 [ext_resource type="Script" path="res://scripts/health_bar.gd" id="8_6kcor"]
 [ext_resource type="FontFile" uid="uid://bs4fhxtxfaswr" path="res://assets/fonts/ARIAL.TTF" id="9_yq58h"]
 [ext_resource type="Texture2D" uid="uid://b30ncgp55kww5" path="res://assets/81PfRRG2F1L._AC_UF894,1000_QL80_.png" id="10_a023x"]
@@ -165,20 +165,20 @@ height = 15.1261
 [node name="house" parent="world_objects/NavigationRegion3D/houses" instance=ExtResource("2_p8885")]
 transform = Transform3D(-6.48682e-08, 0, 2.00666, 0, 1, 0, -1.48401, 0, -8.77138e-08, -19.292, 0, 1.66667)
 
-[node name="house6" parent="world_objects/NavigationRegion3D/houses" instance=ExtResource("2_p8885")]
-transform = Transform3D(-0.159161, 0.0369066, 1.20303, -0.00640597, 1.39941, -0.0343481, -0.879694, -0.016868, -0.217412, -3.8303, -3.8147e-06, -12.4054)
-
 [node name="house2" parent="world_objects/NavigationRegion3D/houses" instance=ExtResource("2_p8885")]
 transform = Transform3D(0.10415, 0, 2.24238, 0, 1, 0, -1.01985, 0, 0.228998, 14.746, 0, 10.142)
 
 [node name="house3" parent="world_objects/NavigationRegion3D/houses" instance=ExtResource("2_p8885")]
 transform = Transform3D(-0.802505, 0, -0.596645, 0, 1, 0, 0.596645, 0, -0.802505, -18.6957, 0, -13.8893)
 
+[node name="house4" parent="world_objects/NavigationRegion3D/houses" instance=ExtResource("2_p8885")]
+transform = Transform3D(2.69557, 0, -0.0403929, 0, 1.5, 0, 0.0482282, 0, 2.25764, -10.2953, 0, 15.7339)
+
 [node name="house5" parent="world_objects/NavigationRegion3D/houses" instance=ExtResource("2_p8885")]
 transform = Transform3D(-0.906897, 0, 0.421352, 0, 1, 0, -0.421352, 0, -0.906897, 10.8397, 0.121502, -13.1022)
 
-[node name="house4" parent="world_objects/NavigationRegion3D/houses" instance=ExtResource("2_p8885")]
-transform = Transform3D(1.79704, 0, -0.0269284, 0, 1, 0, 0.032152, 0, 1.50508, -10.2953, 0, 15.7339)
+[node name="house6" parent="world_objects/NavigationRegion3D/houses" instance=ExtResource("2_p8885")]
+transform = Transform3D(-0.159161, 0.0369066, 1.20303, -0.00640597, 1.39941, -0.0343481, -0.879694, -0.016868, -0.217412, -3.8303, -3.8147e-06, -12.4054)
 
 [node name="Player" parent="world_objects" instance=ExtResource("3_82y08")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243093, 0, 11.1558)

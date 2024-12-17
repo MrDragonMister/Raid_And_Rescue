@@ -1,13 +1,13 @@
 [gd_scene load_steps=23 format=4 uid="uid://cny8rnjsf4uw5"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_4h4db"]
-[ext_resource type="AudioStream" uid="uid://8rxcrefsn6is" path="res://assets/Slash1.wav" id="3_tvia6"]
-[ext_resource type="AudioStream" uid="uid://dttyf1usfjsix" path="res://assets/Slash2.wav" id="4_1udhy"]
-[ext_resource type="AudioStream" uid="uid://djr58mceawmon" path="res://assets/Slash3.wav" id="5_62jkh"]
-[ext_resource type="AudioStream" uid="uid://ws2x5tjywmdn" path="res://assets/Slash4.wav" id="6_8p5rh"]
+[ext_resource type="AudioStream" uid="uid://8rxcrefsn6is" path="res://assets/sounds/Slash1.wav" id="3_tvia6"]
+[ext_resource type="AudioStream" uid="uid://dttyf1usfjsix" path="res://assets/sounds/Slash2.wav" id="4_1udhy"]
+[ext_resource type="AudioStream" uid="uid://djr58mceawmon" path="res://assets/sounds/Slash3.wav" id="5_62jkh"]
+[ext_resource type="AudioStream" uid="uid://ws2x5tjywmdn" path="res://assets/sounds/Slash4.wav" id="6_8p5rh"]
 [ext_resource type="Script" path="res://scripts/Enemy_animation.gd" id="7_kqp6o"]
-[ext_resource type="AudioStream" uid="uid://3686spnkhh7d" path="res://assets/near-miss-swing-whoosh-18-233442.mp3" id="8_871po"]
-[ext_resource type="AudioStream" uid="uid://b10rgopct2gd5" path="res://assets/slap-hurt-pain-sound-effect-262618.mp3" id="9_ui64k"]
+[ext_resource type="AudioStream" uid="uid://3686spnkhh7d" path="res://assets/sounds/miss.mp3" id="8_871po"]
+[ext_resource type="AudioStream" uid="uid://b10rgopct2gd5" path="res://assets/sounds/hurt.mp3" id="9_ui64k"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eca12"]
 radius = 0.375
@@ -754,7 +754,7 @@ bones/31/rotation = Quaternion(-0.0202971, 0.0202971, 0.706815, 0.706815)
 bones/31/scale = Vector3(1, 1, 1)
 
 [node name="Cylinder" type="BoneAttachment3D" parent="Wachter_zwaard_animated2/Armature/Skeleton3D"]
-transform = Transform3D(-5.51343e-07, 4.79258e-08, -0.3, 0.3, 4.35351e-07, -5.1409e-07, 4.15906e-07, -0.3, -5.52751e-08, -1.16229, 1.92073, 0.971655)
+transform = Transform3D(-5.21541e-07, 6.13368e-08, -0.3, 0.3, 4.2194e-07, -4.69387e-07, 4.17904e-07, -0.3, -5.92744e-08, -1.16229, 1.92073, 0.971655)
 bone_name = "Cylinder"
 bone_idx = 19
 

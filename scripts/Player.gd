@@ -10,8 +10,6 @@ const JUMP_XZ_ACCELERATION = 1.2
 # sfx en in de toekomst mischien nog particles nodig om duidelijk te maken of je raakt of niet
 const WEAPON_ANGLE_RANGE = 45 # nu nog in graden voor testen, later in rad voor optimalisatie
 const WEAPON_FORWARD_RANGE = 2
-const FOO: int = 1
-const BAR: int = 2
 
 #headbob variables
 const BOB_FREQ = 2.0
@@ -21,14 +19,21 @@ var t_bob = 0.0
 @onready var player: CharacterBody3D = $"."
 @onready var head: Node3D = $Head
 @onready var campoint: Node3D = $Head/Campoint
+@onready var enemy  = $"../Enemy_manager/Enemy"
 
 @onready var camera1: Camera3D = $Head/Camera3D				#first person
 @onready var camera2: Camera3D = $Head/Campoint/Camera3D2 	#third person
 @onready var cameraf: Camera3D = $Head/Camera3DF			#freecam
+@onready var slash1 = $Slash1
+@onready var slash2 = $slash2
+@onready var slash3 = $slash3
+@onready var slash4 = $slash4
+@onready var miss = $miss
+@onready var hurt = $hurt
+
 var active_camera: Camera3D
 var freecam_speed = 10.0
 var freecam_sensitivity = 0.25
-
 
 func _ready() -> void:
 	#reset camera
@@ -113,13 +118,19 @@ func _unhandled_input(event: InputEvent) -> void:
 			rotation.x = clamp(rotation.x, -89, 89)
 			rotation.y -= event.relative.x * freecam_sensitivity
 			cameraf.rotation_degrees = Vector3(rotation.x, rotation.y, 0)
+			
+	if Input.is_action_just_pressed("attack") and Global.amount_of_enemies == 0:
+		# if there are enemies, they will handle the sound
+		print("player miss")
+		miss.play()
+
 
 #player movement
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta * 2
-
+	
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
 	var direction: Vector3 = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -146,7 +157,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x *= JUMP_XZ_ACCELERATION
 		velocity.z *= JUMP_XZ_ACCELERATION 
 		
-	print(velocity)
 	move_and_slide()
 	
 	# head bobbing
@@ -158,4 +168,3 @@ func headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
 	pos.y = BOB_AMP * sin(time * BOB_FREQ)+0.3
 	return pos
-	

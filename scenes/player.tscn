@@ -1,8 +1,14 @@
-[gd_scene load_steps=18 format=4 uid="uid://c4uk6bgfdo1jq"]
+[gd_scene load_steps=24 format=4 uid="uid://c4uk6bgfdo1jq"]
 
 [ext_resource type="Script" path="res://scripts/sword_animation.gd" id="1_31wct"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_yoyyw"]
 [ext_resource type="Script" path="res://scripts/mesh_instance_3d.gd" id="3_151dt"]
+[ext_resource type="AudioStream" uid="uid://3686spnkhh7d" path="res://assets/sounds/miss.mp3" id="4_2fvi7"]
+[ext_resource type="AudioStream" uid="uid://b10rgopct2gd5" path="res://assets/sounds/hurt.mp3" id="5_gbdga"]
+[ext_resource type="AudioStream" uid="uid://8rxcrefsn6is" path="res://assets/sounds/Slash1.wav" id="6_c81xg"]
+[ext_resource type="AudioStream" uid="uid://dttyf1usfjsix" path="res://assets/sounds/Slash2.wav" id="7_nlu1p"]
+[ext_resource type="AudioStream" uid="uid://djr58mceawmon" path="res://assets/sounds/Slash3.wav" id="8_p6rme"]
+[ext_resource type="AudioStream" uid="uid://ws2x5tjywmdn" path="res://assets/sounds/Slash4.wav" id="9_5plgg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dj3um"]
 radius = 0.375
@@ -607,3 +613,21 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.814, 0)
 mesh = SubResource("CapsuleMesh_hj65t")
 script = ExtResource("3_151dt")
+
+[node name="Slash1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_c81xg")
+
+[node name="Slash2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_nlu1p")
+
+[node name="Slash3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_p6rme")
+
+[node name="Slash4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_5plgg")
+
+[node name="miss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2fvi7")
+
+[node name="hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_gbdga")
