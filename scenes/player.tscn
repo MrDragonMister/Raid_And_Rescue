@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=4 uid="uid://c4uk6bgfdo1jq"]
+[gd_scene load_steps=18 format=4 uid="uid://c4uk6bgfdo1jq"]
 
 [ext_resource type="Script" path="res://scripts/sword_animation.gd" id="1_31wct"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_yoyyw"]
+[ext_resource type="Script" path="res://scripts/mesh_instance_3d.gd" id="3_151dt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dj3um"]
 radius = 0.375
@@ -604,5 +605,5 @@ libraries = {
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.814, 0)
-visible = false
 mesh = SubResource("CapsuleMesh_hj65t")
+script = ExtResource("3_151dt")

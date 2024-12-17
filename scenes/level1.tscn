@@ -201,7 +201,7 @@ transform = Transform3D(6.15864, 0, 0, 0, 1.77872, 0, 0, 0, 1.84497, 6.14467, 4.
 mesh = SubResource("PrismMesh_0nyiu")
 
 [node name="Player" parent="world_objects" instance=ExtResource("3_82y08")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.1558)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243093, 0, 11.1558)
 
 [node name="Enemy_manager" type="Node3D" parent="world_objects"]
 script = ExtResource("4_l0vb5")
