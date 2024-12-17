@@ -1,8 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://da25hiyod03sb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_raddu"]
+shading_mode = 2
+vertex_color_is_srgb = true
+albedo_color = Color(0.84, 0.84, 0.84, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_culqt"]
+shading_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mucju"]
 
