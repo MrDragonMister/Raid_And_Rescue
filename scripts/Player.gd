@@ -146,6 +146,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x *= JUMP_XZ_ACCELERATION
 		velocity.z *= JUMP_XZ_ACCELERATION 
 		
+	print(velocity)
 	move_and_slide()
 	
 	# head bobbing

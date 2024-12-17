@@ -178,7 +178,7 @@ transform = Transform3D(-0.906897, 0, 0.421352, 0, 1, 0, -0.421352, 0, -0.906897
 transform = Transform3D(1.79704, 0, -0.0269284, 0, 1, 0, 0.032152, 0, 1.50508, -10.2953, 0, 15.7339)
 
 [node name="Player" parent="world_objects" instance=ExtResource("3_82y08")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.1558)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243093, 0, 11.1558)
 
 [node name="Enemy_manager" type="Node3D" parent="world_objects"]
 script = ExtResource("4_l0vb5")
