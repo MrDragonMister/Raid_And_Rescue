@@ -2,13 +2,13 @@ extends CharacterBody3D
 
 # @onready var Sword_animation = $Shortsword/Sword_animation
 @onready var enemy_animation: AnimationPlayer = $Wachter_zwaard_animated2/Enemy_animation
-@onready var health_bar: = $"SubViewport/Control/enemy_health_bar"
+@onready var health_bar: ProgressBar = $"SubViewport/Control/enemy_health_bar"
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
-@onready var enemy_health_display := $health_display
+@onready var enemy_health_display: Sprite3D = $health_display
 @onready var enemy_manager: Node3D = $".."
 @onready var player: CharacterBody3D = $"../../Player"
 @onready var timer: Timer = $attack_cooldown
-@onready var player_health_bar = $"../../../gamegui/health_bar"
+@onready var player_health_bar: ProgressBar = $"../../../gamegui/health_bar"
 @onready var home_position: Vector3 = Global.enemy_spawn_pos
 @onready var slash1: AudioStreamPlayer = $slash1
 @onready var slash2: AudioStreamPlayer = $slash2
@@ -72,11 +72,11 @@ func _unhandled_input(_envent):
 			print(Global.should_play_miss)
 			await get_tree().create_timer(get_process_delta_time() * 1).timeout
 			if Global.should_play_miss:
-				player.miss.play()
+				miss.play()
 				
 	if Input.is_action_just_released("attack"):
 		Global.should_play_miss = true
-			
+	
 	
 	"""
 	if Input.is_action_just_pressed("interact"):
@@ -91,7 +91,7 @@ func _physics_process(delta: float) -> void:
 	if (position - player.position).length() > PLAYER_SEEKING_RANGE: # distance to player
 		nav.target_position = home_position
 		going_to_home_pos = true
-		if position != home_position:
+		if position != Vector3(home_position.x, position.y, home_position.z ):
 			look_at(Vector3(home_position.x, position.y, home_position.z ))
 	else:
 		nav.target_position = player.position

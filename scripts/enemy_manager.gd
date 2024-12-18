@@ -21,8 +21,7 @@ func spawn_enemy(x, y, z):
 	add_child(mob)
 	# This needs to be global because you get a null instance when 2 enemies die at the same time
 	Global.amount_of_enemies += 1
-	print("amount of enemies = ", Global.amount_of_enemies)
-	
+
 func enemy_die():
 	explosion.play()
 	Global.amount_of_enemies -= 1

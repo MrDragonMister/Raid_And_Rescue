@@ -24,12 +24,7 @@ var t_bob = 0.0
 @onready var camera1: Camera3D = $Head/Camera3D				#first person
 @onready var camera2: Camera3D = $Head/Campoint/Camera3D2 	#third person
 @onready var cameraf: Camera3D = $Head/Camera3DF			#freecam
-@onready var slash1 = $Slash1
-@onready var slash2 = $slash2
-@onready var slash3 = $slash3
-@onready var slash4 = $slash4
 @onready var miss = $miss
-@onready var hurt = $hurt
 
 var active_camera: Camera3D
 var freecam_speed = 10.0
