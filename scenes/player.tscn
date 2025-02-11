@@ -578,20 +578,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.814, 0)
 mesh = SubResource("CapsuleMesh_hj65t")
 script = ExtResource("3_151dt")
 
-[node name="Slash1" type="AudioStreamPlayer" parent="."]
+[node name="sounds" type="Node" parent="."]
+
+[node name="Slash1" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("6_c81xg")
 
-[node name="Slash2" type="AudioStreamPlayer" parent="."]
+[node name="Slash2" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("7_nlu1p")
 
-[node name="Slash3" type="AudioStreamPlayer" parent="."]
+[node name="Slash3" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("8_p6rme")
 
-[node name="Slash4" type="AudioStreamPlayer" parent="."]
+[node name="Slash4" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("9_5plgg")
 
-[node name="miss" type="AudioStreamPlayer" parent="."]
+[node name="miss" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("4_2fvi7")
 
-[node name="hurt" type="AudioStreamPlayer" parent="."]
+[node name="hurt" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("5_gbdga")

@@ -10,12 +10,12 @@ extends CharacterBody3D
 @onready var timer: Timer = $attack_cooldown
 @onready var player_health_bar: ProgressBar = $"../../../gamegui/health_bar"
 @onready var home_position: Vector3 = Global.enemy_spawn_pos
-@onready var slash1: AudioStreamPlayer = $slash1
-@onready var slash2: AudioStreamPlayer = $slash2
-@onready var slash3: AudioStreamPlayer = $slash3
-@onready var slash4: AudioStreamPlayer = $slash4
-@onready var hurt: AudioStreamPlayer = $dmge
-@onready var miss: AudioStreamPlayer = $miss
+@onready var slash1: AudioStreamPlayer = $sounds/slash1
+@onready var slash2: AudioStreamPlayer = $sounds/slash2
+@onready var slash3: AudioStreamPlayer = $sounds/slash3
+@onready var slash4: AudioStreamPlayer = $sounds/slash4
+@onready var hurt: AudioStreamPlayer = $sounds/dmge
+@onready var miss: AudioStreamPlayer = $sounds/miss
 
 const ENEMY_SPEED = 3
 const ENEMY_WEAPON_FORWARD_RANGE = 1
