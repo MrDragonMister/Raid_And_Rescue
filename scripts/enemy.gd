@@ -44,16 +44,17 @@ func _process(_delta: float) -> void:
 	# Attacking
 	# the enemy always looks at the player so an angle check is not needed
 	if attack_ready and not going_to_home_pos and nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
-		enemy_animation.attack()
-		hurt.play()
 		attack_ready = false
+		enemy_animation.attack()
 		timer.start()
+		await get_tree().create_timer(0.5).timeout
+		hurt.play()
 		player_health_bar.value -= 1
 		player_health_bar.update_health_bar_text()
-
-
-func _unhandled_input(_envent):
-	if Input.is_action_just_pressed("attack"): #and (position - player.position).length() < player.WEAPON_FORWARD_RANGE and Global.get_angle_to(player, self) < deg_to_rad(player.WEAPON_ANGLE_RANGE):
+	
+	# This needs to be in process if the code is 'is_action_pressed' so it's checked every frame
+	# 'is_action_JUST_pressed' is more efficient since it can be put in unhandled input, which isn't checked every frame
+	if Input.is_action_just_pressed("attack") and player.attack_ready:
 		var angle_from_player_2_enemy = Global.get_angle_to(player, self)
 		var distance_2_player = (position - player.position).length()
 		if distance_2_player < player.WEAPON_FORWARD_RANGE and angle_from_player_2_enemy < deg_to_rad(player.WEAPON_ANGLE_RANGE):
@@ -68,12 +69,13 @@ func _unhandled_input(_envent):
 					enemy_manager.enemy_die()
 					queue_free()
 		else:
-			print("enemy: miss")
-			print(Global.should_play_miss)
-			await get_tree().create_timer(get_process_delta_time() * 1).timeout
+			await get_tree().create_timer(get_process_delta_time()).timeout
 			if Global.should_play_miss:
 				miss.play()
-				
+
+
+
+func _unhandled_input(_envent):
 	if Input.is_action_just_released("attack"):
 		Global.should_play_miss = true
 	

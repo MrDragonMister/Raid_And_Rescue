@@ -1,6 +1,5 @@
-[gd_scene load_steps=24 format=4 uid="uid://c4uk6bgfdo1jq"]
+[gd_scene load_steps=23 format=4 uid="uid://c4uk6bgfdo1jq"]
 
-[ext_resource type="Script" path="res://scripts/sword_animation.gd" id="1_31wct"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_yoyyw"]
 [ext_resource type="ArrayMesh" uid="uid://bcwbka1s71mx0" path="res://assets/shortsword2test.obj" id="2_76g7p"]
 [ext_resource type="Script" path="res://scripts/mesh_instance_3d.gd" id="3_151dt"]
@@ -13,7 +12,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dj3um"]
 radius = 0.375
-height = 1.628
+height = 1.55
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hxts"]
 albedo_color = Color(0.762404, 0.762404, 0.762404, 1)
@@ -306,13 +305,13 @@ _data = {
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hj65t"]
 radius = 0.375
-height = 1.628
+height = 1.55
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_yoyyw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.814, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775, 0)
 shape = SubResource("CapsuleShape3D_dj3um")
 
 [node name="Shortsword" type="MeshInstance3D" parent="."]
@@ -324,11 +323,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6hxts")
 surface_material_override/1 = SubResource("StandardMaterial3D_ftafy")
 surface_material_override/2 = SubResource("StandardMaterial3D_4vsut")
 
-[node name="Sword_animation" type="AnimationPlayer" parent="Shortsword"]
+[node name="Player_sword_animation" type="AnimationPlayer" parent="Shortsword"]
 libraries = {
 "": SubResource("AnimationLibrary_7d0eh")
 }
-script = ExtResource("1_31wct")
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2.08568, 0, 0, 0, 1, 0, 1, 0)
@@ -597,3 +595,9 @@ stream = ExtResource("4_2fvi7")
 
 [node name="hurt" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("5_gbdga")
+
+[node name="Attack_cooldown" type="Timer" parent="."]
+process_callback = 0
+one_shot = true
+
+[connection signal="timeout" from="Attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

@@ -1,34 +1,37 @@
 extends CharacterBody3D
 
-const SPEED = 5
-const JUMP_VELOCITY = 7
-const SENSITIVITY = 0.003
-const AIR_SPEED = 3
-const JUMP_XZ_ACCELERATION = 1.2
+const SPEED: int = 5
+const JUMP_VELOCITY: int = 7
+const SENSITIVITY: float = 0.003
+const AIR_SPEED: float = 3
+const JUMP_XZ_ACCELERATION: float = 1.2
+const FREECAM_SPEED: int = 10
+const FREECAM_SENSITIVITY: float = 0.25
+
 
 # player testing needed
 # sfx en in de toekomst mischien nog particles nodig om duidelijk te maken of je raakt of niet
-const WEAPON_ANGLE_RANGE = 45 # nu nog in graden voor testen, later in rad voor optimalisatie
-const WEAPON_FORWARD_RANGE = 2
+@export var WEAPON_ANGLE_RANGE: float = 45 # nu nog in graden voor testen, later in rad voor optimalisatie
+@export var WEAPON_FORWARD_RANGE: float = 2
 
 #headbob variables
-const BOB_FREQ = 2.0
-const BOB_AMP = 0.02
+const BOB_FREQ: int = 2
+const BOB_AMP: float = 0.02
 var t_bob = 0.0
+
+var active_camera: Camera3D
+var attack_ready: bool = true
 
 @onready var player: CharacterBody3D = $"."
 @onready var head: Node3D = $Head
 @onready var campoint: Node3D = $Head/Campoint
-@onready var enemy  = $"../Enemy_manager/Enemy"
-
+@onready var enemy: CharacterBody3D  = $"../Enemy_manager/Enemy"
+@onready var timer: Timer = $Attack_cooldown
 @onready var camera1: Camera3D = $Head/Camera3D				#first person
 @onready var camera2: Camera3D = $Head/Campoint/Camera3D2 	#third person
 @onready var cameraf: Camera3D = $Head/Camera3DF			#freecam
 @onready var miss = $sounds/miss
 
-var active_camera: Camera3D
-var freecam_speed = 10.0
-var freecam_sensitivity = 0.25
 
 func _ready() -> void:
 	#reset camera
@@ -46,6 +49,22 @@ func _process(delta: float) -> void:
 		free_camera()
 	if cameraf.current:
 		freecam_movement(delta)
+	
+	# This needs to be in process if the code is 'is_action_pressed' so it's checked every frame
+	# 'is_action_JUST_pressed' is more efficient since it can be put in unhandled input, which isn't checked every frame
+	if Input.is_action_just_pressed("attack") and attack_ready:
+		timer.start()
+		$Shortsword/Player_sword_animation.stop()
+		$Shortsword/Player_sword_animation.play("swing")
+		if Global.amount_of_enemies == 0:
+			# If there are enemies, they will handle the sound
+			miss.play()
+		await get_tree().create_timer(get_process_delta_time()).timeout
+		attack_ready = false
+	
+	print(attack_ready, $Shortsword/Player_sword_animation.is_playing())
+
+
 
 #toggle between 1st and 3rd camera
 func toggle_camera():
@@ -93,7 +112,7 @@ func freecam_movement(delta: float) -> void:
 		
 	#apply movement
 	if direction.length() > 0:
-		direction = direction.normalized() * freecam_speed * delta
+		direction = direction.normalized() * FREECAM_SPEED * delta
 		cameraf.position += direction
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -101,7 +120,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if active_camera == camera1:
 			active_camera.rotate_x(-event.relative.y * SENSITIVITY)
-			active_camera.rotation.x = clamp(active_camera.rotation.x, deg_to_rad(-60), deg_to_rad(80))
+			active_camera.rotation.x = clamp(active_camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 			player.rotate_y(-event.relative.x * SENSITIVITY)
 		elif active_camera == camera2:
 			campoint.rotate_x(-event.relative.y * SENSITIVITY)
@@ -109,22 +128,17 @@ func _unhandled_input(event: InputEvent) -> void:
 			player.rotate_y(-event.relative.x * SENSITIVITY)
 		elif active_camera == cameraf: # TODO werkt niet
 			rotation = cameraf.rotation_degrees
-			rotation.x -= event.relative.y * freecam_sensitivity
+			rotation.x -= event.relative.y * FREECAM_SENSITIVITY
 			rotation.x = clamp(rotation.x, -89, 89)
-			rotation.y -= event.relative.x * freecam_sensitivity
+			rotation.y -= event.relative.x * FREECAM_SENSITIVITY
 			cameraf.rotation_degrees = Vector3(rotation.x, rotation.y, 0)
-			
-	if Input.is_action_just_pressed("attack") and Global.amount_of_enemies == 0:
-		# if there are enemies, they will handle the sound
-		print("player miss")
-		miss.play()
 
 
 #player movement
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta * 2
+		velocity += get_gravity() * 2 * delta 
 	
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
@@ -161,5 +175,10 @@ func _physics_process(delta: float) -> void:
 #head bobbing
 func headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
-	pos.y = BOB_AMP * sin(time * BOB_FREQ)+0.3
+	pos.y = BOB_AMP * sin(time * BOB_FREQ) + 0.3
 	return pos
+
+
+func _on_attack_cooldown_timeout():
+	print("attack ready")
+	attack_ready = true
