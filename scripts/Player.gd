@@ -21,6 +21,7 @@ var t_bob = 0.0
 
 var active_camera: Camera3D
 var attack_ready: bool = true
+var armor_factor: float = 1
 
 @onready var player: CharacterBody3D = $"."
 @onready var head: Node3D = $Head
