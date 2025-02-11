@@ -1,5 +1,10 @@
 extends CharacterBody3D
 
+# player testing needed
+# sfx en in de toekomst mischien nog particles nodig om duidelijk te maken of je raakt of niet
+@export var WEAPON_ANGLE_RANGE: float = 45 # nu nog in graden voor testen, later in rad voor optimalisatie
+@export var WEAPON_FORWARD_RANGE: float = 2
+
 const SPEED: int = 5
 const JUMP_VELOCITY: int = 7
 const SENSITIVITY: float = 0.003
@@ -8,12 +13,6 @@ const JUMP_XZ_ACCELERATION: float = 1.2
 const FREECAM_SPEED: int = 10
 const FREECAM_SENSITIVITY: float = 0.25
 
-
-# player testing needed
-# sfx en in de toekomst mischien nog particles nodig om duidelijk te maken of je raakt of niet
-@export var WEAPON_ANGLE_RANGE: float = 45 # nu nog in graden voor testen, later in rad voor optimalisatie
-@export var WEAPON_FORWARD_RANGE: float = 2
-
 #headbob variables
 const BOB_FREQ: int = 2
 const BOB_AMP: float = 0.02
@@ -21,7 +20,8 @@ var t_bob = 0.0
 
 var active_camera: Camera3D
 var attack_ready: bool = true
-var armor_factor: float = 1
+var armor_damage_reduction: float = 0 # percentage of base damage, between 0 and 1
+# TODO ^wouldn't directly storing the amount the enemy can damage be more efficient?
 
 @onready var player: CharacterBody3D = $"."
 @onready var head: Node3D = $Head
@@ -31,7 +31,7 @@ var armor_factor: float = 1
 @onready var camera1: Camera3D = $Head/Camera3D				#first person
 @onready var camera2: Camera3D = $Head/Campoint/Camera3D2 	#third person
 @onready var cameraf: Camera3D = $Head/Camera3DF			#freecam
-@onready var miss = $sounds/miss
+@onready var miss: AudioStreamPlayer = $sounds/miss
 
 
 func _ready() -> void:
@@ -62,8 +62,6 @@ func _process(delta: float) -> void:
 			miss.play()
 		await get_tree().create_timer(get_process_delta_time()).timeout
 		attack_ready = false
-	
-	print(attack_ready, $Shortsword/Player_sword_animation.is_playing())
 
 
 
@@ -170,8 +168,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	# head bobbing
-	t_bob += delta * velocity.length() * float(is_on_floor())
-	camera1.transform.origin = headbob(t_bob)
+	if is_on_floor():
+		t_bob += delta * velocity.length()
+		camera1.transform.origin = headbob(t_bob)
+	else:
+		camera1.transform.origin = Vector3(0, 0.3, 0) # headbob(0)
 
 #head bobbing
 func headbob(time) -> Vector3:
@@ -181,5 +182,4 @@ func headbob(time) -> Vector3:
 
 
 func _on_attack_cooldown_timeout():
-	print("attack ready")
 	attack_ready = true

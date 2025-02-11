@@ -49,7 +49,7 @@ func _process(_delta: float) -> void:
 		timer.start()
 		await get_tree().create_timer(0.5).timeout
 		hurt.play()
-		player_health_bar.value -= 1 / player.armor_factor
+		player_health_bar.value -= 1 * (1 - player.armor_damage_reduction)
 		player_health_bar.update_health_bar_text()
 	
 	# This needs to be in process if the code is 'is_action_pressed' so it's checked every frame
