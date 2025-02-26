@@ -13,9 +13,6 @@
 radius = 0.375
 height = 1.55
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_f24jm"]
-viewport_path = NodePath("SubViewport")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40jyt"]
 vertex_color_is_srgb = true
 albedo_color = Color(0.82, 0.423667, 0.3444, 1)
@@ -462,67 +459,17 @@ _data = {
 "Walking": SubResource("Animation_yvk6w")
 }
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_f24jm"]
+viewport_path = NodePath("SubViewport")
+
 [node name="Enemy" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_4h4db")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775, 0)
 shape = SubResource("CapsuleShape3D_eca12")
-
-[node name="SubViewport" type="SubViewport" parent="."]
-transparent_bg = true
-size = Vector2i(200, 40)
-size_2d_override = Vector2i(200, 40)
-size_2d_override_stretch = true
-render_target_update_mode = 4
-
-[node name="Control" type="Control" parent="SubViewport"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 200.0
-offset_bottom = 40.0
-
-[node name="enemy_health_bar" type="ProgressBar" parent="SubViewport/Control"]
-clip_contents = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-show_percentage = false
-
-[node name="health_display" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
-flip_h = true
-texture = SubResource("ViewportTexture_f24jm")
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-
-[node name="attack_cooldown" type="Timer" parent="."]
-process_callback = 0
-wait_time = 2.5
-one_shot = true
-
-[node name="sounds" type="Node" parent="."]
-
-[node name="slash1" type="AudioStreamPlayer" parent="sounds"]
-stream = ExtResource("3_tvia6")
-
-[node name="slash2" type="AudioStreamPlayer" parent="sounds"]
-stream = ExtResource("4_1udhy")
-
-[node name="slash3" type="AudioStreamPlayer" parent="sounds"]
-stream = ExtResource("5_62jkh")
-
-[node name="slash4" type="AudioStreamPlayer" parent="sounds"]
-stream = ExtResource("6_8p5rh")
-
-[node name="miss" type="AudioStreamPlayer" parent="sounds"]
-stream = ExtResource("8_871po")
-
-[node name="dmge" type="AudioStreamPlayer" parent="sounds"]
-stream = ExtResource("9_ui64k")
 
 [node name="Wachter_zwaard_animated2" type="Node3D" parent="."]
 transform = Transform3D(-0.25, 0, -2.18557e-08, 0, 0.25, 0, 2.18557e-08, 0, -0.25, 0, 0, 0)
@@ -761,7 +708,7 @@ mesh = SubResource("ArrayMesh_xv7ed")
 skin = SubResource("Skin_xie47")
 
 [node name="Cylinder" type="BoneAttachment3D" parent="Wachter_zwaard_animated2/Armature/Skeleton3D"]
-transform = Transform3D(-5.51343e-07, 4.79258e-08, -0.3, 0.3, 4.35351e-07, -5.1409e-07, 4.15906e-07, -0.3, -5.52751e-08, -1.16229, 1.92073, 0.971655)
+transform = Transform3D(-5.21541e-07, 6.13368e-08, -0.3, 0.3, 4.2194e-07, -4.69387e-07, 4.17904e-07, -0.3, -5.92744e-08, -1.16229, 1.92073, 0.971655)
 bone_name = "Cylinder"
 bone_idx = 19
 
@@ -774,5 +721,62 @@ libraries = {
 "": SubResource("AnimationLibrary_f85d1")
 }
 script = ExtResource("7_kqp6o")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="attack_cooldown" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.5
+one_shot = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(200, 40)
+size_2d_override = Vector2i(200, 40)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 40.0
+
+[node name="enemy_health_bar" type="ProgressBar" parent="SubViewport/Control"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+show_percentage = false
+
+[node name="health_display" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+flip_h = true
+texture = SubResource("ViewportTexture_f24jm")
+
+[node name="sounds" type="Node" parent="."]
+
+[node name="slash1" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("3_tvia6")
+
+[node name="slash2" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("4_1udhy")
+
+[node name="slash3" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("5_62jkh")
+
+[node name="slash4" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("6_8p5rh")
+
+[node name="miss" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("8_871po")
+
+[node name="dmge" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("9_ui64k")
 
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_timer_timeout"]

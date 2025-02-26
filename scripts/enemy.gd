@@ -17,9 +17,10 @@ extends CharacterBody3D
 @onready var hurt: AudioStreamPlayer = $sounds/dmge
 @onready var miss: AudioStreamPlayer = $sounds/miss
 
-const ENEMY_SPEED = 3
-const ENEMY_WEAPON_FORWARD_RANGE = 1
-const PLAYER_SEEKING_RANGE = 15
+const SPEED: int = 3
+const ACCELERATION: int = 10
+const ENEMY_WEAPON_FORWARD_RANGE: int = 1
+const PLAYER_SEEKING_RANGE: int = 15
 
 var health : int = 100
 var attack_ready: bool = true
@@ -48,9 +49,10 @@ func _process(_delta: float) -> void:
 		enemy_animation.attack()
 		timer.start()
 		await get_tree().create_timer(0.5).timeout
-		hurt.play()
-		player_health_bar.value -= 1 * (1 - player.armor_damage_reduction)
-		player_health_bar.update_health_bar_text()
+		if nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
+			hurt.play()
+			player_health_bar.value -= 1 * (1 - player.armor_damage_reduction)
+			player_health_bar.update_health_bar_text()
 	
 	# This needs to be in process if the code is 'is_action_pressed' so it's checked every frame
 	# 'is_action_JUST_pressed' is more efficient since it can be put in unhandled input, which isn't checked every frame
@@ -79,10 +81,9 @@ func _unhandled_input(_envent):
 	if Input.is_action_just_released("attack"):
 		Global.should_play_miss = true
 	
-	
 	"""
 	if Input.is_action_just_pressed("interact"):
-		if health < health_bar.max_value:aa
+		if health < health_bar.max_value:
 			for n in 10:
 				health += 1
 				health_bar.value = health
@@ -109,12 +110,13 @@ func _physics_process(delta: float) -> void:
 			 # Without this the enemy will jump in place
 			velocity = Vector3.ZERO
 		else:
-			velocity = direction * ENEMY_SPEED
+			velocity = velocity.move_toward(direction * SPEED, ACCELERATION * delta)
 		if not going_to_home_pos and nav.distance_to_target() < ENEMY_WEAPON_FORWARD_RANGE:
 			velocity = Vector3.ZERO
 	else:
 		# Add the gravity.
 		velocity += get_gravity() * delta * 2
+	print(direction, player.position)
 	move_and_slide()
 
 func _on_timer_timeout():

@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=4 uid="uid://p28slibh3lgd"]
+[gd_scene load_steps=11 format=4 uid="uid://p28slibh3lgd"]
 
+[ext_resource type="Script" path="res://scripts/villager.gd" id="1_ujwgu"]
 [ext_resource type="Script" path="res://scripts/villager_animation.gd" id="1_yjqif"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wh3td"]
@@ -358,6 +359,10 @@ _data = {
 }
 
 [node name="villager" type="CharacterBody3D"]
+collision_layer = 3
+collision_mask = 3
+wall_min_slide_angle = 0.0
+script = ExtResource("1_ujwgu")
 
 [node name="collision shape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775, 0)
@@ -556,7 +561,7 @@ bones/26/parent = 0
 bones/26/rest = Transform3D(-0.995718, 0, -0.0924447, 0.0924447, 0, -0.995718, 0, -1, 0, -0.558449, 0.158569, -0.0939441)
 bones/26/enabled = true
 bones/26/position = Vector3(-0.558449, 0.158569, -0.0939441)
-bones/26/rotation = Quaternion(0.0327192, 0.706349, -0.706349, -0.0327192)
+bones/26/rotation = Quaternion(0.033487, 0.689376, -0.722924, -0.031933)
 bones/26/scale = Vector3(1, 1, 1)
 bones/27/name = "Foot.R"
 bones/27/parent = 26
@@ -604,3 +609,7 @@ libraries = {
 "": SubResource("AnimationLibrary_f85d1")
 }
 script = ExtResource("1_yjqif")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_use_custom = true
+debug_path_custom_color = Color(0.235294, 1, 1, 1)

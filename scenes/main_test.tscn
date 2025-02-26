@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://4ymlg1uymali"]
+
+[ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="1_kffa6"]
+[ext_resource type="PackedScene" uid="uid://p28slibh3lgd" path="res://scenes/villager.tscn" id="1_n84ib"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_5388e"]
+vertices = PackedVector3Array(-8.35948, 0.323787, -9.4, -4.85948, 0.323787, -9.4, -4.85948, 0.323787, -9.6, -9.65948, 0.323787, -9.6, -9.65948, 0.323787, 9.6, -8.65948, 0.323787, 9.6, -8.65948, 0.323787, -9.1, -1.45948, 0.323787, -9.4, 9.64052, 0.323787, -9.6, 0.240521, 0.323787, 9.7, 2.74052, 0.323787, 9.6, -1.45948, 0.573787, -8.6, -1.25948, 0.573787, -8.8, 9.64052, 0.323787, 9.6, -13.3595, 5.32379, 10.6, 4.54052, -1.67621, 10.6, 0.240521, 0.0737872, 10.5, 0.0405216, 0.323787, 9.9, -3.45513, 1.32379, 10.0826, -13.3595, 5.32379, -8.6, -0.852821, 0.323787, 9.19156)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 3), PackedInt32Array(3, 0, 6), PackedInt32Array(1, 2, 7), PackedInt32Array(7, 2, 8), PackedInt32Array(11, 10, 9), PackedInt32Array(8, 12, 7), PackedInt32Array(12, 8, 11), PackedInt32Array(11, 8, 10), PackedInt32Array(10, 8, 13), PackedInt32Array(16, 15, 14), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 14), PackedInt32Array(11, 18, 19), PackedInt32Array(19, 18, 14), PackedInt32Array(18, 20, 17), PackedInt32Array(17, 20, 9), PackedInt32Array(9, 20, 11), PackedInt32Array(11, 20, 18)]
+cell_size = 0.1
+agent_height = 1.55
+agent_radius = 0.38
+
+[sub_resource type="BoxMesh" id="BoxMesh_g7fos"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gptau"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xt0ag"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_kffa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52521, 0)
+
+[node name="villager" parent="." instance=ExtResource("1_n84ib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99201, 0, 0)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_5388e")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="NavigationRegion3D"]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, -0.5, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_g7fos")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="NavigationRegion3D"]
+transform = Transform3D(18.6246, 0.364438, 0, -7.28876, 0.931228, 0, 0, 0, 20, -4.56496, 0.933781, 1.01273)
+use_collision = true
+mesh = SubResource("BoxMesh_g7fos")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_gptau")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("CapsuleMesh_xt0ag")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 4)

@@ -2,6 +2,7 @@ extends Node
 
 @onready var health := 100
 @onready var health_bar := $"../gamegui/health_bar"
+var is_vilager_free: bool = false
 
 func _ready():
 	health_bar.value = health
@@ -9,6 +10,7 @@ func _ready():
 func _process(_delta: float) -> void:
 	if health_bar.value <= 0 or Input.is_action_just_pressed("die"):
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+	pass
 """
 	if Input.is_action_just_pressed("attack"):
 		for n in 10:

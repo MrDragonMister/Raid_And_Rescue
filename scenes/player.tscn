@@ -38,10 +38,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.0333333),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.489266, 0.734507, -0.779858)]
+"values": [Vector3(0.489, 0.735, -0.78)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -68,7 +68,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.233333, 0.5, 0.733333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.489266, 0.734507, -0.779858), Vector3(0.489266, 1.21441, -0.680158), Vector3(-0.0252149, 0.774201, -0.680158), Vector3(0.489266, 0.734507, -0.779858)]
+"values": [Vector3(0.489, 0.735, -0.78), Vector3(0.489, 1.214, -0.68), Vector3(-0.025, 0.775, -0.68), Vector3(0.489, 0.735, -0.78)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -315,8 +315,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775, 0)
 shape = SubResource("CapsuleShape3D_dj3um")
 
 [node name="Shortsword" type="MeshInstance3D" parent="."]
-transform = Transform3D(-3.61999e-07, -0.1, 1.55431e-15, 0.092388, -3.34443e-07, -0.0382683, 0.0382683, -1.38531e-07, 0.092388, 0.489266, 0.734507, -0.779858)
-layers = 4
+transform = Transform3D(-3.61999e-07, -0.1, 1.55431e-15, 0.092388, -3.34443e-07, -0.0382683, 0.0382683, -1.38531e-07, 0.092388, 0.489, 0.735, -0.78)
 mesh = ExtResource("2_76g7p")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_6hxts")
@@ -329,23 +328,23 @@ libraries = {
 }
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 2.08568, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 0.479459, 0, 0, 0, 1, 0, 0.198522, 0)
+transform = Transform3D(1, 0, 0, 0, 0.479459, 0, 0, 0, 1, 0, 0.415, 0)
 cull_mask = 1048573
 current = true
 
 [node name="Camera3DF" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 0.47946, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 0.47946, 0, 0, 0, 1, 0, 4.172, 0)
 
 [node name="Campoint" type="Node3D" parent="Head"]
 
 [node name="Camera3D2" type="Camera3D" parent="Head/Campoint"]
-transform = Transform3D(1, 0, 0, 0, 0.268619, 0.840204, 0, -0.465261, 0.485092, 0, 1, 2)
+transform = Transform3D(1, 0, 0, 0, 0.268619, 0.840204, 0, -0.465261, 0.485092, 0, 2.086, 2)
 
 [node name="maincharacteranimated3" type="Node3D" parent="."]
-transform = Transform3D(-0.25, 0, -2.18557e-08, 0, 0.25, 0, 2.18557e-08, 0, -0.25, 0, 0, 0)
+transform = Transform3D(-0.25, 0, -2.18557e-08, 0, 0.25, 0, 2.18557e-08, 0, -0.25, 0, 1, 0)
 visible = false
 
 [node name="Armature" type="Node3D" parent="maincharacteranimated3"]
@@ -572,7 +571,7 @@ libraries = {
 }
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.814, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 mesh = SubResource("CapsuleMesh_hj65t")
 script = ExtResource("3_151dt")
 

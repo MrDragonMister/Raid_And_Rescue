@@ -9,7 +9,7 @@ const SPEED: int = 5
 const JUMP_VELOCITY: int = 7
 const SENSITIVITY: float = 0.003
 const AIR_SPEED: float = 3
-const JUMP_XZ_ACCELERATION: float = 1.2
+const JUMP_XZ_ACCELERATION: float = 1.5
 const FREECAM_SPEED: int = 10
 const FREECAM_SENSITIVITY: float = 0.25
 
@@ -40,8 +40,14 @@ func _ready() -> void:
 	camera1.current = true
 	camera2.current = false
 	cameraf.current = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+func _input(event):
+	if event.is_action_pressed("left_click"):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if event.is_action_pressed("ui_cancel"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 func _process(delta: float) -> void:
 	#switch camera input
 	if Input.is_action_just_pressed("switch_camera"):
@@ -62,8 +68,6 @@ func _process(delta: float) -> void:
 			miss.play()
 		await get_tree().create_timer(get_process_delta_time()).timeout
 		attack_ready = false
-
-
 
 #toggle between 1st and 3rd camera
 func toggle_camera():
@@ -116,7 +120,7 @@ func freecam_movement(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	#turn cameras
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if active_camera == camera1:
 			active_camera.rotate_x(-event.relative.y * SENSITIVITY)
 			active_camera.rotation.x = clamp(active_camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
@@ -131,7 +135,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			rotation.x = clamp(rotation.x, -89, 89)
 			rotation.y -= event.relative.x * FREECAM_SENSITIVITY
 			cameraf.rotation_degrees = Vector3(rotation.x, rotation.y, 0)
-
 
 #player movement
 func _physics_process(delta: float) -> void:
@@ -179,7 +182,6 @@ func headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
 	pos.y = BOB_AMP * sin(time * BOB_FREQ) + 0.3
 	return pos
-
 
 func _on_attack_cooldown_timeout():
 	attack_ready = true
