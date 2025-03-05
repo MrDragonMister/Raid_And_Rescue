@@ -123,11 +123,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if active_camera == camera1:
 			active_camera.rotate_x(-event.relative.y * SENSITIVITY)
-			active_camera.rotation.x = clamp(active_camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+			active_camera.rotation.x = clamp(active_camera.rotation.x, -PI/2, PI/2)
 			player.rotate_y(-event.relative.x * SENSITIVITY)
 		elif active_camera == camera2:
 			campoint.rotate_x(-event.relative.y * SENSITIVITY)
-			campoint.rotation.x = clamp(campoint.rotation.x, deg_to_rad(-30), deg_to_rad(30))
+			campoint.rotation.x = clamp(campoint.rotation.x, -PI/4, PI/2)
 			player.rotate_y(-event.relative.x * SENSITIVITY)
 		elif active_camera == cameraf: # TODO werkt niet
 			rotation = cameraf.rotation_degrees

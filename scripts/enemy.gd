@@ -41,18 +41,6 @@ func _process(_delta: float) -> void:
 	if camera:
 		# Rotate the Sprite3D to face the camera's position
 		enemy_health_display.look_at(camera.global_transform.origin, Vector3.UP)
-
-	# Attacking
-	# the enemy always looks at the player so an angle check is not needed
-	if attack_ready and not going_to_home_pos and nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
-		attack_ready = false
-		enemy_animation.attack()
-		timer.start()
-		await get_tree().create_timer(0.5).timeout
-		if nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
-			hurt.play()
-			player_health_bar.value -= 1 * (1 - player.armor_damage_reduction)
-			player_health_bar.update_health_bar_text()
 	
 	# This needs to be in process if the code is 'is_action_pressed' so it's checked every frame
 	# 'is_action_JUST_pressed' is more efficient since it can be put in unhandled input, which isn't checked every frame
@@ -91,6 +79,18 @@ func _unhandled_input(_envent):
 	"""
 
 func _physics_process(delta: float) -> void:
+	# Attacking
+	# the enemy always looks at the player so an angle check is not needed
+	if attack_ready and not going_to_home_pos and nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
+		attack_ready = false
+		enemy_animation.attack()
+		timer.start()
+		await get_tree().create_timer(0.5).timeout
+		if nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
+			hurt.play()
+			player_health_bar.value -= 1 * (1 - player.armor_damage_reduction)
+			player_health_bar.update_health_bar_text()
+	
 	if (position - player.position).length() > PLAYER_SEEKING_RANGE: # distance to player
 		nav.target_position = home_position
 		going_to_home_pos = true
@@ -116,7 +116,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		# Add the gravity.
 		velocity += get_gravity() * delta * 2
-	print(direction, player.position)
 	move_and_slide()
 
 func _on_timer_timeout():

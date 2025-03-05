@@ -10,7 +10,7 @@ const INTERACT_RANGE: int = 2
 var direction: Vector3 = Vector3.ZERO
 var is_following: bool = false
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if Input.is_action_just_pressed("interact") and (position - player.position).length() < INTERACT_RANGE :
 		is_following = true
 		game_manager.is_vilager_free = true
@@ -28,9 +28,7 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(direction * SPEED, ACCELERATION * delta)
 		if 0 < velocity.y and velocity.y < 0.2:
 			velocity.y = 0
-		print("ground")
+		
 	else:
 		velocity += get_gravity() * delta
-		print("air")
-	print(position.y, player.position.y, velocity.y)
 	move_and_slide()
