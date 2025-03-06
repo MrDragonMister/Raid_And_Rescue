@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 # @onready var Sword_animation = $Shortsword/Sword_animation
-@onready var enemy_animation: AnimationPlayer = $Wachter_zwaard_animated2/Enemy_animation
+@onready var enemy_animation: AnimationPlayer = $Wachter_zwaard_texture2/Enemy_animation
 @onready var health_bar: ProgressBar = $"SubViewport/Control/enemy_health_bar"
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 @onready var enemy_health_display: Sprite3D = $health_display

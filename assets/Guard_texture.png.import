@@ -1,0 +1,25 @@
+[remap]
+
+importer="cubemap_texture"
+type="CompressedCubemap"
+uid="uid://d381jsmeiyw75"
+path="res://.godot/imported/Guard_texture.png-fa32810fe98f4031d1d895cd919d0f9f.ccube"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets/Guard_texture.png"
+dest_files=["res://.godot/imported/Guard_texture.png-fa32810fe98f4031d1d895cd919d0f9f.ccube"]
+
+[params]
+
+compress/mode=1
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/arrangement=1
