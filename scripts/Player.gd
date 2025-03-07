@@ -63,6 +63,7 @@ func _process(delta: float) -> void:
 		timer.start()
 		$Shortsword/Player_sword_animation.stop()
 		$Shortsword/Player_sword_animation.play("swing")
+		$Axe/Axe_animation.play("Axe_swing")
 		if Global.amount_of_enemies == 0:
 			# If there are enemies, they will handle the sound
 			miss.play()
