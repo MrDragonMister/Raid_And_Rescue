@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dajn2bc0cdk6o"
+
+[deps]
+
+files=["res://Beoordeling Demo Raid and Rescue.Hoe leuk vind je van het idee van het spel?.translation", "res://Beoordeling Demo Raid and Rescue.Wat moet zeker anders in het spel?.translation", "res://Beoordeling Demo Raid and Rescue.Wat voor problemen heb je gevonden met het spel.translation", "res://Beoordeling Demo Raid and Rescue.Als je een probleem hebt gevonden, wat is het probleem?.translation", "res://Beoordeling Demo Raid and Rescue.Hoe goed vind je het spel op dit moment?.translation", "res://Beoordeling Demo Raid and Rescue.Zou jij het spel willen spelen zodra het klaar is?.translation", "res://Beoordeling Demo Raid and Rescue.Wat voor wapens zijn naast het zwaard nog meer leuk voor in het spel? Deze wapens zullen verschillende eigenschappen hebben..translation", "res://Beoordeling Demo Raid and Rescue.Is het ook leuk om die wapens te kunnen verbeteren met goud?.translation", "res://Beoordeling Demo Raid and Rescue.Wat voor eigenschappen van de speler moet de speler kunnen verbeteren met goud?.translation", "res://Beoordeling Demo Raid and Rescue.Moeten er kisten in de levels komen die veel goud bevatten, maar ook bewaakt worden door meer wachters?.translation", "res://Beoordeling Demo Raid and Rescue.Heb je nog andere suggesties of opmerkingen voor het spel? (optioneel).translation"]
+
+source_file="res://Beoordeling Demo Raid and Rescue.csv"
+dest_files=["res://Beoordeling Demo Raid and Rescue.Hoe leuk vind je van het idee van het spel?.translation", "res://Beoordeling Demo Raid and Rescue.Wat moet zeker anders in het spel?.translation", "res://Beoordeling Demo Raid and Rescue.Wat voor problemen heb je gevonden met het spel.translation", "res://Beoordeling Demo Raid and Rescue.Als je een probleem hebt gevonden, wat is het probleem?.translation", "res://Beoordeling Demo Raid and Rescue.Hoe goed vind je het spel op dit moment?.translation", "res://Beoordeling Demo Raid and Rescue.Zou jij het spel willen spelen zodra het klaar is?.translation", "res://Beoordeling Demo Raid and Rescue.Wat voor wapens zijn naast het zwaard nog meer leuk voor in het spel? Deze wapens zullen verschillende eigenschappen hebben..translation", "res://Beoordeling Demo Raid and Rescue.Is het ook leuk om die wapens te kunnen verbeteren met goud?.translation", "res://Beoordeling Demo Raid and Rescue.Wat voor eigenschappen van de speler moet de speler kunnen verbeteren met goud?.translation", "res://Beoordeling Demo Raid and Rescue.Moeten er kisten in de levels komen die veel goud bevatten, maar ook bewaakt worden door meer wachters?.translation", "res://Beoordeling Demo Raid and Rescue.Heb je nog andere suggesties of opmerkingen voor het spel? (optioneel).translation"]
+
+[params]
+
+compress=true
+delimiter=0
