@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b30ncgp55kww5"
-path.s3tc="res://.godot/imported/81PfRRG2F1L._AC_UF894,1000_QL80_.png-61998361b7f00f97ed9086f130ee2fc6.s3tc.ctex"
+uid="uid://bkmhl8rqx78u0"
+path.s3tc="res://.godot/imported/Bow_drawn2_Cylinder.png-d0c256d585cd9859bcc1efebcf78beab.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "2feeff67367f82a313f200bfe9545e83"
+}
 
 [deps]
 
-source_file="res://assets/81PfRRG2F1L._AC_UF894,1000_QL80_.png"
-dest_files=["res://.godot/imported/81PfRRG2F1L._AC_UF894,1000_QL80_.png-61998361b7f00f97ed9086f130ee2fc6.s3tc.ctex"]
+source_file="res://assets/Bow_drawn2_Cylinder.png"
+dest_files=["res://.godot/imported/Bow_drawn2_Cylinder.png-d0c256d585cd9859bcc1efebcf78beab.s3tc.ctex"]
 
 [params]
 

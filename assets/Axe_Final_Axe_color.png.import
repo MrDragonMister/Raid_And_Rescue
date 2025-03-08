@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b30ncgp55kww5"
-path.s3tc="res://.godot/imported/81PfRRG2F1L._AC_UF894,1000_QL80_.png-61998361b7f00f97ed9086f130ee2fc6.s3tc.ctex"
+uid="uid://lp5xgs78y4gv"
+path.s3tc="res://.godot/imported/Axe_Final_Axe_color.png-a38a008b901fa21b8597e95caf929b7d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "163c269f705d3cd939313718ac5afee1"
+}
 
 [deps]
 
-source_file="res://assets/81PfRRG2F1L._AC_UF894,1000_QL80_.png"
-dest_files=["res://.godot/imported/81PfRRG2F1L._AC_UF894,1000_QL80_.png-61998361b7f00f97ed9086f130ee2fc6.s3tc.ctex"]
+source_file="res://assets/Axe_Final_Axe_color.png"
+dest_files=["res://.godot/imported/Axe_Final_Axe_color.png-a38a008b901fa21b8597e95caf929b7d.s3tc.ctex"]
 
 [params]
 

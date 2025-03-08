@@ -21,9 +21,10 @@ func spawn_enemy(x, y, z):
 	add_child(mob)
 	# This needs to be global because you get a null instance when 2 enemies die at the same time
 	Global.amount_of_enemies += 1
-	
+
 func enemy_die():
 	explosion.play()
 	Global.amount_of_enemies -= 1
-	moneysound.play()
+	await get_tree().create_timer(1).timeout #explosion.finished
 	gold.change_coins(3)
+	moneysound.play()

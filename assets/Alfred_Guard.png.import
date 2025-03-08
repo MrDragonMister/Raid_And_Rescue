@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b30ncgp55kww5"
-path.s3tc="res://.godot/imported/81PfRRG2F1L._AC_UF894,1000_QL80_.png-61998361b7f00f97ed9086f130ee2fc6.s3tc.ctex"
+uid="uid://d0qi7mqr11uws"
+path.s3tc="res://.godot/imported/Alfred_Guard.png-5ee55cac3d1d4ec283f4a676ec64bf53.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "29c53f8dde04370a99829918a2d9a760"
+}
 
 [deps]
 
-source_file="res://assets/81PfRRG2F1L._AC_UF894,1000_QL80_.png"
-dest_files=["res://.godot/imported/81PfRRG2F1L._AC_UF894,1000_QL80_.png-61998361b7f00f97ed9086f130ee2fc6.s3tc.ctex"]
+source_file="res://assets/Alfred_Guard.png"
+dest_files=["res://.godot/imported/Alfred_Guard.png-5ee55cac3d1d4ec283f4a676ec64bf53.s3tc.ctex"]
 
 [params]
 

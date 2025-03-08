@@ -8,10 +8,10 @@
 [ext_resource type="ArrayMesh" uid="uid://dwqs16ln38cmi" path="res://assets/Axeversion3.obj" id="5_sjbiw"]
 [ext_resource type="Script" path="res://scripts/health_bar.gd" id="7_3o73v"]
 [ext_resource type="Script" path="res://scripts/cash_label.gd" id="8_2tph2"]
-[ext_resource type="AudioStream" uid="uid://v7k0jw3pe022" path="res://assets/explosion-sound-effect-1-free-on-gamesfxpackscom-241821.mp3" id="8_kudrf"]
+[ext_resource type="AudioStream" uid="uid://v7k0jw3pe022" path="res://assets/sounds/explosion-sound-effect-1-free-on-gamesfxpackscom-241821.mp3" id="8_kudrf"]
 [ext_resource type="Texture2D" uid="uid://b30ncgp55kww5" path="res://assets/81PfRRG2F1L._AC_UF894,1000_QL80_.png" id="9_1cn78"]
 [ext_resource type="FontFile" uid="uid://bs4fhxtxfaswr" path="res://assets/fonts/ARIAL.TTF" id="9_egb4x"]
-[ext_resource type="AudioStream" uid="uid://b8jg5wbivnw7b" path="res://assets/money-pickup-2-89563.mp3" id="9_tvskn"]
+[ext_resource type="AudioStream" uid="uid://b8jg5wbivnw7b" path="res://assets/sounds/money-pickup-2-89563.mp3" id="9_tvskn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ij0ug"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -155,7 +155,6 @@ size = Vector3(2, 0.1, 2)
 
 [node name="Shortsword2Test" type="MeshInstance3D" parent="world_objects"]
 transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0.48633, 1.46635, 5.40756)
-visible = false
 mesh = ExtResource("2_h5d0j")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ym20n")
