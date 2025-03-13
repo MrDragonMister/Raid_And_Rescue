@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c0bwtc2btx755"]
+[gd_scene load_steps=31 format=3 uid="uid://djfgwd8us075t"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_j725e"]
 [ext_resource type="PackedScene" uid="uid://cy83gaiogvyiw" path="res://scenes/Cage.tscn" id="2_gv3se"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="4_1645l"]
 [ext_resource type="PackedScene" uid="uid://da25hiyod03sb" path="res://scenes/house.tscn" id="4_alhw8"]
 [ext_resource type="PackedScene" uid="uid://p28slibh3lgd" path="res://scenes/villager.tscn" id="5_g52h0"]
-[ext_resource type="PackedScene" uid="uid://c8dxyrtlajhxh" path="res://scenes/Well.tscn" id="5_lh7p1"]
+[ext_resource type="PackedScene" path="res://scenes/Well.tscn" id="5_lh7p1"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="6_uovux"]
 [ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://scenes/enemy.tscn" id="7_mfwir"]
 [ext_resource type="AudioStream" uid="uid://v7k0jw3pe022" path="res://assets/sounds/explosion-sound-effect-1-free-on-gamesfxpackscom-241821.mp3" id="8_bmdmd"]
@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b30ncgp55kww5" path="res://assets/81PfRRG2F1L._AC_UF894,1000_QL80_.png" id="13_4al2l"]
 [ext_resource type="Script" path="res://scripts/cash_label.gd" id="14_040is"]
 [ext_resource type="PackedScene" uid="uid://b4vrk6jumsrif" path="res://assets/Wachter_zwaard_texture.glb" id="16_p5ses"]
-[ext_resource type="PackedScene" uid="uid://tgt2vkyrvu8b" path="res://scenes/alfred.tscn" id="18_so8x0"]
+[ext_resource type="PackedScene" path="res://scenes/alfred.tscn" id="18_so8x0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j2cf6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
