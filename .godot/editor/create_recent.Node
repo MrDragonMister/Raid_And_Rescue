@@ -1,0 +1,14 @@
+Timer
+MeshInstance3D
+CharacterBody3D
+Area3D
+CollisionShape3D
+RigidBody3D
+NavigationRegion3D
+DirectionalLight3D
+Camera3D
+OmniLight3D
+CSGMesh3D
+NavigationAgent3D
+SoftBody3D
+Node

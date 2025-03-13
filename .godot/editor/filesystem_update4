@@ -1,0 +1,8 @@
+res://scenes/menu.tscn
+res://scripts/Global.gd
+res://scenes/level1.tscn
+res://scenes/player.tscn
+res://scenes/enemy.tscn
+res://scenes/arrow.tscn
+res://scenes/villager.tscn
+res://scripts/Player.gd
