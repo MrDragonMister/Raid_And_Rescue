@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_j1nd7"]
 [ext_resource type="PackedScene" uid="uid://cy83gaiogvyiw" path="res://scenes/Cage.tscn" id="2_yfw72"]
-[ext_resource type="PackedScene" uid="uid://c8dxyrtlajhxh" path="res://scenes/Well.tscn" id="3_c3vt0"]
+[ext_resource type="PackedScene" path="res://scenes/Well.tscn" id="3_c3vt0"]
 [ext_resource type="PackedScene" uid="uid://da25hiyod03sb" path="res://scenes/house.tscn" id="3_qul0q"]
 [ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="4_7wet1"]
 [ext_resource type="PackedScene" uid="uid://b4vrk6jumsrif" path="res://assets/Wachter_zwaard_texture.glb" id="4_ihe42"]
@@ -268,6 +268,7 @@ text = "					  100/100"
 scroll_active = false
 
 [node name="debug_bar" type="ProgressBar" parent="gamegui"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -322,6 +323,7 @@ vertical_alignment = 1
 script = ExtResource("14_rftx2")
 
 [node name="PanelContainer2" type="PanelContainer" parent="gamegui"]
+visible = false
 layout_mode = 0
 offset_left = -911.0
 offset_top = -80.0
