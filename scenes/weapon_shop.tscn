@@ -77,7 +77,6 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [node name="Weapon_shop" type="CanvasLayer"]
-visible = false
 offset = Vector2(0, -500)
 transform = Transform2D(1, 0, 0, 1, 0, -500)
 script = ExtResource("1_bjcf1")
@@ -174,6 +173,7 @@ autowrap_mode = 3
 icon_alignment = 1
 
 [node name="SelectSword" type="TextureButton" parent="Control"]
+texture_filter = 1
 layout_mode = 2
 offset_left = 368.0
 offset_top = 212.0
@@ -185,6 +185,7 @@ texture_normal = ExtResource("2_ehdsv")
 stretch_mode = 5
 
 [node name="SelectAxe" type="TextureButton" parent="Control"]
+texture_filter = 1
 layout_mode = 2
 offset_left = 528.0
 offset_top = 212.0
@@ -196,6 +197,7 @@ texture_normal = ExtResource("3_h7rtd")
 stretch_mode = 5
 
 [node name="SelectBow" type="TextureButton" parent="Control"]
+texture_filter = 1
 layout_mode = 2
 offset_left = 688.0
 offset_top = 212.0
