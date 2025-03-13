@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyk8221urfbf1"]
+
+[ext_resource type="Script" path="res://scripts/arrow.gd" id="1_bueas"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_la73l"]
+height = 1.0
+radius = 0.05
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_punvi"]
+lightmap_size_hint = Vector2i(9, 11)
+top_radius = 0.05
+bottom_radius = 0.05
+height = 1.0
+
+[node name="arrow" type="CharacterBody3D" groups=["arrow"]]
+collision_layer = 8
+script = ExtResource("1_bueas")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_la73l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_punvi")

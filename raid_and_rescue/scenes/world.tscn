@@ -1,0 +1,304 @@
+[gd_scene load_steps=33 format=3 uid="uid://i2ludwu5nrhj"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_6oyjt"]
+[ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="2_7s55m"]
+[ext_resource type="ArrayMesh" uid="uid://bcwbka1s71mx0" path="res://assets/shortsword2test.obj" id="2_h5d0j"]
+[ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://scenes/enemy.tscn" id="4_pccng"]
+[ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="5_b121a"]
+[ext_resource type="ArrayMesh" uid="uid://dwqs16ln38cmi" path="res://assets/Axeversion3.obj" id="5_sjbiw"]
+[ext_resource type="Script" path="res://scripts/health_bar.gd" id="7_3o73v"]
+[ext_resource type="Script" path="res://scripts/cash_label.gd" id="8_2tph2"]
+[ext_resource type="AudioStream" uid="uid://v7k0jw3pe022" path="res://assets/sounds/explosion-sound-effect-1-free-on-gamesfxpackscom-241821.mp3" id="8_kudrf"]
+[ext_resource type="Texture2D" uid="uid://b30ncgp55kww5" path="res://assets/81PfRRG2F1L._AC_UF894,1000_QL80_.png" id="9_1cn78"]
+[ext_resource type="FontFile" uid="uid://bs4fhxtxfaswr" path="res://assets/fonts/ARIAL.TTF" id="9_egb4x"]
+[ext_resource type="AudioStream" uid="uid://b8jg5wbivnw7b" path="res://assets/sounds/money-pickup-2-89563.mp3" id="9_tvskn"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ij0ug"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_j6bck"]
+sky_material = SubResource("ProceduralSkyMaterial_ij0ug")
+
+[sub_resource type="Environment" id="Environment_rjyjm"]
+background_mode = 2
+sky = SubResource("Sky_j6bck")
+tonemap_mode = 2
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_n6vw8"]
+vertices = PackedVector3Array(-24.25, 0.5, -24.25, -24.25, 0.5, 24.25, 24.5, 0.5, 24.25, 24.5, 0.5, -24.25)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfbbd"]
+albedo_color = Color(0, 0.552941, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kqdm1"]
+albedo_color = Color(0.0509804, 0.364706, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ukmkf"]
+albedo_color = Color(0.69553, 1.38617e-05, 0.484068, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ym20n"]
+albedo_color = Color(0.54099, 0.54099, 0.54099, 1)
+metallic = 1.0
+metallic_texture_channel = 2
+roughness = 0.0
+roughness_texture_channel = 2
+rim_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vijik"]
+albedo_color = Color(1, 0.552941, 0.164706, 1)
+metallic = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kuvxj"]
+albedo_color = Color(0.29, 0.176127, 0.0696, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnx3v"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ueobj"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hkf4"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sibq6"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ejrw"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bqy7l"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5wq8"]
+bg_color = Color(0.403926, 0.358493, 0.0403453, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_hbqaq"]
+font_size = 36
+outline_size = 4
+outline_color = Color(0.301961, 0.301961, 0.301961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0wst"]
+bg_color = Color(0.366723, 0.678243, 0.482295, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 20.0
+expand_margin_right = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7r2y"]
+bg_color = Color(0.0667, 0.29, 0.24534, 0.658824)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[node name="world" type="Node3D"]
+
+[node name="game_manager" type="Node" parent="."]
+script = ExtResource("1_6oyjt")
+
+[node name="world_objects" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="world_objects"]
+environment = SubResource("Environment_rjyjm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="world_objects"]
+transform = Transform3D(0.760284, -0.562563, 0.324794, 0, 0.499998, 0.866027, -0.649591, -0.658426, 0.38014, 11.1888, 11.8845, -0.0877705)
+shadow_enabled = true
+
+[node name="Map" type="NavigationRegion3D" parent="world_objects"]
+navigation_mesh = SubResource("NavigationMesh_n6vw8")
+
+[node name="Levelbox" type="CSGBox3D" parent="world_objects/Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5, 0)
+material_overlay = SubResource("StandardMaterial3D_yfbbd")
+snap = 0.1
+use_collision = true
+flip_faces = true
+size = Vector3(50, 25, 50)
+
+[node name="PlayerSpawn" type="CSGBox3D" parent="world_objects/Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0.05, 23)
+visible = false
+material_overlay = SubResource("StandardMaterial3D_kqdm1")
+size = Vector3(2, 0.1, 2)
+
+[node name="EnemySpawn" type="CSGBox3D" parent="world_objects/Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0.05, 14)
+visible = false
+material_overlay = SubResource("StandardMaterial3D_ukmkf")
+snap = 0.1
+size = Vector3(2, 0.1, 2)
+
+[node name="EnemySpawn2" type="CSGBox3D" parent="world_objects/Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.05, 4)
+visible = false
+material_overlay = SubResource("StandardMaterial3D_ukmkf")
+snap = 0.1
+size = Vector3(2, 0.1, 2)
+
+[node name="EnemySpawn3" type="CSGBox3D" parent="world_objects/Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.05, -6)
+visible = false
+material_overlay = SubResource("StandardMaterial3D_ukmkf")
+snap = 0.1
+size = Vector3(2, 0.1, 2)
+
+[node name="Shortsword2Test" type="MeshInstance3D" parent="world_objects"]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0.48633, 1.46635, 5.40756)
+mesh = ExtResource("2_h5d0j")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ym20n")
+surface_material_override/1 = SubResource("StandardMaterial3D_vijik")
+surface_material_override/2 = SubResource("StandardMaterial3D_kuvxj")
+
+[node name="Axeversion3" type="MeshInstance3D" parent="world_objects"]
+transform = Transform3D(0.00775519, 0.010673, -0.0687455, 0.06947, 0.00250087, 0.00822519, 0.00371016, -0.0691363, -0.0103151, -0.800222, 0.719835, 5.2582)
+visible = false
+mesh = ExtResource("5_sjbiw")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_bnx3v")
+surface_material_override/1 = SubResource("StandardMaterial3D_ueobj")
+surface_material_override/2 = SubResource("StandardMaterial3D_6hkf4")
+surface_material_override/3 = SubResource("StandardMaterial3D_sibq6")
+surface_material_override/4 = SubResource("StandardMaterial3D_8ejrw")
+surface_material_override/5 = SubResource("StandardMaterial3D_bqy7l")
+
+[node name="player" parent="world_objects" instance=ExtResource("2_7s55m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0.55, 23)
+visible = false
+
+[node name="Enemy_manager" type="Node3D" parent="world_objects"]
+script = ExtResource("5_b121a")
+enemy_scene = ExtResource("4_pccng")
+
+[node name="Enemy" parent="world_objects/Enemy_manager" instance=ExtResource("4_pccng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1.05, 14)
+
+[node name="explosion" type="AudioStreamPlayer" parent="world_objects/Enemy_manager"]
+stream = ExtResource("8_kudrf")
+
+[node name="moneysound" type="AudioStreamPlayer" parent="world_objects/Enemy_manager"]
+stream = ExtResource("9_tvskn")
+
+[node name="gamegui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="health_bar" type="ProgressBar" parent="gamegui"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -316.0
+offset_top = -509.0
+offset_right = 324.0
+offset_bottom = -461.0
+grow_horizontal = 2
+show_percentage = false
+script = ExtResource("7_3o73v")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="gamegui/health_bar"]
+layout_mode = 0
+offset_right = 639.0
+offset_bottom = 42.0
+theme_override_fonts/normal_font = ExtResource("9_egb4x")
+theme_override_font_sizes/normal_font_size = 40
+text = "			  	Health: 100/100"
+scroll_active = false
+text_direction = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="gamegui"]
+layout_mode = 0
+offset_left = 618.0
+offset_top = -513.0
+offset_right = 746.0
+offset_bottom = -463.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p5wq8")
+
+[node name="MarginContainer" type="MarginContainer" parent="gamegui/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="gamegui/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="gamegui/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("9_1cn78")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="gold" type="Label" parent="gamegui/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Gold: 0"
+label_settings = SubResource("LabelSettings_hbqaq")
+vertical_alignment = 1
+script = ExtResource("8_2tph2")
+
+[node name="PanelContainer2" type="PanelContainer" parent="gamegui"]
+layout_mode = 0
+offset_left = -911.0
+offset_top = -80.0
+offset_right = -771.0
+offset_bottom = -20.0
+scale = Vector2(0.7, 0.7)
+
+[node name="MarginContainer" type="MarginContainer" parent="gamegui/PanelContainer2"]
+z_index = 1
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="gamegui/PanelContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="gamegui/PanelContainer2/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="instructions" type="Label" parent="gamegui/PanelContainer2/MarginContainer/GridContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_m0wst")
+text = "Instructions"
+label_settings = SubResource("LabelSettings_hbqaq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="content" type="Label" parent="gamegui/PanelContainer2/MarginContainer/GridContainer"]
+z_index = 1
+layout_mode = 2
+tooltip_text = "content"
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_w7r2y")
+text = "Goal:
+kill enemies to get gold
+__
+Controls:
+mouse to look around
+WASD to walk
+spacebar to jump
+left-click to attack
+shift + esc to quit game
+_____________________________"
+label_settings = SubResource("LabelSettings_hbqaq")
+horizontal_alignment = 1
+vertical_alignment = 1

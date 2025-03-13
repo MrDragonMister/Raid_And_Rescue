@@ -1,0 +1,202 @@
+[gd_scene load_steps=28 format=3 uid="uid://i2ludwu5nrhj"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_6oyjt"]
+[ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="2_7s55m"]
+[ext_resource type="ArrayMesh" uid="uid://bcwbka1s71mx0" path="res://assets/shortsword2test.obj" id="2_h5d0j"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="3_bx532"]
+[ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://scenes/enemy.tscn" id="4_pccng"]
+[ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="5_b121a"]
+[ext_resource type="ArrayMesh" uid="uid://dwqs16ln38cmi" path="res://assets/Axeversion3.obj" id="5_sjbiw"]
+[ext_resource type="Script" path="res://scripts/health_bar.gd" id="7_3o73v"]
+[ext_resource type="Script" path="res://scripts/cash_label.gd" id="8_2tph2"]
+[ext_resource type="Texture2D" uid="uid://15pqalbctbcn" path="res://assets/png-clipart-viking-age-freyr-norse-mythology-viking-gods-symbol-symbol-miscellaneous-medal.png" id="10_avo77"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ij0ug"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_w3uha"]
+sky_material = SubResource("ProceduralSkyMaterial_ij0ug")
+
+[sub_resource type="Environment" id="Environment_rjyjm"]
+background_mode = 2
+sky = SubResource("Sky_w3uha")
+tonemap_mode = 2
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_n6vw8"]
+vertices = PackedVector3Array(-24.25, 0.5, -24.25, -24.25, 0.5, 24.25, 24.5, 0.5, 24.25, 24.5, 0.5, -24.25)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfbbd"]
+albedo_color = Color(0, 0.552941, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kqdm1"]
+albedo_color = Color(0.0509804, 0.364706, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ukmkf"]
+albedo_color = Color(0.69553, 1.38617e-05, 0.484068, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ym20n"]
+albedo_color = Color(0.54099, 0.54099, 0.54099, 1)
+metallic = 1.0
+metallic_texture_channel = 2
+roughness = 0.0
+roughness_texture_channel = 2
+rim_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vijik"]
+albedo_color = Color(1, 0.552941, 0.164706, 1)
+metallic = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kuvxj"]
+albedo_color = Color(0.29, 0.176127, 0.0696, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnx3v"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ueobj"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hkf4"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sibq6"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ejrw"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bqy7l"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hbqaq"]
+font_size = 36
+outline_size = 4
+outline_color = Color(0.301961, 0.301961, 0.301961, 1)
+
+[node name="world" type="Node3D"]
+
+[node name="game_manager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_6oyjt")
+
+[node name="world_objects" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="world_objects"]
+environment = SubResource("Environment_rjyjm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="world_objects"]
+transform = Transform3D(0.760284, -0.562563, 0.324794, 0, 0.499998, 0.866027, -0.649591, -0.658426, 0.38014, 11.1888, 11.8845, -0.0877705)
+shadow_enabled = true
+
+[node name="Map" type="NavigationRegion3D" parent="world_objects"]
+navigation_mesh = SubResource("NavigationMesh_n6vw8")
+
+[node name="Levelbox" type="CSGBox3D" parent="world_objects/Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5, 0)
+material_overlay = SubResource("StandardMaterial3D_yfbbd")
+snap = 0.1
+use_collision = true
+flip_faces = true
+size = Vector3(50, 25, 50)
+
+[node name="PlayerSpawn" type="CSGBox3D" parent="world_objects/Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0.05, 23)
+material_overlay = SubResource("StandardMaterial3D_kqdm1")
+size = Vector3(2, 0.1, 2)
+
+[node name="EnemySpawn" type="CSGBox3D" parent="world_objects/Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0.05, 14)
+material_overlay = SubResource("StandardMaterial3D_ukmkf")
+snap = 0.1
+size = Vector3(2, 0.1, 2)
+
+[node name="EnemySpawn2" type="CSGBox3D" parent="world_objects/Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.05, 4)
+material_overlay = SubResource("StandardMaterial3D_ukmkf")
+snap = 0.1
+size = Vector3(2, 0.1, 2)
+
+[node name="EnemySpawn3" type="CSGBox3D" parent="world_objects/Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.05, -6)
+material_overlay = SubResource("StandardMaterial3D_ukmkf")
+snap = 0.1
+size = Vector3(2, 0.1, 2)
+
+[node name="Shortsword2Test" type="MeshInstance3D" parent="world_objects"]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0.48633, 1.46635, 5.40756)
+mesh = ExtResource("2_h5d0j")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ym20n")
+surface_material_override/1 = SubResource("StandardMaterial3D_vijik")
+surface_material_override/2 = SubResource("StandardMaterial3D_kuvxj")
+
+[node name="Axeversion3" type="MeshInstance3D" parent="world_objects"]
+transform = Transform3D(0.00775519, 0.010673, -0.0687455, 0.06947, 0.00250087, 0.00822519, 0.00371016, -0.0691363, -0.0103151, -0.800222, 0.719835, 5.2582)
+mesh = ExtResource("5_sjbiw")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_bnx3v")
+surface_material_override/1 = SubResource("StandardMaterial3D_ueobj")
+surface_material_override/2 = SubResource("StandardMaterial3D_6hkf4")
+surface_material_override/3 = SubResource("StandardMaterial3D_sibq6")
+surface_material_override/4 = SubResource("StandardMaterial3D_8ejrw")
+surface_material_override/5 = SubResource("StandardMaterial3D_bqy7l")
+
+[node name="Player" parent="world_objects" instance=ExtResource("2_7s55m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0.55, 23)
+script = ExtResource("3_bx532")
+
+[node name="Enemy_manager" type="Node3D" parent="world_objects"]
+unique_name_in_owner = true
+script = ExtResource("5_b121a")
+enemy_scene = ExtResource("4_pccng")
+
+[node name="Enemy" parent="world_objects/Enemy_manager" instance=ExtResource("4_pccng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1.05, 14)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="health_bar" type="ProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -316.0
+offset_top = -360.0
+offset_right = 324.0
+offset_bottom = -312.0
+grow_horizontal = 2
+script = ExtResource("7_3o73v")
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Control/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Cash: 0"
+label_settings = SubResource("LabelSettings_hbqaq")
+vertical_alignment = 1
+script = ExtResource("8_2tph2")
+
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("10_avo77")

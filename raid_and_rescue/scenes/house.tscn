@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://da25hiyod03sb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_raddu"]
+shading_mode = 2
+vertex_color_is_srgb = true
+albedo_color = Color(0.84, 0.84, 0.84, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_culqt"]
+shading_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mucju"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_t44i5"]
+
+[node name="house" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(3.98793, 0, 0, 0, 0.15996, 0, 0, 0, 5.19407, -0.0532753, 0.0415821, 0.0421207)
+material_override = SubResource("StandardMaterial3D_raddu")
+use_collision = true
+collision_layer = 3
+size = Vector3(1.25781, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(4.85104, 0, 0, 0, 4.63295, 0, 0, 0, 2.21799, -0.0898668, 1.70854, 0.0212152)
+material_override = SubResource("StandardMaterial3D_culqt")
+use_collision = true
+collision_layer = 3
+size = Vector3(1, 0.733276, 2.18945)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(0.206141, 0, 0, 0, 0.215845, 0, 0, 0, 1.28098, 0.515644, -0.172702, 0.00942539)
+operation = 2
+size = Vector3(0.335815, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(0.206141, 0, 0, 0, 0.215845, 0, 0, 0, 1.28098, -0.487699, -0.172702, 0.00942539)
+operation = 2
+size = Vector3(0.335815, 1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(-9.01073e-09, 0.302192, 0, 9.01072e-09, -2.42895e-16, -0.883141, -0.206137, -1.32092e-08, -3.86033e-08, -0.192546, -0.0557592, 1.07299)
+operation = 2
+size = Vector3(0.335815, 1, 0.37439)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(-9.01073e-09, 0.302192, 0, 9.01072e-09, -2.42895e-16, -0.883141, -0.206137, -1.32092e-08, -3.86033e-08, -0.192546, -0.0557592, -1.06198)
+operation = 2
+size = Vector3(0.335815, 1, 0.37439)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(-8.87666e-09, 0.245759, 0, 8.87665e-09, -1.97536e-16, -1.63188, -0.20307, -1.07425e-08, -7.13316e-08, 0.222924, -0.0999931, -1.06198)
+operation = 2
+size = Vector3(0.335815, 1, 0.320984)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(-9.01073e-09, 0.302192, 0, 9.01072e-09, -2.42895e-16, -0.883141, -0.206137, -1.32092e-08, -3.86033e-08, 0.227034, -0.0557592, 1.07299)
+operation = 2
+size = Vector3(0.335815, 1, 0.37439)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(6.15864, 0, 0, 0, 1.77872, 0, 0, 0, 5.24194, -0.138516, 4.16798, -0.131966)
+material_override = SubResource("StandardMaterial3D_mucju")
+use_collision = true
+collision_layer = 3
+mesh = SubResource("PrismMesh_t44i5")
