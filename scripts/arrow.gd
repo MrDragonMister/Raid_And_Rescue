@@ -27,6 +27,10 @@ func _physics_process(delta):
 	elif is_released:
 		velocity += get_gravity() * delta
 		velocity = velocity.lerp(Vector3.ZERO, delta * 0.1)
-		rotation.x = velocity.normalized().y
+		rotation.x = velocity.normalized().y # Pitch
+		#rotation.y = velocity.normalized().x  # Yaw
 	
+	if abs(position.x) > 10000 or abs(position.y) > 10000 or abs(position.z) > 10000:
+		queue_free()
+		
 	move_and_slide()
