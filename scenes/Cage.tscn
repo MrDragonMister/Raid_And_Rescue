@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://bx0jmvpt7kfr5"]
+
+[ext_resource type="ArrayMesh" uid="uid://cimh2ltv4cv6t" path="res://assets/Cage.obj" id="1_cjs21"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1461h"]
+albedo_color = Color(0.6, 0.6, 0.6, 1)
+metallic = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5x8ow"]
+size = Vector3(2.25024, 1.77661, 0.343506)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ic2jf"]
+size = Vector3(2.18164, 1.82074, 0.36969)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sj22l"]
+size = Vector3(0.308289, 1.80618, 2.42377)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pmnly"]
+size = Vector3(0.335876, 1.83862, 2.2251)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uyevv"]
+size = Vector3(2.28418, 0.203613, 2.30023)
+
+[node name="Node3D" type="StaticBody3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Cage" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.101, 0, 0, 0, 0.101, 0, 0, 0, 0.101, 0, 0, 0)
+mesh = ExtResource("1_cjs21")
+surface_material_override/0 = SubResource("StandardMaterial3D_1461h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0259, 0.799492, 1.99917)
+shape = SubResource("BoxShape3D_5x8ow")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.97168, 0.812164, -0.0480042)
+shape = SubResource("BoxShape3D_ic2jf")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0188293, 0.805038, 0.933502)
+shape = SubResource("BoxShape3D_sj22l")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.02359, 0.804321, 1.02459)
+shape = SubResource("BoxShape3D_pmnly")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03076, 1.60181, 1.00797)
+shape = SubResource("BoxShape3D_uyevv")

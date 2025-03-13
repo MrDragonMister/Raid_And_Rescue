@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dn2h1j3d16oha"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_right = 969.0
+offset_bottom = 147.0
+text = "There once was a great viking village that honered the gods of the nord.
+But then a evil king named Alfred set out to kill every last one of the believers of these gods
+This included your village and your people were kidnapped by the evil king
+Now you have been chosen by the gods to take revenge on this king by plundering his villages and killing the king Alfred"

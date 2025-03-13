@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://c4uk6bgfdo1jq"]
+[gd_scene load_steps=26 format=4 uid="uid://c4uk6bgfdo1jq"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_yoyyw"]
 [ext_resource type="ArrayMesh" uid="uid://bcwbka1s71mx0" path="res://assets/shortsword2test.obj" id="2_76g7p"]
@@ -9,6 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://dttyf1usfjsix" path="res://assets/sounds/Slash2.wav" id="7_nlu1p"]
 [ext_resource type="AudioStream" uid="uid://djr58mceawmon" path="res://assets/sounds/Slash3.wav" id="8_p6rme"]
 [ext_resource type="AudioStream" uid="uid://ws2x5tjywmdn" path="res://assets/sounds/Slash4.wav" id="9_5plgg"]
+[ext_resource type="PackedScene" uid="uid://byo0tou50spi" path="res://assets/Bow_drawn2.glb" id="10_0pqjm"]
+[ext_resource type="PackedScene" uid="uid://bs1adtcgw10sn" path="res://assets/Bow.glb" id="11_tvuvi"]
+[ext_resource type="PackedScene" uid="uid://dpu7hdof5ulei" path="res://assets/Axe_Final.glb" id="12_ib3g1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dj3um"]
 radius = 0.375
@@ -328,6 +331,15 @@ surface_material_override/2 = SubResource("StandardMaterial3D_4vsut")
 libraries = {
 "": SubResource("AnimationLibrary_7d0eh")
 }
+
+[node name="Bow_drawn2" parent="." instance=ExtResource("10_0pqjm")]
+transform = Transform3D(-2.18557e-09, -0.05, 2.18557e-09, 0, -2.18557e-09, -0.05, 0.05, -2.18557e-09, 9.55343e-17, 0.422642, 0.999407, -1.28973)
+
+[node name="Bow" parent="." instance=ExtResource("11_tvuvi")]
+transform = Transform3D(-2.18557e-09, -0.05, 2.18557e-09, 0, -2.18557e-09, -0.05, 0.05, -2.18557e-09, 9.55343e-17, 0.423917, 0.99467, -1.27678)
+
+[node name="Axe_Final" parent="." instance=ExtResource("12_ib3g1")]
+transform = Transform3D(-4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0, 0, 0, 0.1, 0.375936, 1.88058, -0.917888)
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

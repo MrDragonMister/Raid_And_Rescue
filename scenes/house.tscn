@@ -1,14 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://da25hiyod03sb"]
+[gd_scene load_steps=8 format=3 uid="uid://da25hiyod03sb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_raddu"]
 shading_mode = 2
 vertex_color_is_srgb = true
-albedo_color = Color(0.84, 0.84, 0.84, 1)
+albedo_color = Color(0.362829, 0.36283, 0.362829, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_culqt"]
 shading_mode = 2
+albedo_color = Color(0.497697, 0.264663, 0.0115972, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1whq1"]
+albedo_color = Color(0.568627, 0.196078, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vbwn"]
+albedo_color = Color(0.876715, 0.42271, 0.232193, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqcvy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mucju"]
+albedo_color = Color(0.423529, 0, 0.0196078, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_t44i5"]
 
@@ -30,6 +40,7 @@ size = Vector3(1, 0.733276, 2.18945)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D2"]
 transform = Transform3D(0.206141, 0, 0, 0, 0.215845, 0, 0, 0, 1.28098, 0.515644, -0.172702, 0.00942539)
+material_override = SubResource("StandardMaterial3D_1whq1")
 operation = 2
 size = Vector3(0.335815, 1, 1)
 
@@ -50,6 +61,8 @@ size = Vector3(0.335815, 1, 0.37439)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="CSGBox3D2"]
 transform = Transform3D(-8.87666e-09, 0.245759, 0, 8.87665e-09, -1.97536e-16, -1.63188, -0.20307, -1.07425e-08, -7.13316e-08, 0.222924, -0.0999931, -1.06198)
+material_override = SubResource("StandardMaterial3D_3vbwn")
+material_overlay = SubResource("StandardMaterial3D_gqcvy")
 operation = 2
 size = Vector3(0.335815, 1, 0.320984)
 

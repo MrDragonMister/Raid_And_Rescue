@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cbb7i6181iund"]
+[gd_scene load_steps=27 format=3 uid="uid://cbb7i6181iund"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_jawdy"]
 [ext_resource type="PackedScene" uid="uid://da25hiyod03sb" path="res://scenes/house.tscn" id="2_p8885"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://scripts/debug_bar.gd" id="11_a2lqx"]
 [ext_resource type="Script" path="res://scripts/cash_label.gd" id="11_dv71c"]
 [ext_resource type="PackedScene" uid="uid://p28slibh3lgd" path="res://scenes/villager.tscn" id="12_fjs12"]
+[ext_resource type="PackedScene" uid="uid://bx0jmvpt7kfr5" path="res://scenes/Cage.tscn" id="14_ttbbo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j2cf6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -344,3 +345,6 @@ _____________________________"
 label_settings = SubResource("LabelSettings_1x25p")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Node3D" parent="." instance=ExtResource("14_ttbbo")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.64142, 4.76837e-07, -3.84188)
