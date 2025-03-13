@@ -10,12 +10,12 @@ func _physics_process(delta):
 		position.y = player.position.y + 1.5 - player.basis.z.y
 		rotation.y = player.rotation.y
 		rotation.x = player.active_camera.rotation.x
-	if Input.is_action_just_released("interact"):
+	if Input.is_action_just_released("interact") and not is_released:
 		is_released = true
 		velocity = player.velocity + -player.basis.z * THROW_STRENGTH
 		# player velocity + direction player is looking
 		
-		velocity *= 1 - abs(clamp(player.active_camera.rotation.x * 2 / PI, -1, 1))
+		#velocity *= 1 - abs(clamp(player.active_camera.rotation.x * 2 / PI, -1, 1))
 		# Why is this^ here? (vraag van Milan aan Milan)
 		
 		# Changes the upwards velocity based on how much the player is looking up or down

@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://scripts/debug_bar.gd" id="11_a2lqx"]
 [ext_resource type="Script" path="res://scripts/cash_label.gd" id="11_dv71c"]
 [ext_resource type="PackedScene" uid="uid://p28slibh3lgd" path="res://scenes/villager.tscn" id="12_fjs12"]
-[ext_resource type="PackedScene" uid="uid://bx0jmvpt7kfr5" path="res://scenes/Cage.tscn" id="14_ttbbo"]
+[ext_resource type="PackedScene" path="res://scenes/Cage.tscn" id="14_ttbbo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j2cf6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
