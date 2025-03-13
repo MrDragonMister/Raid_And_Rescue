@@ -14,12 +14,10 @@ var is_following: bool = false
 
 func _unhandled_input(_event):
 	if not is_following and Input.is_action_just_pressed("interact") and (position - player.position).length() < INTERACT_RANGE:
-		player.shoot_ready = false
+		player.interacting = true
 		is_following = true
 		game_manager.is_vilager_free = true
-		print("ready: ", player.shoot_ready)
 		interact_cooldown.start()
-	
 
 func _physics_process(delta):
 	if is_following:
@@ -40,4 +38,4 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_interact_cooldown_timeout():
-	player.shoot_ready = true
+	player.interacting = false

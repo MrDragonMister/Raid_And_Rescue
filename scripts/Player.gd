@@ -20,7 +20,7 @@ var t_bob = 0.0
 
 var active_camera: Camera3D
 var attack_ready: bool = true
-var shoot_ready: bool = true
+var interacting: bool = false
 var armor_damage_reduction: float = 0 # percentage of base damage, between 0 and 1
 # TODO ^wouldn't directly storing the amount the enemy can damage be more efficient?
 
@@ -73,7 +73,7 @@ func _process(delta: float) -> void:
 		await get_tree().create_timer(get_process_delta_time()).timeout
 		attack_ready = false
 	
-	if Input.is_action_just_pressed("interact") and shoot_ready and attack_ready: # and bow_is_in_hand
+	if Input.is_action_just_pressed("interact") and not interacting and attack_ready: # and bow_is_in_hand
 		game_manager.spawn_arrow()
 		timer.start()
 		attack_ready = false

@@ -4,6 +4,7 @@ extends Node
 @onready var amount_of_enemies: int = 0
 @onready var gold: int = 0
 @onready var should_play_miss: bool = true
+var level : int = 1
 
 func get_angle_to(from, target) -> float:
 	#Get the location of the target as a Vector2 from a top-down perspective
@@ -40,3 +41,7 @@ var item = {
 		"Cost": 10,
 	},
 }
+
+func next_level():
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+	level += 1

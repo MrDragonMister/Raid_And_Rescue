@@ -1,8 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://cbb7i6181iund"]
+[gd_scene load_steps=30 format=3 uid="uid://cbb7i6181iund"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_jawdy"]
 [ext_resource type="PackedScene" uid="uid://da25hiyod03sb" path="res://scenes/house.tscn" id="2_p8885"]
 [ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="3_82y08"]
+[ext_resource type="PackedScene" uid="uid://bfeh8xkisbp0y" path="res://assets/Gate.glb" id="3_k8gs3"]
+[ext_resource type="Script" path="res://scripts/gate.gd" id="4_ku410"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="4_l0vb5"]
 [ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://scenes/enemy.tscn" id="5_tr3a2"]
 [ext_resource type="AudioStream" uid="uid://v7k0jw3pe022" path="res://assets/sounds/explosion-sound-effect-1-free-on-gamesfxpackscom-241821.mp3" id="6_ik658"]
@@ -14,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://p28slibh3lgd" path="res://scenes/villager.tscn" id="12_fjs12"]
 [ext_resource type="Texture2D" uid="uid://cvoy0x2sbr8bg" path="res://assets/gold_icon.png" id="13_xxj8g"]
 [ext_resource type="PackedScene" uid="uid://clc35d4e278wu" path="res://scenes/inventory.tscn" id="14_siyf4"]
-[ext_resource type="PackedScene" path="res://scenes/Cage.tscn" id="14_ttbbo"]
+[ext_resource type="PackedScene" uid="uid://dkxvwbmujc8sm" path="res://scenes/Cage.tscn" id="14_ttbbo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j2cf6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -93,8 +95,15 @@ environment = SubResource("Environment_60k4y")
 transform = Transform3D(0.760284, -0.562563, 0.324794, 0, 0.499998, 0.866026, -0.649591, -0.658426, 0.380141, 11.1888, 11.8845, -0.0877705)
 shadow_enabled = true
 
+[node name="Cage" parent="world_objects" instance=ExtResource("14_ttbbo")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.64142, 4.76837e-07, -3.84188)
+
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="world_objects"]
 navigation_mesh = SubResource("NavigationMesh_3vf7c")
+
+[node name="Gate" parent="world_objects/NavigationRegion3D" instance=ExtResource("3_k8gs3")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 30, 0, 0)
+script = ExtResource("4_ku410")
 
 [node name="floor" type="CSGBox3D" parent="world_objects/NavigationRegion3D"]
 transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 84.789, 0, -0.5, 0)
@@ -362,6 +371,3 @@ _____________________________"
 label_settings = SubResource("LabelSettings_1x25p")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Node3D" parent="." instance=ExtResource("14_ttbbo")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.64142, 4.76837e-07, -3.84188)

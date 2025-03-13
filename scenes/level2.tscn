@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://ddk605ukuipyd"]
+[gd_scene load_steps=31 format=3 uid="uid://ddk605ukuipyd"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_4yjry"]
 [ext_resource type="PackedScene" uid="uid://da25hiyod03sb" path="res://scenes/house.tscn" id="2_h8crc"]
 [ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="3_vak43"]
+[ext_resource type="Script" path="res://scripts/gate.gd" id="4_42uj6"]
 [ext_resource type="PackedScene" uid="uid://p28slibh3lgd" path="res://scenes/villager.tscn" id="4_qbv3a"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="5_82tt6"]
 [ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://scenes/enemy.tscn" id="6_qa22w"]
@@ -12,7 +13,7 @@
 [ext_resource type="FontFile" uid="uid://bs4fhxtxfaswr" path="res://assets/fonts/ARIAL.TTF" id="10_56kv2"]
 [ext_resource type="Script" path="res://scripts/debug_bar.gd" id="11_p1b2j"]
 [ext_resource type="Script" path="res://scripts/cash_label.gd" id="13_hyrst"]
-[ext_resource type="PackedScene" path="res://scenes/Cage.tscn" id="14_42xjl"]
+[ext_resource type="PackedScene" uid="uid://dkxvwbmujc8sm" path="res://scenes/Cage.tscn" id="14_42xjl"]
 [ext_resource type="PackedScene" uid="uid://b4vrk6jumsrif" path="res://assets/Wachter_zwaard_texture.glb" id="15_dq64n"]
 [ext_resource type="Texture2D" uid="uid://cvoy0x2sbr8bg" path="res://assets/gold_icon.png" id="15_qxsy3"]
 [ext_resource type="PackedScene" uid="uid://clc35d4e278wu" path="res://scenes/inventory.tscn" id="16_brcoe"]
@@ -103,6 +104,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1444, -2.38419e-07, -20.0
 
 [node name="Gate" parent="world_objects/NavigationRegion3D" instance=ExtResource("16_rga3d")]
 transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 30.0592, 9.53674e-07, 15.0597)
+script = ExtResource("4_42uj6")
 
 [node name="floor" type="CSGBox3D" parent="world_objects/NavigationRegion3D"]
 transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 84.789, 0, -0.5, 0)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://dv4npmahb7j5i"]
+[gd_scene load_steps=32 format=3 uid="uid://dv4npmahb7j5i"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_j725e"]
-[ext_resource type="PackedScene" path="res://scenes/Cage.tscn" id="2_gv3se"]
+[ext_resource type="PackedScene" uid="uid://dkxvwbmujc8sm" path="res://scenes/Cage.tscn" id="2_gv3se"]
 [ext_resource type="PackedScene" uid="uid://bfeh8xkisbp0y" path="res://assets/Gate.glb" id="3_rb4cf"]
 [ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="4_1645l"]
 [ext_resource type="PackedScene" uid="uid://da25hiyod03sb" path="res://scenes/house.tscn" id="4_alhw8"]
+[ext_resource type="Script" path="res://scripts/gate.gd" id="4_ufdn5"]
 [ext_resource type="PackedScene" uid="uid://p28slibh3lgd" path="res://scenes/villager.tscn" id="5_g52h0"]
 [ext_resource type="PackedScene" path="res://scenes/Well.tscn" id="5_lh7p1"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="6_uovux"]
@@ -104,6 +105,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.744782, -1.43051e-06, -37.
 
 [node name="Gate" parent="world_objects/NavigationRegion3D" instance=ExtResource("3_rb4cf")]
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 0, 0, 25.4159)
+script = ExtResource("4_ufdn5")
 
 [node name="floor" type="CSGBox3D" parent="world_objects/NavigationRegion3D"]
 transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 84.789, 0, -0.5, 0)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://ijkflhsxe5fo"]
+[gd_scene load_steps=32 format=3 uid="uid://ijkflhsxe5fo"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_j1nd7"]
-[ext_resource type="PackedScene" path="res://scenes/Cage.tscn" id="2_yfw72"]
+[ext_resource type="PackedScene" uid="uid://dkxvwbmujc8sm" path="res://scenes/Cage.tscn" id="2_yfw72"]
 [ext_resource type="PackedScene" path="res://scenes/Well.tscn" id="3_c3vt0"]
+[ext_resource type="Script" path="res://scripts/gate.gd" id="3_ll1jg"]
 [ext_resource type="PackedScene" uid="uid://da25hiyod03sb" path="res://scenes/house.tscn" id="3_qul0q"]
 [ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="4_7wet1"]
 [ext_resource type="PackedScene" uid="uid://b4vrk6jumsrif" path="res://assets/Wachter_zwaard_texture.glb" id="4_ihe42"]
@@ -98,6 +99,10 @@ shadow_enabled = true
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="world_objects"]
 navigation_mesh = SubResource("NavigationMesh_3vf7c")
+
+[node name="Gate" parent="world_objects/NavigationRegion3D" instance=ExtResource("16_2qc0h")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 29.9437, 0, 15.5313)
+script = ExtResource("3_ll1jg")
 
 [node name="Node3D2" parent="world_objects/NavigationRegion3D" instance=ExtResource("2_yfw72")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04878, 4.76837e-07, -31.8753)
@@ -408,6 +413,3 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -15.2959, 0, -9.4635
 
 [node name="Wachter_zwaard_texture8" parent="." instance=ExtResource("4_ihe42")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 7.91656, 0, 1.95123)
-
-[node name="Gate" parent="." instance=ExtResource("16_2qc0h")]
-transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 29.9437, 0, 15.5313)
