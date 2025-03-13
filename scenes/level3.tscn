@@ -1,8 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://dsbwfl4q0cncm"]
+[gd_scene load_steps=31 format=3 uid="uid://12rb4ixdbyia"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_j1nd7"]
-[ext_resource type="PackedScene" uid="uid://bx0jmvpt7kfr5" path="res://scenes/Cage.tscn" id="2_yfw72"]
-[ext_resource type="PackedScene" uid="uid://c8dxyrtlajhxh" path="res://scenes/Well.tscn" id="3_c3vt0"]
+[ext_resource type="PackedScene" uid="uid://cy83gaiogvyiw" path="res://scenes/Cage.tscn" id="2_yfw72"]
+[ext_resource type="PackedScene" path="res://scenes/Well.tscn" id="3_c3vt0"]
 [ext_resource type="PackedScene" uid="uid://da25hiyod03sb" path="res://scenes/house.tscn" id="3_qul0q"]
 [ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="4_7wet1"]
 [ext_resource type="PackedScene" uid="uid://b4vrk6jumsrif" path="res://assets/Wachter_zwaard_texture.glb" id="4_ihe42"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b30ncgp55kww5" path="res://assets/81PfRRG2F1L._AC_UF894,1000_QL80_.png" id="13_2hu34"]
 [ext_resource type="Script" path="res://scripts/cash_label.gd" id="14_rftx2"]
 [ext_resource type="PackedScene" uid="uid://bfeh8xkisbp0y" path="res://assets/Gate.glb" id="16_2qc0h"]
+[ext_resource type="PackedScene" uid="uid://dil372tllpt78" path="res://scenes/inventory.tscn" id="17_nhsat"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j2cf6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -366,6 +367,20 @@ _____________________________"
 label_settings = SubResource("LabelSettings_1x25p")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Inventory" parent="gamegui" instance=ExtResource("17_nhsat")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 660.0
+offset_top = 390.0
+offset_right = 788.0
+offset_bottom = 444.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Wachter_zwaard_texture" parent="." instance=ExtResource("4_ihe42")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 4.58655, 0, 7.33558)

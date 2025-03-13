@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cbb7i6181iund"]
+[gd_scene load_steps=30 format=3 uid="uid://45lp63g6dh57"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_4yjry"]
 [ext_resource type="PackedScene" uid="uid://da25hiyod03sb" path="res://scenes/house.tscn" id="2_h8crc"]
@@ -13,8 +13,9 @@
 [ext_resource type="Script" path="res://scripts/debug_bar.gd" id="11_p1b2j"]
 [ext_resource type="Texture2D" uid="uid://b30ncgp55kww5" path="res://assets/81PfRRG2F1L._AC_UF894,1000_QL80_.png" id="12_tgru1"]
 [ext_resource type="Script" path="res://scripts/cash_label.gd" id="13_hyrst"]
-[ext_resource type="PackedScene" uid="uid://bx0jmvpt7kfr5" path="res://scenes/Cage.tscn" id="14_42xjl"]
+[ext_resource type="PackedScene" uid="uid://cy83gaiogvyiw" path="res://scenes/Cage.tscn" id="14_42xjl"]
 [ext_resource type="PackedScene" uid="uid://b4vrk6jumsrif" path="res://assets/Wachter_zwaard_texture.glb" id="15_dq64n"]
+[ext_resource type="PackedScene" uid="uid://dil372tllpt78" path="res://scenes/inventory.tscn" id="16_brcoe"]
 [ext_resource type="PackedScene" uid="uid://bfeh8xkisbp0y" path="res://assets/Gate.glb" id="16_rga3d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j2cf6"]
@@ -236,6 +237,20 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Inventory" parent="gamegui" instance=ExtResource("16_brcoe")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 660.0
+offset_top = 390.0
+offset_right = 788.0
+offset_bottom = 444.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="health_bar" type="ProgressBar" parent="gamegui"]
 layout_mode = 1

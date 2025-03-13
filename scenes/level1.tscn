@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cbb7i6181iund"]
+[gd_scene load_steps=28 format=3 uid="uid://cbb7i6181iund"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_jawdy"]
 [ext_resource type="PackedScene" uid="uid://da25hiyod03sb" path="res://scenes/house.tscn" id="2_p8885"]
@@ -13,7 +13,8 @@
 [ext_resource type="Script" path="res://scripts/debug_bar.gd" id="11_a2lqx"]
 [ext_resource type="Script" path="res://scripts/cash_label.gd" id="11_dv71c"]
 [ext_resource type="PackedScene" uid="uid://p28slibh3lgd" path="res://scenes/villager.tscn" id="12_fjs12"]
-[ext_resource type="PackedScene" path="res://scenes/Cage.tscn" id="14_ttbbo"]
+[ext_resource type="PackedScene" uid="uid://dil372tllpt78" path="res://scenes/inventory.tscn" id="14_siyf4"]
+[ext_resource type="PackedScene" uid="uid://cy83gaiogvyiw" path="res://scenes/Cage.tscn" id="14_ttbbo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j2cf6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -222,6 +223,20 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Inventory" parent="gamegui" instance=ExtResource("14_siyf4")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 660.0
+offset_top = 390.0
+offset_right = 788.0
+offset_bottom = 444.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="health_bar" type="ProgressBar" parent="gamegui"]
 layout_mode = 1

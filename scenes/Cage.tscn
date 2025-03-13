@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bx0jmvpt7kfr5"]
+[gd_scene load_steps=8 format=3 uid="uid://cy83gaiogvyiw"]
 
-[ext_resource type="ArrayMesh" uid="uid://cimh2ltv4cv6t" path="res://assets/Cage.obj" id="1_cjs21"]
+[ext_resource type="ArrayMesh" uid="uid://2nlg4b7c7jp1" path="res://assets/Cage.obj" id="1_cjs21"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1461h"]
 albedo_color = Color(0.6, 0.6, 0.6, 1)
