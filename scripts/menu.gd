@@ -3,7 +3,7 @@ extends Node2D
 @onready var death = $death
 
 func _ready():
-	# death.play()
+	death.play()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_node("Weapon_shop").visible = false
 
