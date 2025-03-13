@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://c4uk6bgfdo1jq"]
+[gd_scene load_steps=29 format=4 uid="uid://c4uk6bgfdo1jq"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_yoyyw"]
 [ext_resource type="ArrayMesh" uid="uid://bcwbka1s71mx0" path="res://assets/shortsword2test.obj" id="2_76g7p"]
@@ -90,6 +90,67 @@ tracks/1/keys = {
 _data = {
 "RESET": SubResource("Animation_s8xr8"),
 "swing": SubResource("Animation_wj4l0")
+}
+
+[sub_resource type="Animation" id="Animation_sy6x3"]
+resource_name = "Axe_swing"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5, 0.733333, 1, 1.23333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.375936, 1.88058, -0.917888), Vector3(1.27279, 1.88058, -0.917888), Vector3(1.75529, 0.759638, -0.917888), Vector3(0.475105, 0.759638, -2.30017), Vector3(-0.873213, 0.759638, -1.80624), Vector3(-0.764296, 0.987358, -1.36484), Vector3(0.375936, 1.88058, -0.917888)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5, 0.733333, 1, 1.23333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1.5708), Vector3(0, 0, 0.879646), Vector3(0, 0, -0.0582243), Vector3(2.93552e-11, 1.53385, -0.0582243), Vector3(-5.04075e-09, 2.59431, -0.0582243), Vector3(0, 2.77507, 0.122173), Vector3(0, 3.14159, 1.5708)]
+}
+
+[sub_resource type="Animation" id="Animation_dte3y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.375936, 1.88058, -0.917888)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 1.5708)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i756n"]
+_data = {
+"Axe_swing": SubResource("Animation_sy6x3"),
+"RESET": SubResource("Animation_dte3y")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tx6vp"]
@@ -334,12 +395,19 @@ libraries = {
 
 [node name="Bow_drawn2" parent="." instance=ExtResource("10_0pqjm")]
 transform = Transform3D(-2.18557e-09, -0.05, 2.18557e-09, 0, -2.18557e-09, -0.05, 0.05, -2.18557e-09, 9.55343e-17, 0.422642, 0.999407, -1.28973)
+visible = false
 
 [node name="Bow" parent="." instance=ExtResource("11_tvuvi")]
 transform = Transform3D(-2.18557e-09, -0.05, 2.18557e-09, 0, -2.18557e-09, -0.05, 0.05, -2.18557e-09, 9.55343e-17, 0.423917, 0.99467, -1.27678)
+visible = false
 
 [node name="Axe_Final" parent="." instance=ExtResource("12_ib3g1")]
 transform = Transform3D(-4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0, 0, 0, 0.1, 0.375936, 1.88058, -0.917888)
+
+[node name="Axe_animation" type="AnimationPlayer" parent="Axe_Final"]
+libraries = {
+"": SubResource("AnimationLibrary_i756n")
+}
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

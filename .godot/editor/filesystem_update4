@@ -5,11 +5,9 @@ res://scenes/player.tscn
 res://scenes/enemy.tscn
 res://scenes/arrow.tscn
 res://scenes/villager.tscn
-res://scenes/level3.tscn
 res://scenes/level2.tscn
-res://scenes/inventory.tscn
-res://scenes/Intro.tscn
+res://scenes/level3.tscn
+res://scenes/levelalfred.tscn
 res://scenes/house.tscn
 res://scenes/Cage.tscn
-res://scenes/broken.tscn
-res://scenes/weapon_shop.tscn
+res://scripts/Player.gd
