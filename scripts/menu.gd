@@ -10,6 +10,9 @@ func _ready():
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/level1.tscn")
 
+func _on_button2_pressed() -> void:
+	pass # Replace with function body.
+
 func _on_button_3_pressed() -> void:
 	get_node("Weapon_shop").visible = true
 	get_node("Weapon_shop/Anim").play("TransIn")

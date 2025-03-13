@@ -348,13 +348,14 @@ mouse_filter = 1
 theme_override_styles/normal = SubResource("StyleBoxFlat_5rhlq")
 text = "Goal:
 kill enemies to get gold
+save the villager
 __
 Controls:
 mouse to look around
 WASD to walk
 spacebar to jump
 left-click to attack
-C to spawn new enemies
+right-click to shoot arrow
 shift + esc to quit game
 _____________________________"
 label_settings = SubResource("LabelSettings_1x25p")
