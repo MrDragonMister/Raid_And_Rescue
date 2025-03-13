@@ -1,8 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1741899403
+::res://::1741900652
 export_presets.cfg::TextFile::-1::1741886036::0::1::::<><>::
 README.md::TextFile::-1::1741886036::0::1::::<><>::
-::res://assets/::1741900063
+::res://assets/::1741902835
 81PfRRG2F1L._AC_UF894,1000_QL80_.png::CompressedTexture2D::4404110981619015186::1741886036::1741886503::1::::<><>::
 Alfred2_Guard.png::CompressedTexture2D::4902537535756607649::1741895673::1741895712::1::::<><>::
 Alfred.glb::PackedScene::9141786040855851617::1741895673::1741895717::1::::<><>::uid://bya6m3vpx0jfj::::res://assets/Alfred_Guard.png
@@ -13,11 +13,13 @@ Axeversion3.obj::Mesh::8737587637538376400::1741886036::1741886503::1::::<><>::
 Axe_color.png::CompressedTexture2D::4748649976658495015::1741895673::1741895712::1::::<><>::
 Axe_Final.glb::PackedScene::8255337884522223964::1741895673::1741895715::1::::<><>::uid://c7jm4mcpyaray::::res://assets/Axe_Final_Axe_color.png
 Axe_Final_Axe_color.png::CompressedTexture2D::7038244789609649596::1741895673::1741895711::1::::<><>::
+axe_icon.png::CompressedTexture2D::6202005935399061485::1741901810::1741902914::1::::<><>::
 backcircleship.png::CompressedTexture2D::4424063896680191461::1741886036::1741886502::1::::<><>::
 Bow.glb::PackedScene::3703500049501277765::1741895673::1741895715::1::::<><>::uid://c8vi4xpp13tuj::::res://assets/Bow_Bow_texture.png
 Bow_Bow_texture.png::CompressedTexture2D::7132963896168418589::1741895673::1741895711::1::::<><>::
 Bow_drawn2.glb::PackedScene::120629613002536950::1741895673::1741895715::1::::<><>::uid://bl2hjl1y0s2ls::::res://assets/Bow_drawn2_Cylinder.png
 Bow_drawn2_Cylinder.png::CompressedTexture2D::3214677873211944596::1741895673::1741895710::1::::<><>::
+bow_icon.png::CompressedTexture2D::9050194109819773409::1741901810::1741902914::1::::<><>::
 Bow_texture.png::CompressedTexture2D::2251583925682169560::1741895673::1741895710::1::::<><>::
 Cage.obj::Mesh::1922615816893345436::1741895673::1741895714::1::::<><>::
 Cage.png::CompressedTexture2D::4509616614689773752::1741895673::1741895711::1::::<><>::
@@ -35,6 +37,7 @@ maincharacter.obj::Mesh::5899174595841164089::1741886036::1741886503::1::::<><>:
 maincharacteranimated2.glb::PackedScene::48099821640103028::1741886036::1741886504::1::::<><>::
 ship.png::CompressedTexture2D::5629440077335518292::1741886036::1741886502::1::::<><>::
 shortsword2test.obj::Mesh::2572293297516848103::1741886036::1741886504::1::::<><>::
+sword_icon.png::CompressedTexture2D::2493990047766821634::1741901810::1741902914::1::::<><>::
 ultra-kill-138765.mp3::AudioStreamMP3::2820391361941425577::1741898324::1741900073::1::::<><>::
 Villager2.glb::PackedScene::4668075457422648513::1741895673::1741895716::1::::<><>::uid://bdk8612tbg4ww::::res://assets/Villager2_Material Base Color.png
 Villager2_Material Base Color.png::CompressedTexture2D::2619691420701843542::1741895673::1741895710::1::::<><>::
@@ -52,7 +55,9 @@ ARIALNB.TTF::FontFile::3032189360007549066::1741886036::1741886501::1::::<><>::
 ARIALNBI.TTF::FontFile::1077085632679424122::1741886036::1741886501::1::::<><>::
 ARIALNI.TTF::FontFile::1899744060807710827::1741886036::1741886501::1::::<><>::
 ARIBLK.TTF::FontFile::3163132660232341920::1741886036::1741886501::1::::<><>::
-::res://assets/sounds/::1741886503
+::res://assets/sounds/::1741902835
+bow-loading-38752.mp3::AudioStreamMP3::797371652342872956::1741901754::1741902914::1::::<><>::
+bow-release-bow-and-arrow-4-101936.mp3::AudioStreamMP3::7695099468788224506::1741901755::1741902914::1::::<><>::
 explosion-sound-effect-1-free-on-gamesfxpackscom-241821.mp3::AudioStreamMP3::1540678127292152357::1741886036::1741886502::1::::<><>::
 hurt.mp3::AudioStreamMP3::4263983724390194468::1741886036::1741886502::1::::<><>::
 miss.mp3::AudioStreamMP3::2031343321809781911::1741886036::1741886501::1::::<><>::
@@ -63,10 +68,10 @@ Slash3.wav::AudioStreamWAV::7827937140174897609::1741886036::1741886503::1::::<>
 Slash4.wav::AudioStreamWAV::1582995397167953331::1741886036::1741886503::1::::<><>::
 ultra-kill-138765.mp3::AudioStreamMP3::2900946656720740045::1741886036::1741886501::1::::<><>::
 ::res://raid_and_rescue/::1741886339
-::res://scenes/::1741900007
+::res://scenes/::1741902861
 alfred.tscn::PackedScene::-1::1741900007::0::1::::<><>::
 animation_player.gd::GDScript::-1::1741886036::0::1::::<>AnimationPlayer<>::
-arrow.tscn::PackedScene::8866491412356396416::1741899641::0::1::::<><>::res://scripts/arrow.gd<>uid://b5kstgp6oy6xa::::res://assets/Arrow4.obj
+arrow.tscn::PackedScene::8866491412356396416::1741900120::0::1::::<><>::res://scripts/arrow.gd<>uid://b5kstgp6oy6xa::::res://assets/Arrow4.obj
 broken.tscn::PackedScene::7764866953867249112::1741886036::0::1::::<><>::res://scripts/game_manager.gd<>uid://da25hiyod03sb::::res://scenes/house.tscn<>res://scripts/enemy_manager.gd<>uid://cny8rnjsf4uw5::::res://scenes/enemy.tscn<>uid://v7k0jw3pe022::::res://assets/sounds/explosion-sound-effect-1-free-on-gamesfxpackscom-241821.mp3<>uid://b8jg5wbivnw7b::::res://assets/sounds/money-pickup-2-89563.mp3<>uid://c4uk6bgfdo1jq::::res://scenes/player.tscn<>res://scripts/health_bar.gd<>uid://bs4fhxtxfaswr::::res://assets/fonts/ARIAL.TTF<>uid://b30ncgp55kww5::::res://assets/81PfRRG2F1L._AC_UF894,1000_QL80_.png<>res://scripts/cash_label.gd
 Cage.tscn::PackedScene::-1::1741895673::0::1::::<><>::
 enemy.tscn::PackedScene::5736876117568208914::1741898069::0::1::::<><>::res://scripts/enemy.gd<>uid://di3m5nqk4trhq::::res://assets/Wachter_zwaard_texture_Guard.png<>res://scenes/animation_player.gd<>uid://8rxcrefsn6is::::res://assets/sounds/Slash1.wav<>uid://dttyf1usfjsix::::res://assets/sounds/Slash2.wav<>uid://djr58mceawmon::::res://assets/sounds/Slash3.wav<>uid://ws2x5tjywmdn::::res://assets/sounds/Slash4.wav<>uid://3686spnkhh7d::::res://assets/sounds/miss.mp3<>uid://b10rgopct2gd5::::res://assets/sounds/hurt.mp3
@@ -80,24 +85,24 @@ levelalfred.tscn::PackedScene::-1::1741895673::0::1::::<><>::
 main_test.tscn::PackedScene::2085770135492793438::1741898070::0::1::::<><>::uid://c4uk6bgfdo1jq::::res://scenes/player.tscn<>uid://p28slibh3lgd::::res://scenes/villager.tscn
 menu.tscn::PackedScene::4901641878204720923::1741898068::0::1::::<><>::res://scripts/menu.gd<>uid://b4bbxlbd4ui6x::::res://assets/backcircleship.png<>uid://7gerdq4g6fka::::res://assets/gamelogo.png<>uid://bhlifx0pmjl46::::res://assets/sounds/ultra-kill-138765.mp3
 path_finding_test.tscn::PackedScene::8056732605489727097::1741898070::0::1::::<><>::res://scripts/test_enemy.gd
-player.tscn::PackedScene::6850267979532996586::1741898068::0::1::::<><>::res://scripts/Player.gd<>uid://bcwbka1s71mx0::::res://assets/shortsword2test.obj<>res://scripts/mesh_instance_3d.gd<>uid://3686spnkhh7d::::res://assets/sounds/miss.mp3<>uid://b10rgopct2gd5::::res://assets/sounds/hurt.mp3<>uid://8rxcrefsn6is::::res://assets/sounds/Slash1.wav<>uid://dttyf1usfjsix::::res://assets/sounds/Slash2.wav<>uid://djr58mceawmon::::res://assets/sounds/Slash3.wav<>uid://ws2x5tjywmdn::::res://assets/sounds/Slash4.wav<>uid://byo0tou50spi::::res://assets/Bow_drawn2.glb<>uid://bs1adtcgw10sn::::res://assets/Bow.glb<>uid://dpu7hdof5ulei::::res://assets/Axe_Final.glb
+player.tscn::PackedScene::6850267979532996586::1741902410::0::1::::<><>::res://scripts/Player.gd<>uid://bcwbka1s71mx0::::res://assets/shortsword2test.obj<>res://scripts/mesh_instance_3d.gd<>uid://3686spnkhh7d::::res://assets/sounds/miss.mp3<>uid://b10rgopct2gd5::::res://assets/sounds/hurt.mp3<>uid://8rxcrefsn6is::::res://assets/sounds/Slash1.wav<>uid://dttyf1usfjsix::::res://assets/sounds/Slash2.wav<>uid://djr58mceawmon::::res://assets/sounds/Slash3.wav<>uid://ws2x5tjywmdn::::res://assets/sounds/Slash4.wav<>uid://byo0tou50spi::::res://assets/Bow_drawn2.glb<>uid://bs1adtcgw10sn::::res://assets/Bow.glb<>uid://dpu7hdof5ulei::::res://assets/Axe_Final.glb
 villager.tscn::PackedScene::1110607249152871275::1741898070::0::1::::<><>::res://scripts/villager.gd<>res://scripts/villager_animation.gd<>uid://bdk8612tbg4ww::::res://assets/Villager2_Material Base Color.png
 weapon_shop.tscn::PackedScene::-1::1741898324::0::1::::<><>::
 Well.tscn::PackedScene::-1::1741895673::0::1::::<><>::
 world.tscn::PackedScene::617952743767479043::1741898068::0::1::::<><>::res://scripts/game_manager.gd<>uid://c4uk6bgfdo1jq::::res://scenes/player.tscn<>uid://bcwbka1s71mx0::::res://assets/shortsword2test.obj<>uid://cny8rnjsf4uw5::::res://scenes/enemy.tscn<>res://scripts/enemy_manager.gd<>uid://dwqs16ln38cmi::::res://assets/Axeversion3.obj<>res://scripts/health_bar.gd<>res://scripts/cash_label.gd<>uid://v7k0jw3pe022::::res://assets/sounds/explosion-sound-effect-1-free-on-gamesfxpackscom-241821.mp3<>uid://b30ncgp55kww5::::res://assets/81PfRRG2F1L._AC_UF894,1000_QL80_.png<>uid://bs4fhxtxfaswr::::res://assets/fonts/ARIAL.TTF<>uid://b8jg5wbivnw7b::::res://assets/sounds/money-pickup-2-89563.mp3
-::res://scripts/::1741899641
-arrow.gd::GDScript::-1::1741899636::0::1::::<>CharacterBody3D<>::
+::res://scripts/::1741902861
+arrow.gd::GDScript::-1::1741900089::0::1::::<>CharacterBody3D<>::
 cash_label.gd::GDScript::-1::1741886036::0::1::::<>Label<>::
 debug_bar.gd::GDScript::-1::1741886036::0::1::::<>ProgressBar<>::
 enemy.gd::GDScript::-1::1741895668::0::1::::<>CharacterBody3D<>::
 Enemy_animation.gd::GDScript::-1::1741886036::0::1::::<>RefCounted<>::
 enemy_manager.gd::GDScript::-1::1741886036::0::1::::<>Node3D<>::
 game_manager.gd::GDScript::-1::1741886036::0::1::::<>Node<>::
-Global.gd::GDScript::-1::1741895575::0::1::::<>Node<>::
+Global.gd::GDScript::-1::1741902861::0::1::::<>Node<>::
 gold_label.gd::GDScript::-1::1741886036::0::1::::<>Label<>::
 health_bar.gd::GDScript::-1::1741886036::0::1::::<>ProgressBar<>::
 inventory.gd::GDScript::-1::1741898324::0::1::::<>Panel<>::
-menu.gd::GDScript::-1::1741898324::0::1::::<>Node2D<>::
+menu.gd::GDScript::-1::1741901755::0::1::::<>Node2D<>::
 mesh_instance_3d.gd::GDScript::-1::1741886036::0::1::::<>MeshInstance3D<>::
 Player.gd::GDScript::-1::1741899641::0::1::::<>CharacterBody3D<>::
 test_enemy.gd::GDScript::-1::1741886036::0::1::::<>CharacterBody3D<>::
