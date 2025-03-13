@@ -22,3 +22,21 @@ func get_angle_to(from, target) -> float:
 	#Get angle to target
 	var angle_to_target = abs(forward_2d_direction.angle_to(relative_target_direction))
 	return angle_to_target
+
+var item = {
+	0: {
+		"Name": "Sword",
+		"Desc": "This is a sword!",
+		"Cost": 10,
+	},
+	1: {
+		"Name": "Axe",
+		"Desc": "This is an axe!",
+		"Cost": 10,
+	},
+	2: {
+		"Name": "Bow",
+		"Desc": "This is a bow!",
+		"Cost": 10,
+	},
+}
