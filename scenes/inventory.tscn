@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dil372tllpt78"]
+[gd_scene load_steps=7 format=3 uid="uid://dil372tllpt78"]
 
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="1_1c7yk"]
 [ext_resource type="Texture2D" uid="uid://cwcu48x1tysq0" path="res://assets/inv_slot.png" id="2_vkinv"]
 [ext_resource type="Texture2D" uid="uid://bokkavr0aat17" path="res://assets/inv_slot_equip.png" id="3_baxio"]
+[ext_resource type="Texture2D" uid="uid://bbsdwfm224u3c" path="res://assets/sword_icon.png" id="4_uoa3g"]
+[ext_resource type="Texture2D" uid="uid://cumkeqfwciqy4" path="res://assets/axe_icon.png" id="5_hrnjq"]
+[ext_resource type="Texture2D" uid="uid://d168m0gy8mte4" path="res://assets/bow_icon.png" id="6_i475l"]
 
 [node name="Inventory" type="Panel"]
 offset_left = 631.0
@@ -25,6 +28,14 @@ texture_normal = ExtResource("2_vkinv")
 texture_focused = ExtResource("3_baxio")
 stretch_mode = 0
 
+[node name="TextureRect" type="TextureRect" parent="Label"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 27.0
+offset_bottom = 27.0
+texture = ExtResource("4_uoa3g")
+
 [node name="Label2" type="TextureButton" parent="."]
 layout_mode = 2
 offset_left = 48.0
@@ -38,6 +49,14 @@ texture_normal = ExtResource("2_vkinv")
 texture_focused = ExtResource("3_baxio")
 stretch_mode = 0
 
+[node name="TextureRect" type="TextureRect" parent="Label2"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 27.0
+offset_bottom = 27.0
+texture = ExtResource("5_hrnjq")
+
 [node name="Label3" type="TextureButton" parent="."]
 layout_mode = 2
 offset_left = 88.0
@@ -50,6 +69,14 @@ size_flags_stretch_ratio = 0.0
 texture_normal = ExtResource("2_vkinv")
 texture_focused = ExtResource("3_baxio")
 stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Label3"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 27.0
+offset_bottom = 27.0
+texture = ExtResource("6_i475l")
 
 [node name="Panel" type="Label" parent="."]
 layout_mode = 0
