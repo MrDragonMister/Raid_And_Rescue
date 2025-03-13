@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b30ncgp55kww5" path="res://assets/81PfRRG2F1L._AC_UF894,1000_QL80_.png" id="13_4al2l"]
 [ext_resource type="Script" path="res://scripts/cash_label.gd" id="14_040is"]
 [ext_resource type="PackedScene" uid="uid://b4vrk6jumsrif" path="res://assets/Wachter_zwaard_texture.glb" id="16_p5ses"]
-[ext_resource type="PackedScene" uid="uid://d3il462wb0p7n" path="res://assets/Alfred.glb" id="17_x3wum"]
+[ext_resource type="PackedScene" uid="uid://tgt2vkyrvu8b" path="res://scenes/alfred.tscn" id="18_so8x0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j2cf6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -527,5 +527,5 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 1.49707, 0, -22.3104)
 [node name="Wachter_zwaard_texture2" parent="." instance=ExtResource("16_p5ses")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 8.28786, 0, 2.86241)
 
-[node name="Alfred" parent="." instance=ExtResource("17_x3wum")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.188904, 3.8147e-06, -23.7528)
+[node name="alfred" parent="." instance=ExtResource("18_so8x0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23)
