@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dil372tllpt78"]
+[gd_scene load_steps=7 format=3 uid="uid://clc35d4e278wu"]
 
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="1_1c7yk"]
 [ext_resource type="Texture2D" uid="uid://cwcu48x1tysq0" path="res://assets/inv_slot.png" id="2_vkinv"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d168m0gy8mte4" path="res://assets/bow_icon.png" id="6_i475l"]
 
 [node name="Inventory" type="Panel"]
+texture_filter = 1
 offset_left = 631.0
 offset_top = 400.0
 offset_right = 759.0
@@ -16,6 +17,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_1c7yk")
 
 [node name="Label" type="TextureButton" parent="."]
+texture_filter = 1
 layout_mode = 2
 offset_left = 8.0
 offset_top = 4.0
@@ -37,6 +39,7 @@ offset_bottom = 27.0
 texture = ExtResource("4_uoa3g")
 
 [node name="Label2" type="TextureButton" parent="."]
+texture_filter = 1
 layout_mode = 2
 offset_left = 48.0
 offset_top = 4.0
@@ -79,6 +82,7 @@ offset_bottom = 27.0
 texture = ExtResource("6_i475l")
 
 [node name="Panel" type="Label" parent="."]
+texture_filter = 1
 layout_mode = 0
 offset_left = 5.0
 offset_top = 38.0
@@ -91,6 +95,7 @@ vertical_alignment = 1
 justification_flags = 0
 
 [node name="Panel2" type="Label" parent="."]
+texture_filter = 1
 layout_mode = 0
 offset_left = 45.0
 offset_top = 38.0
@@ -103,6 +108,7 @@ vertical_alignment = 1
 justification_flags = 0
 
 [node name="Panel3" type="Label" parent="."]
+texture_filter = 1
 layout_mode = 0
 offset_left = 85.0
 offset_top = 38.0
