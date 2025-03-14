@@ -4,6 +4,9 @@ extends Node3D
 @onready var gold = $"../../gamegui/PanelContainer/MarginContainer/GridContainer/gold"
 @onready var explosion = $explosion
 @onready var moneysound = $moneysound
+@onready var alfred_scene: PackedScene = preload("res://scenes/alfred.tscn")
+@onready var bodyguard_scene: PackedScene = preload("res://scenes/bodyguard.tscn")
+
 
 func _ready():
 	# Spawn first enemies
@@ -39,6 +42,9 @@ func _ready():
 		spawn_enemy(6.933, 0, 8.753)
 		spawn_enemy(-9.474, 0, 2.025)
 		spawn_enemy(8.288, 0, 2.862)
+		spawn_alfred(0, 0, -23)
+		spawn_bodyguard(-2.436, 0, -22.302)
+		spawn_bodyguard(2.436, 0, -22.302)
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("spawn enemy"):
@@ -51,9 +57,33 @@ func spawn_enemy(x, y, z):
 	# This needs to be global because you get a null instance when 2 enemies die at the same time
 	Global.amount_of_enemies += 1
 
+func spawn_alfred(x, y, z):
+	Global.enemy_spawn_pos = Vector3(x, y, z)
+	add_child(alfred_scene.instantiate())
+	Global.amount_of_alfred += 1
+
+func spawn_bodyguard(x, y, z):
+	Global.enemy_spawn_pos = Vector3(x, y, z)
+	add_child(bodyguard_scene.instantiate())
+	Global.amount_of_alfred += 1
+
 func enemy_die():
 	explosion.play()
 	Global.amount_of_enemies -= 1
 	await get_tree().create_timer(1).timeout #explosion.finished
 	gold.change_coins(3)
+	moneysound.play()
+
+func alfred_die():
+	explosion.play()
+	Global.amount_of_alfred -= 1
+	await get_tree().create_timer(1).timeout
+	gold.change_coins(10)
+	moneysound.play()
+
+func bodyguard_die():
+	explosion.play()
+	Global.amount_of_bodyguards -= 1
+	await get_tree().create_timer(1).timeout
+	gold.change_coins(5)
 	moneysound.play()

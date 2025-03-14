@@ -306,6 +306,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775, 0)
 shape = SubResource("CapsuleShape3D_dj3um")
 
 [node name="Shortsword" parent="." instance=ExtResource("2_yinf0")]
+transform = Transform3D(-3.61999e-07, -0.1, 1.55431e-15, 0.092388, -3.34443e-07, -0.0382683, 0.0382683, -1.38531e-07, 0.092388, 0.489, 0.735, -0.78)
 
 [node name="Bow_drawn2" parent="." instance=ExtResource("10_0pqjm")]
 transform = Transform3D(-2.18557e-09, -0.05, 2.18557e-09, 0, -2.18557e-09, -0.05, 0.05, -2.18557e-09, 9.55343e-17, 0.422642, 0.999407, -1.28973)

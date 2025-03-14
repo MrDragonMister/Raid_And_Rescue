@@ -50,14 +50,7 @@ func _process(_delta: float) -> void:
 		if distance_2_player < player.weapon_forward_range and angle_from_player_2_enemy < deg_to_rad(player.weapon_angle_range) and not player.inventory.selectslot == 3:
 			slash_play()
 			Global.should_play_miss = false
-			if health > health_bar.min_value:
-				for n in 10:
-					health -= 1
-					health_bar.value = health
-					await get_tree().create_timer(0.01).timeout
-				if health <= health_bar.min_value:
-					enemy_manager.enemy_die()
-					queue_free()
+			take_damage(10)
 		elif not player.inventory.selectslot == 3:
 			await get_tree().create_timer(get_process_delta_time()).timeout
 			if Global.should_play_miss:

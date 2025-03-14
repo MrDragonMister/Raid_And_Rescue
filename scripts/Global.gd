@@ -2,9 +2,11 @@ extends Node
 
 @onready var enemy_spawn_pos: Vector3 = Vector3.ZERO
 @onready var amount_of_enemies: int = 0
+@onready var amount_of_bodyguards: int = 0
+@onready var amount_of_alfred: int = 0
 @onready var gold: int = 100
 @onready var should_play_miss: bool = true
-var level : int = 1
+var level : int = 4
 
 func get_angle_to(from, target) -> float:
 	#Get the location of the target as a Vector2 from a top-down perspective

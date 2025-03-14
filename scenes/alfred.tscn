@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=4 uid="uid://cur4q24dvuelj"]
+[gd_scene load_steps=26 format=4 uid="uid://cur4q24dvuelj"]
 
 [ext_resource type="Texture2D" uid="uid://bya6m3vpx0jfj" path="res://assets/Alfred_Guard.png" id="1_5xed5"]
 [ext_resource type="Script" path="res://scripts/alfred.gd" id="1_vbsig"]
 [ext_resource type="AudioStream" uid="uid://8rxcrefsn6is" path="res://assets/sounds/Slash1.wav" id="2_caweg"]
+[ext_resource type="Script" path="res://scripts/alfred_animation_player.gd" id="3_gldkk"]
 [ext_resource type="AudioStream" uid="uid://dttyf1usfjsix" path="res://assets/sounds/Slash2.wav" id="3_ygw3q"]
 [ext_resource type="AudioStream" uid="uid://djr58mceawmon" path="res://assets/sounds/Slash3.wav" id="4_d08nw"]
 [ext_resource type="AudioStream" uid="uid://ws2x5tjywmdn" path="res://assets/sounds/Slash4.wav" id="5_1sadu"]
@@ -470,6 +471,7 @@ _data = {
 viewport_path = NodePath("SubViewport")
 
 [node name="alfred" type="CharacterBody3D"]
+collision_layer = 2
 script = ExtResource("1_vbsig")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -477,7 +479,7 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.62, 0)
 shape = SubResource("CapsuleShape3D_0vb4p")
 
 [node name="Armature" type="Node3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+transform = Transform3D(-0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0, 0, 0)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Armature"]
 bones/0/name = "main"
@@ -706,7 +708,7 @@ bones/31/rotation = Quaternion(-0.0202971, 0.0202971, 0.706815, 0.706816)
 bones/31/scale = Vector3(1, 1, 1)
 
 [node name="Cylinder" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(-5.1409e-07, 8.48253e-08, -0.3, 0.3, 4.37251e-07, -4.76837e-07, 4.23308e-07, -0.3, -9.74559e-08, -1.16229, 1.92073, 0.971655)
+transform = Transform3D(-5.21541e-07, 8.92957e-08, -0.3, 0.3, 4.37251e-07, -4.76837e-07, 4.33304e-07, -0.3, -9.74606e-08, -1.16229, 1.92073, 0.971655)
 bone_name = "Cylinder"
 bone_idx = 19
 
@@ -726,6 +728,7 @@ skin = SubResource("Skin_alcbd")
 libraries = {
 "": SubResource("AnimationLibrary_n4j7u")
 }
+script = ExtResource("3_gldkk")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_use_custom = true
@@ -783,3 +786,5 @@ stream = ExtResource("6_kg72u")
 
 [node name="dmge" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("7_hkxvi")
+
+[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

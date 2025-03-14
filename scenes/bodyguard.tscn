@@ -472,6 +472,7 @@ viewport_path = NodePath("SubViewport")
 
 [node name="bodyguard" type="CharacterBody3D"]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 0, 0)
+collision_layer = 2
 script = ExtResource("1_lkoeg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -787,3 +788,5 @@ stream = ExtResource("8_fgg36")
 
 [node name="dmge" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("9_fqdb3")
+
+[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

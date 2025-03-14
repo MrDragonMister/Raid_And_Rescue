@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 # @onready var Sword_animation = $Shortsword/Sword_animation
-@onready var enemy_animation: AnimationPlayer = $Wachter_zwaard_texture2/Enemy_animation
+@onready var enemy_animation: AnimationPlayer = $AnimationPlayer
 @onready var health_bar: ProgressBar = $"SubViewport/Control/enemy_health_bar"
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 @onready var enemy_health_display: Sprite3D = $health_display
@@ -20,7 +20,7 @@ extends CharacterBody3D
 const SPEED: int = 3
 const ACCELERATION: int = 10
 const ENEMY_WEAPON_FORWARD_RANGE: int = 2
-const PLAYER_SEEKING_RANGE: int = 15
+const PLAYER_SEEKING_RANGE: int = 100
 
 var health : int = 200
 var attack_ready: bool = true
@@ -34,6 +34,7 @@ func slash_play():
 func _ready():
 	health_bar.value = health
 	position = Global.enemy_spawn_pos
+	health_bar.max_value = 200
 
 func _process(_delta: float) -> void:
 	# Get the camera from the current viewport
@@ -50,15 +51,7 @@ func _process(_delta: float) -> void:
 		if distance_2_player < player.weapon_forward_range and angle_from_player_2_enemy < deg_to_rad(player.weapon_angle_range) and not player.inventory.selectslot == 3:
 			slash_play()
 			Global.should_play_miss = false
-			if health > health_bar.min_value:
-				for n in 10:
-					health -= 1
-					health_bar.value = health
-					await get_tree().create_timer(0.01).timeout
-				if health <= health_bar.min_value:
-					enemy_manager.enemy_die()
-					enemy_manager.gold.change_coins(7) # you alred get 3, plus 7 makes 10
-					queue_free()
+			take_damage(10)
 		elif not player.inventory.selectslot == 3:
 			await get_tree().create_timer(get_process_delta_time()).timeout
 			if Global.should_play_miss:
@@ -73,7 +66,7 @@ func _physics_process(delta: float) -> void:
 	# the enemy always looks at the player so an angle check is not needed
 	if attack_ready and not going_to_home_pos and (position - player.position).length() <= ENEMY_WEAPON_FORWARD_RANGE:
 		attack_ready = false
-		enemy_animation.attack()
+		enemy_animation.attack()   
 		timer.start()
 		await get_tree().create_timer(0.5).timeout
 		if nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
@@ -127,7 +120,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func _on_timer_timeout():
+func _on_attack_cooldown_timeout():
 	attack_ready = true
 	
 func take_damage(amount_of_damage):
@@ -137,5 +130,5 @@ func take_damage(amount_of_damage):
 			health_bar.value = health
 			await get_tree().create_timer(0.01).timeout
 		if health <= health_bar.min_value:
-			enemy_manager.enemy_die()
+			enemy_manager.alfred_die()
 			queue_free()
