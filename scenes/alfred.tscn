@@ -476,12 +476,10 @@ script = ExtResource("1_vbsig")
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.62, 0)
 shape = SubResource("CapsuleShape3D_0vb4p")
 
-[node name="alfred" type="Node3D" parent="."]
-
-[node name="Armature" type="Node3D" parent="alfred"]
+[node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="alfred/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="Armature"]
 bones/0/name = "main"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 2.92898e-16, 3.42285e-08, -8.78695e-16, 1, 1.71143e-08, -3.42285e-08, -1.71143e-08, 1, 0, 0, 0)
@@ -707,12 +705,12 @@ bones/31/position = Vector3(-2.39474, 3.13273, -0.135639)
 bones/31/rotation = Quaternion(-0.0202971, 0.0202971, 0.706815, 0.706816)
 bones/31/scale = Vector3(1, 1, 1)
 
-[node name="Cylinder" type="BoneAttachment3D" parent="alfred/Armature/Skeleton3D"]
-transform = Transform3D(-5.21541e-07, 8.92957e-08, -0.3, 0.3, 4.37251e-07, -4.76837e-07, 4.33304e-07, -0.3, -9.74606e-08, -1.16229, 1.92073, 0.971655)
+[node name="Cylinder" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(-5.1409e-07, 8.48253e-08, -0.3, 0.3, 4.37251e-07, -4.76837e-07, 4.23308e-07, -0.3, -9.74559e-08, -1.16229, 1.92073, 0.971655)
 bone_name = "Cylinder"
 bone_idx = 19
 
-[node name="Cylinder" type="MeshInstance3D" parent="alfred/Armature/Skeleton3D/Cylinder"]
+[node name="Cylinder" type="MeshInstance3D" parent="Armature/Skeleton3D/Cylinder"]
 transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ee4kb")
 skeleton = NodePath("")
@@ -720,12 +718,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_q34ee")
 surface_material_override/1 = SubResource("StandardMaterial3D_r12xw")
 surface_material_override/2 = SubResource("StandardMaterial3D_bys21")
 
-[node name="Cube" type="MeshInstance3D" parent="alfred/Armature/Skeleton3D"]
+[node name="Cube" type="MeshInstance3D" parent="Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_rtxi3")
 skin = SubResource("Skin_alcbd")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="alfred"]
-root_node = NodePath("../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_n4j7u")
 }
