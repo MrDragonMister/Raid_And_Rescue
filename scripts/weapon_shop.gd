@@ -6,6 +6,7 @@ var CurrentItem = 0
 @onready var Axe = $Control/Icon2/Axe
 @onready var Bow = $Control/Icon2/Bow
 @onready var gold = $"../gamegui/PanelContainer/MarginContainer/GridContainer/gold"
+@onready var Click = $"../Click"
 
 
 func _ready():
@@ -15,6 +16,7 @@ func _ready():
 	get_node("Control/UpgradeInfo").text = "Level: " + str(Global.inventory[CurrentItem]["Level"]) + "->" + str(Global.inventory[CurrentItem]["Level"]+ 1) + "\nCost: " + str(Global.items[CurrentItem]["Cost"])
 
 func _on_close_pressed() -> void:
+	Click.play()
 	get_node("Anim").play("TransOut")
 	print("transout")
 
@@ -31,6 +33,7 @@ func SwitchItem(select):
 			get_node("Control/Icon2/" + str(Global.items[CurrentItem]["Name"])).visible = true
 
 func _on_buy_pressed() -> void:
+	Click.play()
 	if Global.gold >= Global.items[CurrentItem]["Cost"]:
 		gold.change_coins(-Global.items[CurrentItem]["Cost"])
 		Global.inventory[CurrentItem]["Level"] += 1
@@ -42,8 +45,11 @@ func _on_buy_pressed() -> void:
 
 
 func _on_select_sword_pressed() -> void:
+	Click.play()
 	SwitchItem(0)
 func _on_select_axe_pressed() -> void:
+	Click.play()
 	SwitchItem(1)
 func _on_select_bow_pressed() -> void:
+	Click.play()
 	SwitchItem(2)

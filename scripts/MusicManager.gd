@@ -16,6 +16,7 @@ func _ready():
 	music_player = AudioStreamPlayer.new()
 	add_child(music_player)
 	music_player.finished.connect(_on_music_finished)
+	music_player.volume_db = -10
 
 func play_music_for_scene(scene_path):
 	var new_music = scene_music.get(scene_path, null)
