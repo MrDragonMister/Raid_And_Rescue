@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=4 uid="uid://c4uk6bgfdo1jq"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_yoyyw"]
-[ext_resource type="PackedScene" uid="uid://7g31pa5hi3av" path="res://scenes/shortsword.tscn" id="2_yinf0"]
+[ext_resource type="PackedScene" path="res://scenes/shortsword.tscn" id="2_yinf0"]
 [ext_resource type="Script" path="res://scripts/mesh_instance_3d.gd" id="3_151dt"]
 [ext_resource type="AudioStream" uid="uid://3686spnkhh7d" path="res://assets/sounds/miss.mp3" id="4_2fvi7"]
 [ext_resource type="AudioStream" uid="uid://b10rgopct2gd5" path="res://assets/sounds/hurt.mp3" id="5_gbdga"]
@@ -306,6 +306,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775, 0)
 shape = SubResource("CapsuleShape3D_dj3um")
 
 [node name="Shortsword" parent="." instance=ExtResource("2_yinf0")]
+transform = Transform3D(-3.61999e-07, -0.1, 1.55431e-15, 0.092388, -3.34443e-07, -0.0382683, 0.0382683, -1.38531e-07, 0.092388, 0.489, 0.735, -0.78)
 
 [node name="Bow_drawn2" parent="." instance=ExtResource("10_0pqjm")]
 transform = Transform3D(-2.18557e-09, -0.05, 2.18557e-09, 0, -2.18557e-09, -0.05, 0.05, -2.18557e-09, 9.55343e-17, 0.422642, 0.999407, -1.28973)

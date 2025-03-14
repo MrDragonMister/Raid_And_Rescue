@@ -110,6 +110,7 @@ func _process(delta: float) -> void:
 		axe.visible = false
 		bow.visible = not is_bow_drawn
 		bow_drawn.visible = is_bow_drawn
+		timer.wait_time = 1
 
 #toggle between 1st and 3rd camera
 func toggle_camera():
