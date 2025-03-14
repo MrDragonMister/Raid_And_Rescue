@@ -19,6 +19,7 @@ func _physics_process(delta):
 		speed.y = delta
 	if position.y >= start_y + 2.5:
 		visible = false
+		speed.y = 0
 		# position.y = move_toward(start_y, start_y + 5, delta)
 		
 	move_and_collide(speed)
