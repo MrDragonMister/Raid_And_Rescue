@@ -85,7 +85,6 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("interact") and not interacting and attack_ready and inventory.selectslot == 3:
 		game_manager.spawn_arrow()
-		timer.start()
 		attack_ready = false
 		is_bow_drawn = true
 	

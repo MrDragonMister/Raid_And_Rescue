@@ -116,6 +116,7 @@ func _physics_process(delta: float) -> void:
 					print(not collision.get_collider().is_released)
 					if not collision.get_collider().is_released:
 						player.is_bow_drawn = false
+						player.timer.start()
 						print("player drawn bow: ", player.is_bow_drawn)
 					collision.get_collider().queue_free()
 					take_damage(10)

@@ -15,6 +15,7 @@ func _physics_process(delta):
 	if (Input.is_action_just_released("interact") or not inventory.selectslot == 3) and not is_released:
 		is_released = true
 		player.is_bow_drawn = false
+		player.timer.start()
 		velocity = player.velocity + -player.basis.z * THROW_STRENGTH
 		# player velocity + direction player is looking
 		
