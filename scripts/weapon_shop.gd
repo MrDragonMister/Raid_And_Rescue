@@ -2,15 +2,14 @@ extends CanvasLayer
 
 var CurrentItem = 0
 #var select = 0
+@onready var Sword = $Control/Icon2/Sword
 @onready var Axe = $Control/Icon2/Axe
 @onready var Bow = $Control/Icon2/Bow
 
-signal hide_weapons
+
 
 func _ready():
-#	Axe.visible = false
-#	Bow.visible = false
-#	get_node("Control/Icon2/" + str(Global.items[CurrentItem]["Name"])).visible = true
+	get_node("Control/Icon2/" + str(Global.items[CurrentItem]["Name"])).visible = true
 	get_node("Control/Name").text = Global.items[CurrentItem]["Name"]
 	get_node("Control/Desc").text = Global.items[CurrentItem]["Desc"]
 	get_node("Control/UpgradeInfo").text = "Cost:" + str(Global.items[CurrentItem]["Cost"])
@@ -22,6 +21,7 @@ func _on_close_pressed() -> void:
 func SwitchItem(select):
 	for i in range(Global.items.size()):
 		if select == i:
+			Sword.visible = false
 			Axe.visible = false
 			Bow.visible = false
 			CurrentItem = select

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dwv7ta6fbwwyi"]
+[gd_scene load_steps=16 format=3 uid="uid://dwv7ta6fbwwyi"]
 
 [ext_resource type="Script" path="res://scripts/weapon_shop.gd" id="1_bjcf1"]
 [ext_resource type="Texture2D" uid="uid://bbsdwfm224u3c" path="res://assets/sword_icon.png" id="2_ehdsv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d168m0gy8mte4" path="res://assets/bow_icon.png" id="4_4kfq4"]
 [ext_resource type="PackedScene" uid="uid://bs1adtcgw10sn" path="res://assets/Bow.glb" id="5_mwqim"]
 [ext_resource type="PackedScene" uid="uid://dpu7hdof5ulei" path="res://assets/Axe_Final.glb" id="6_padfd"]
+[ext_resource type="PackedScene" uid="uid://7g31pa5hi3av" path="res://scenes/shortsword.tscn" id="7_4e4bb"]
 [ext_resource type="Script" path="res://scenes/camera_3d.gd" id="7_xf6f8"]
 
 [sub_resource type="Animation" id="Animation_jmv6j"]
@@ -239,6 +240,10 @@ transform = Transform3D(-0.8, 6.99382e-08, 0, -6.99382e-08, -0.8, 0, 0, 0, 0.8, 
 visible = false
 
 [node name="Axe" parent="Control/Icon2" instance=ExtResource("6_padfd")]
+visible = false
+
+[node name="Sword" parent="Control/Icon2" instance=ExtResource("7_4e4bb")]
+transform = Transform3D(-7.23998e-06, -2, 3.10861e-14, 1.84776, -6.68887e-06, -0.765367, 0.765367, -2.77062e-06, 1.84776, 0.489, 0.735, -0.78)
 visible = false
 
 [node name="Camera3D" type="Camera3D" parent="Control/Icon2"]
