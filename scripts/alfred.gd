@@ -32,11 +32,10 @@ func slash_play():
 	sound[randi_range(0, 3)].play() # Chooses and plays one of the 4 sounds 
 
 func _ready():
+	health = 200
 	health_bar.value = health
 	position = Global.enemy_spawn_pos
 	health_bar.max_value = 200
-	health_bar.update_health_bar_text()
-	
 
 func _process(_delta: float) -> void:
 	# Get the camera from the current viewport
