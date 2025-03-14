@@ -13,6 +13,7 @@ script = ExtResource("1_1ysed")
 offset_right = 1926.0
 offset_bottom = 1085.0
 theme_override_colors/background_color = Color(0.138306, 0.135866, 0.346606, 1)
+theme_override_colors/font_readonly_color = Color(0.984314, 0.313726, 0.341176, 1)
 theme_override_colors/font_color = Color(0.983206, 0.313382, 0.342053, 1)
 theme_override_font_sizes/font_size = 32
 text = "												
@@ -26,6 +27,8 @@ text = "
 
 
 			Now you have been chosen by the gods to take revenge on this king by plundering his villages, saving your villagers 																					and killing King Alfred the Great."
+editable = false
+selecting_enabled = false
 wrap_mode = 1
 text_direction = 1
 
