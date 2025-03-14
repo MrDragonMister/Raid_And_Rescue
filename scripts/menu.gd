@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var death = $death
 @onready var button: Button = $Control/Button
+@onready var Click = $Click
 
 func _ready():
 	MusicManager.play_music_for_scene(get_tree().current_scene.scene_file_path)
@@ -16,6 +17,7 @@ func _ready():
 		button.text = "Play next level!"
 
 func _on_button_pressed() -> void:
+	Click.play()
 	if Global.level == 1:
 		get_tree().change_scene_to_file("res://scenes/level1.tscn")
 	if Global.level == 2:
@@ -29,10 +31,9 @@ func _on_button_pressed() -> void:
 		Global.gold = 0
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
-func _on_button2_pressed() -> void:
-	pass # Replace with function body.
 
 func _on_button_3_pressed() -> void:
+	Click.play()
 	get_node("Weapon_shop").visible = true
 	get_node("Weapon_shop/Anim").play("TransIn")
 	
