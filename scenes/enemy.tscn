@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cny8rnjsf4uw5"]
+[gd_scene load_steps=26 format=4 uid="uid://cny8rnjsf4uw5"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_4h4db"]
 [ext_resource type="Texture2D" uid="uid://di3m5nqk4trhq" path="res://assets/Wachter_zwaard_texture_Guard.png" id="2_w8e8x"]
@@ -108,6 +108,16 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nb0l4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsp6r"]
+albedo_color = Color(0.388235, 0.2, 0.0156863, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2ayo"]
+albedo_color = Color(0.760784, 0.760784, 0.760784, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lrp5u"]
+albedo_color = Color(0.501961, 0.415686, 0.0745098, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cagj1"]
 resource_name = "Material"
@@ -708,6 +718,9 @@ bone_idx = 19
 [node name="Cylinder" type="MeshInstance3D" parent="Wachter_zwaard_texture2/Armature/Skeleton3D/Cylinder"]
 mesh = SubResource("ArrayMesh_v3xkk")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_jsp6r")
+surface_material_override/1 = SubResource("StandardMaterial3D_x2ayo")
+surface_material_override/2 = SubResource("StandardMaterial3D_lrp5u")
 
 [node name="Cube" type="MeshInstance3D" parent="Wachter_zwaard_texture2/Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_87gcs")
