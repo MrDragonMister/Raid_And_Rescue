@@ -1,7 +1,7 @@
-[gd_scene load_steps=29 format=4 uid="uid://c4uk6bgfdo1jq"]
+[gd_scene load_steps=23 format=4 uid="uid://c4uk6bgfdo1jq"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_yoyyw"]
-[ext_resource type="ArrayMesh" uid="uid://bcwbka1s71mx0" path="res://assets/shortsword2test.obj" id="2_76g7p"]
+[ext_resource type="PackedScene" uid="uid://7g31pa5hi3av" path="res://scenes/shortsword.tscn" id="2_yinf0"]
 [ext_resource type="Script" path="res://scripts/mesh_instance_3d.gd" id="3_151dt"]
 [ext_resource type="AudioStream" uid="uid://3686spnkhh7d" path="res://assets/sounds/miss.mp3" id="4_2fvi7"]
 [ext_resource type="AudioStream" uid="uid://b10rgopct2gd5" path="res://assets/sounds/hurt.mp3" id="5_gbdga"]
@@ -16,81 +16,6 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dj3um"]
 radius = 0.375
 height = 1.55
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hxts"]
-albedo_color = Color(0.762404, 0.762404, 0.762404, 1)
-metallic = 1.0
-roughness = 0.5
-refraction_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftafy"]
-albedo_color = Color(0.502522, 0.416656, 0.0745245, 1)
-metallic = 0.65
-roughness = 0.7
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4vsut"]
-albedo_color = Color(0.386696, 0.201499, 0.0155, 1)
-
-[sub_resource type="Animation" id="Animation_s8xr8"]
-length = 0.001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.489, 0.735, -0.78)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.392699, 1.68237e-14, 1.5708)]
-}
-
-[sub_resource type="Animation" id="Animation_wj4l0"]
-resource_name = "swing"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.233333, 0.5, 0.733333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.489, 0.735, -0.78), Vector3(0.489, 1.214, -0.68), Vector3(-0.025, 0.775, -0.68), Vector3(0.489, 0.735, -0.78)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.233333, 0.5, 0.733333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.392699, 1.68237e-14, 1.5708), Vector3(0.644891, -0.181182, 1.27498), Vector3(0.223078, 0.340836, 0.292657), Vector3(0.392699, 1.68237e-14, 1.5708)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7d0eh"]
-_data = {
-"RESET": SubResource("Animation_s8xr8"),
-"swing": SubResource("Animation_wj4l0")
-}
 
 [sub_resource type="Animation" id="Animation_sy6x3"]
 resource_name = "Axe_swing"
@@ -380,18 +305,8 @@ script = ExtResource("1_yoyyw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775, 0)
 shape = SubResource("CapsuleShape3D_dj3um")
 
-[node name="Shortsword" type="MeshInstance3D" parent="."]
+[node name="Shortsword" parent="." instance=ExtResource("2_yinf0")]
 transform = Transform3D(-3.61999e-07, -0.1, 1.55431e-15, 0.092388, -3.34443e-07, -0.0382683, 0.0382683, -1.38531e-07, 0.092388, 0.489, 0.735, -0.78)
-mesh = ExtResource("2_76g7p")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_6hxts")
-surface_material_override/1 = SubResource("StandardMaterial3D_ftafy")
-surface_material_override/2 = SubResource("StandardMaterial3D_4vsut")
-
-[node name="Player_sword_animation" type="AnimationPlayer" parent="Shortsword"]
-libraries = {
-"": SubResource("AnimationLibrary_7d0eh")
-}
 
 [node name="Bow_drawn2" parent="." instance=ExtResource("10_0pqjm")]
 transform = Transform3D(-2.18557e-09, -0.05, 2.18557e-09, 0, -2.18557e-09, -0.05, 0.05, -2.18557e-09, 9.55343e-17, 0.422642, 0.999407, -1.28973)

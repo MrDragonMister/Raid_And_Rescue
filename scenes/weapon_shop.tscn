@@ -1,9 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1385clksisa6"]
+[gd_scene load_steps=15 format=3 uid="uid://dwv7ta6fbwwyi"]
 
 [ext_resource type="Script" path="res://scripts/weapon_shop.gd" id="1_bjcf1"]
 [ext_resource type="Texture2D" uid="uid://bbsdwfm224u3c" path="res://assets/sword_icon.png" id="2_ehdsv"]
 [ext_resource type="Texture2D" uid="uid://cumkeqfwciqy4" path="res://assets/axe_icon.png" id="3_h7rtd"]
 [ext_resource type="Texture2D" uid="uid://d168m0gy8mte4" path="res://assets/bow_icon.png" id="4_4kfq4"]
+[ext_resource type="PackedScene" uid="uid://bs1adtcgw10sn" path="res://assets/Bow.glb" id="5_mwqim"]
+[ext_resource type="PackedScene" uid="uid://dpu7hdof5ulei" path="res://assets/Axe_Final.glb" id="6_padfd"]
+[ext_resource type="Script" path="res://scenes/camera_3d.gd" id="7_xf6f8"]
 
 [sub_resource type="Animation" id="Animation_jmv6j"]
 length = 0.001
@@ -75,6 +78,9 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kgbya"]
+viewport_path = NodePath("Control/Icon2")
 
 [node name="Weapon_shop" type="CanvasLayer"]
 offset = Vector2(0, -500)
@@ -215,5 +221,40 @@ offset_top = 180.0
 offset_right = 1472.0
 offset_bottom = 628.0
 
+[node name="Icon3" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 179.0
+offset_right = 1467.0
+offset_bottom = 633.0
+texture = SubResource("ViewportTexture_kgbya")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Icon2" type="SubViewport" parent="Control"]
+transparent_bg = true
+
+[node name="Bow" parent="Control/Icon2" instance=ExtResource("5_mwqim")]
+transform = Transform3D(-0.8, 6.99382e-08, 0, -6.99382e-08, -0.8, 0, 0, 0, 0.8, 0, 0, 0)
+visible = false
+
+[node name="Axe" parent="Control/Icon2" instance=ExtResource("6_padfd")]
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="Control/Icon2"]
+transform = Transform3D(0.707107, 0.707107, 4.37114e-08, -3.09086e-08, -3.09086e-08, 1, 0.707107, -0.707107, 1.91069e-15, -5, 20, 0)
+fov = 100.0
+script = ExtResource("7_xf6f8")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Control/Icon2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+light_energy = 2.645
+light_indirect_energy = 2.047
+omni_range = 24.281
+omni_shadow_mode = 0
+
 [connection signal="pressed" from="Control/Buy" to="." method="_on_buy_pressed"]
 [connection signal="pressed" from="Control/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Control/SelectSword" to="." method="_on_select_sword_pressed"]
+[connection signal="pressed" from="Control/SelectAxe" to="." method="_on_select_axe_pressed"]
+[connection signal="pressed" from="Control/SelectBow" to="." method="_on_select_bow_pressed"]
