@@ -38,7 +38,7 @@ agent_radius = 0.37
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ugaq"]
 vertex_color_is_srgb = true
-albedo_color = Color(0.233747, 0.47, 0.2256, 1)
+albedo_color = Color(0.168627, 0.388235, 0.0823529, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s7uxg"]
 albedo_color = Color(0.0509804, 0.364706, 1, 1)
