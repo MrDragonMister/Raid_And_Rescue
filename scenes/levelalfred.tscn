@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://da25hiyod03sb" path="res://scenes/house.tscn" id="4_alhw8"]
 [ext_resource type="Script" path="res://scripts/gate.gd" id="4_ufdn5"]
 [ext_resource type="PackedScene" uid="uid://p28slibh3lgd" path="res://scenes/villager.tscn" id="5_g52h0"]
-[ext_resource type="PackedScene" path="res://scenes/Well.tscn" id="5_lh7p1"]
+[ext_resource type="PackedScene" uid="uid://c8dxyrtlajhxh" path="res://scenes/Well.tscn" id="5_lh7p1"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="6_uovux"]
 [ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://scenes/enemy.tscn" id="7_mfwir"]
 [ext_resource type="AudioStream" uid="uid://v7k0jw3pe022" path="res://assets/sounds/explosion-sound-effect-1-free-on-gamesfxpackscom-241821.mp3" id="8_bmdmd"]
@@ -15,11 +15,11 @@
 [ext_resource type="Script" path="res://scripts/health_bar.gd" id="10_nf526"]
 [ext_resource type="FontFile" uid="uid://bs4fhxtxfaswr" path="res://assets/fonts/ARIAL.TTF" id="11_bhl01"]
 [ext_resource type="Script" path="res://scripts/debug_bar.gd" id="12_a6ncm"]
-[ext_resource type="PackedScene" uid="uid://clc35d4e278wu" path="res://scenes/inventory.tscn" id="13_h0n10"]
+[ext_resource type="PackedScene" uid="uid://dil372tllpt78" path="res://scenes/inventory.tscn" id="13_h0n10"]
 [ext_resource type="Script" path="res://scripts/cash_label.gd" id="14_040is"]
 [ext_resource type="Texture2D" uid="uid://cvoy0x2sbr8bg" path="res://assets/gold_icon.png" id="15_ugvmn"]
 [ext_resource type="PackedScene" uid="uid://b4vrk6jumsrif" path="res://assets/Wachter_zwaard_texture.glb" id="16_p5ses"]
-[ext_resource type="PackedScene" path="res://scenes/alfred.tscn" id="18_so8x0"]
+[ext_resource type="PackedScene" uid="uid://tgt2vkyrvu8b" path="res://scenes/alfred.tscn" id="18_so8x0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j2cf6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

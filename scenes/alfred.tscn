@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://tgt2vkyrvu8b"]
+[gd_scene load_steps=16 format=4 uid="uid://tgt2vkyrvu8b"]
 
 [ext_resource type="Texture2D" uid="uid://bya6m3vpx0jfj" path="res://assets/Alfred_Guard.png" id="1_5xed5"]
 
@@ -96,6 +96,16 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_t1kj6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q34ee"]
+albedo_color = Color(0.388235, 0.2, 0.0156863, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r12xw"]
+albedo_color = Color(0.760784, 0.760784, 0.760784, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bys21"]
+albedo_color = Color(0.501961, 0.415686, 0.0745098, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_603i0"]
 resource_name = "Material.001"
@@ -677,13 +687,16 @@ bones/31/rotation = Quaternion(-0.0202971, 0.0202971, 0.706815, 0.706816)
 bones/31/scale = Vector3(1, 1, 1)
 
 [node name="Cylinder" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(5.96046e-08, 1.29529e-07, -0.3, 0.3, -1.39424e-07, 6.70552e-08, -9.24896e-08, -0.3, -1.05209e-07, -1.16229, 1.92072, 0.971656)
+transform = Transform3D(-5.21541e-07, 8.92957e-08, -0.3, 0.3, 4.37251e-07, -4.76837e-07, 4.33304e-07, -0.3, -9.74606e-08, -1.16229, 1.92073, 0.971655)
 bone_name = "Cylinder"
 bone_idx = 19
 
 [node name="Cylinder" type="MeshInstance3D" parent="Armature/Skeleton3D/Cylinder"]
 mesh = SubResource("ArrayMesh_ee4kb")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_q34ee")
+surface_material_override/1 = SubResource("StandardMaterial3D_r12xw")
+surface_material_override/2 = SubResource("StandardMaterial3D_bys21")
 
 [node name="Cube" type="MeshInstance3D" parent="Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_rtxi3")
