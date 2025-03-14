@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dwv7ta6fbwwyi"]
+[gd_scene load_steps=21 format=3 uid="uid://dwv7ta6fbwwyi"]
 
 [ext_resource type="Script" path="res://scripts/weapon_shop.gd" id="1_bjcf1"]
 [ext_resource type="Texture2D" uid="uid://bbsdwfm224u3c" path="res://assets/sword_icon.png" id="2_ehdsv"]
@@ -80,6 +80,21 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="LabelSettings" id="LabelSettings_ex1kw"]
+font_size = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al8u2"]
+bg_color = Color(0.171185, 0.984307, 2.69532e-06, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wi78y"]
+bg_color = Color(0, 0.247059, 0, 0.34902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kq86p"]
+bg_color = Color(1, 0.377991, 0.31005, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ulb0n"]
+bg_color = Color(0.247059, 0, 0, 0.34902)
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_kgbya"]
 viewport_path = NodePath("Control/Icon2")
 
@@ -143,6 +158,7 @@ offset_right = 1472.0
 offset_bottom = 884.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_edglm")
 text = "Description"
+label_settings = SubResource("LabelSettings_ex1kw")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -166,6 +182,8 @@ offset_top = 820.0
 offset_right = 704.0
 offset_bottom = 883.0
 theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_al8u2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wi78y")
 text = "Purchase"
 
 [node name="Close" type="Button" parent="Control"]
@@ -175,6 +193,8 @@ offset_top = 148.0
 offset_right = 1632.0
 offset_bottom = 212.0
 theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_kq86p")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ulb0n")
 text = "Close"
 autowrap_mode = 3
 icon_alignment = 1
@@ -243,7 +263,7 @@ visible = false
 visible = false
 
 [node name="Sword" parent="Control/Icon2" instance=ExtResource("7_4e4bb")]
-transform = Transform3D(-7.23998e-06, -2, 3.10861e-14, 1.84776, -6.68887e-06, -0.765367, 0.765367, -2.77062e-06, 1.84776, 0.489, 0.735, -0.78)
+transform = Transform3D(-7.23998e-06, -2, 3.10862e-14, 1.84776, -6.68887e-06, -0.765367, 0.765367, -2.77062e-06, 1.84776, 0.489, 0.735, -0.78)
 visible = false
 
 [node name="Camera3D" type="Camera3D" parent="Control/Icon2"]
