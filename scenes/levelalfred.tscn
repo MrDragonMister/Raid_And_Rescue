@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://da25hiyod03sb" path="res://scenes/house.tscn" id="4_alhw8"]
 [ext_resource type="Script" path="res://scripts/gate.gd" id="4_ufdn5"]
 [ext_resource type="PackedScene" uid="uid://p28slibh3lgd" path="res://scenes/villager.tscn" id="5_g52h0"]
-[ext_resource type="PackedScene" uid="uid://c8dxyrtlajhxh" path="res://scenes/Well.tscn" id="5_lh7p1"]
+[ext_resource type="PackedScene" path="res://scenes/Well.tscn" id="5_lh7p1"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="6_uovux"]
 [ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://scenes/enemy.tscn" id="7_mfwir"]
 [ext_resource type="AudioStream" uid="uid://v7k0jw3pe022" path="res://assets/sounds/explosion-sound-effect-1-free-on-gamesfxpackscom-241821.mp3" id="8_bmdmd"]
@@ -18,7 +18,7 @@
 [ext_resource type="Script" path="res://scripts/cash_label.gd" id="14_040is"]
 [ext_resource type="Texture2D" uid="uid://cvoy0x2sbr8bg" path="res://assets/gold_icon.png" id="15_ugvmn"]
 [ext_resource type="PackedScene" uid="uid://b4vrk6jumsrif" path="res://assets/Wachter_zwaard_texture.glb" id="16_p5ses"]
-[ext_resource type="PackedScene" uid="uid://tgt2vkyrvu8b" path="res://scenes/alfred.tscn" id="18_so8x0"]
+[ext_resource type="PackedScene" path="res://scenes/alfred.tscn" id="18_so8x0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j2cf6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -97,11 +97,11 @@ environment = SubResource("Environment_60k4y")
 transform = Transform3D(0.760284, -0.562563, 0.324794, 0, 0.499998, 0.866026, -0.649591, -0.658426, 0.380141, 11.1888, 11.8845, -0.0877705)
 shadow_enabled = true
 
+[node name="Cage" parent="world_objects" instance=ExtResource("2_gv3se")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.744782, -1.43051e-06, -37.8357)
+
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="world_objects"]
 navigation_mesh = SubResource("NavigationMesh_3vf7c")
-
-[node name="Node3D2" parent="world_objects/NavigationRegion3D" instance=ExtResource("2_gv3se")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.744782, -1.43051e-06, -37.8357)
 
 [node name="Gate" parent="world_objects/NavigationRegion3D" instance=ExtResource("3_rb4cf")]
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 0, 0, 25.4159)
@@ -532,3 +532,5 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 8.28786, 0, 2.86241)
 
 [node name="alfred" parent="." instance=ExtResource("18_so8x0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23)
+
+[connection signal="freed" from="world_objects/villager" to="world_objects/Cage" method="_on_villager_freed"]

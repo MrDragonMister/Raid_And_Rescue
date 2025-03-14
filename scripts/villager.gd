@@ -11,6 +11,7 @@ const ACCELERATION: int = 20
 const INTERACT_RANGE: int = 2
 var direction: Vector3 = Vector3.ZERO
 var is_following: bool = false
+signal freed
 
 func _unhandled_input(_event):
 	if not is_following and Input.is_action_just_pressed("interact") and (position - player.position).length() < INTERACT_RANGE:
@@ -18,6 +19,8 @@ func _unhandled_input(_event):
 		is_following = true
 		game_manager.is_vilager_free = true
 		interact_cooldown.start()
+		freed.emit()
+		print("I've been freed")
 
 func _physics_process(delta):
 	if is_following:

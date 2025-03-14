@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkxvwbmujc8sm"]
+[gd_scene load_steps=9 format=3 uid="uid://dkxvwbmujc8sm"]
 
 [ext_resource type="ArrayMesh" uid="uid://2nlg4b7c7jp1" path="res://assets/Cage.obj" id="1_cjs21"]
+[ext_resource type="Script" path="res://scripts/cage.gd" id="1_uhqa7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1461h"]
 albedo_color = Color(0.6, 0.6, 0.6, 1)
@@ -23,6 +24,7 @@ size = Vector3(2.28418, 0.203613, 2.30023)
 
 [node name="Node3D" type="StaticBody3D"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+script = ExtResource("1_uhqa7")
 
 [node name="Cage" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.101, 0, 0, 0, 0.101, 0, 0, 0, 0.101, 0, 0, 0)

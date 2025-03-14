@@ -371,3 +371,5 @@ _____________________________"
 label_settings = SubResource("LabelSettings_1x25p")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="freed" from="world_objects/villager" to="world_objects/Cage" method="_on_villager_freed"]

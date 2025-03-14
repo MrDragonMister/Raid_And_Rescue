@@ -97,15 +97,15 @@ environment = SubResource("Environment_60k4y")
 transform = Transform3D(0.760284, -0.562563, 0.324794, 0, 0.499998, 0.866026, -0.649591, -0.658426, 0.380141, 11.1888, 11.8845, -0.0877705)
 shadow_enabled = true
 
+[node name="Cage" parent="world_objects" instance=ExtResource("2_yfw72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04878, 4.76837e-07, -31.8753)
+
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="world_objects"]
 navigation_mesh = SubResource("NavigationMesh_3vf7c")
 
 [node name="Gate" parent="world_objects/NavigationRegion3D" instance=ExtResource("16_2qc0h")]
 transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 29.9437, 0, 15.5313)
 script = ExtResource("3_ll1jg")
-
-[node name="Node3D2" parent="world_objects/NavigationRegion3D" instance=ExtResource("2_yfw72")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04878, 4.76837e-07, -31.8753)
 
 [node name="floor" type="CSGBox3D" parent="world_objects/NavigationRegion3D"]
 transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 84.789, 0, -0.5, 0)
@@ -413,3 +413,5 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -15.2959, 0, -9.4635
 
 [node name="Wachter_zwaard_texture8" parent="." instance=ExtResource("4_ihe42")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 7.91656, 0, 1.95123)
+
+[connection signal="freed" from="world_objects/villager" to="world_objects/Cage" method="_on_villager_freed"]
