@@ -390,28 +390,4 @@ offset_bottom = 444.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Wachter_zwaard_texture" parent="." instance=ExtResource("4_ihe42")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 4.58655, 0, 7.33558)
-
-[node name="Wachter_zwaard_texture5" parent="." instance=ExtResource("4_ihe42")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 9.40925, 0, -15.7239)
-
-[node name="Wachter_zwaard_texture6" parent="." instance=ExtResource("4_ihe42")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.89407, 0, -26.9257)
-
-[node name="Wachter_zwaard_texture7" parent="." instance=ExtResource("4_ihe42")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.83258, -3.8147e-06, -26.6865)
-
-[node name="Wachter_zwaard_texture2" parent="." instance=ExtResource("4_ihe42")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -5.3562, -3.8147e-06, 3.00781)
-
-[node name="Wachter_zwaard_texture3" parent="." instance=ExtResource("4_ihe42")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 5.89427, 3.8147e-06, -4.43403)
-
-[node name="Wachter_zwaard_texture4" parent="." instance=ExtResource("4_ihe42")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -15.2959, 0, -9.46358)
-
-[node name="Wachter_zwaard_texture8" parent="." instance=ExtResource("4_ihe42")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 7.91656, 0, 1.95123)
-
 [connection signal="freed" from="world_objects/villager" to="world_objects/Cage" method="_on_villager_freed"]

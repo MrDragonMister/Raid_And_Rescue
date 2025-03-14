@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ddk605ukuipyd"]
+[gd_scene load_steps=30 format=3 uid="uid://ddk605ukuipyd"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_4yjry"]
 [ext_resource type="PackedScene" uid="uid://da25hiyod03sb" path="res://scenes/house.tscn" id="2_h8crc"]
@@ -14,7 +14,6 @@
 [ext_resource type="Script" path="res://scripts/debug_bar.gd" id="11_p1b2j"]
 [ext_resource type="Script" path="res://scripts/cash_label.gd" id="13_hyrst"]
 [ext_resource type="PackedScene" uid="uid://dkxvwbmujc8sm" path="res://scenes/Cage.tscn" id="14_42xjl"]
-[ext_resource type="PackedScene" uid="uid://b4vrk6jumsrif" path="res://assets/Wachter_zwaard_texture.glb" id="15_dq64n"]
 [ext_resource type="Texture2D" uid="uid://cvoy0x2sbr8bg" path="res://assets/gold_icon.png" id="15_qxsy3"]
 [ext_resource type="PackedScene" uid="uid://clc35d4e278wu" path="res://scenes/inventory.tscn" id="16_brcoe"]
 [ext_resource type="PackedScene" uid="uid://bfeh8xkisbp0y" path="res://assets/Gate.glb" id="16_rga3d"]
@@ -379,20 +378,5 @@ _____________________________"
 label_settings = SubResource("LabelSettings_1x25p")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Wachter_zwaard_texture" parent="." instance=ExtResource("15_dq64n")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -11.4902, 0, -12.1538)
-
-[node name="Wachter_zwaard_texture2" parent="." instance=ExtResource("15_dq64n")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.863081, 0, -8.32814)
-
-[node name="Wachter_zwaard_texture3" parent="." instance=ExtResource("15_dq64n")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 3.47425, 0, 10.7937)
-
-[node name="Wachter_zwaard_texture4" parent="." instance=ExtResource("15_dq64n")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -4.9191, -9.53674e-07, -1.07554)
-
-[node name="Wachter_zwaard_texture5" parent="." instance=ExtResource("15_dq64n")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -11.9177, 0, -1.42527)
 
 [connection signal="freed" from="world_objects/villager" to="world_objects/Cage" method="_on_villager_freed"]
