@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://chtlwau6ck1d1"]
+[gd_scene load_steps=5 format=3 uid="uid://chtlwau6ck1d1"]
 
+[ext_resource type="Script" path="res://scenes/intro.gd" id="1_1ysed"]
 [ext_resource type="Texture2D" uid="uid://cumkeqfwciqy4" path="res://assets/axe_icon.png" id="1_x5ysn"]
 [ext_resource type="Texture2D" uid="uid://d168m0gy8mte4" path="res://assets/bow_icon.png" id="2_1v2t6"]
 [ext_resource type="Texture2D" uid="uid://bbsdwfm224u3c" path="res://assets/sword_icon.png" id="3_ive3f"]
 
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
+script = ExtResource("1_1ysed")
 
 [node name="TextEdit" type="TextEdit" parent="."]
 offset_right = 1926.0
@@ -23,9 +25,26 @@ text = "
 												This included your village and your people were kidnapped by the evil king.
 
 
-	Now you have been chosen by the gods to take revenge on this king by plundering his villages, saving your villagers 																			and killing King Alfred the Great."
+			Now you have been chosen by the gods to take revenge on this king by plundering his villages, saving your villagers 																					and killing King Alfred the Great."
 wrap_mode = 1
 text_direction = 1
+
+[node name="Button" type="Button" parent="TextEdit"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.472482
+anchor_top = 0.621659
+anchor_right = 0.547539
+anchor_bottom = 0.662673
+offset_left = -50.0
+offset_top = -15.5
+offset_right = 46.4399
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "Play game"
+metadata/_edit_use_anchors_ = true
 
 [node name="AxeIcon" type="Sprite2D" parent="."]
 position = Vector2(450, 836)
@@ -41,3 +60,5 @@ texture = ExtResource("2_1v2t6")
 position = Vector2(957.5, 864)
 scale = Vector2(12.5625, 11.875)
 texture = ExtResource("3_ive3f")
+
+[connection signal="pressed" from="TextEdit/Button" to="." method="_on_button_pressed"]

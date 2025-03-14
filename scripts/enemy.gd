@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 		await get_tree().create_timer(0.5).timeout
 		if nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
 			hurt.play()
-			player_health_bar.value -= 1 * (1 - player.armor_damage_reduction)
+			player_health_bar.value -= 2 * (1 - player.armor_damage_reduction)
 			player_health_bar.update_health_bar_text()
 		
 	# Going back home
