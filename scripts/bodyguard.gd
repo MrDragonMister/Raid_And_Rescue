@@ -126,7 +126,7 @@ func take_damage(amount_of_damage, weapon):
 		if i % weapon_damage_multiplier_level == 0:
 			await get_tree().create_timer(0.01).timeout
 		if health <= health_bar.min_value:
-			enemy_manager.bodyguard()
+			enemy_manager.bodyguard_die()
 			queue_free()
 
 func _on_attack_cooldown_timeout():
