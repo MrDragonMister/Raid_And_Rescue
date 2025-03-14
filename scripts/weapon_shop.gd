@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 var CurrentItem = 0
-var select = 0
+#var select = 0
 
 func _on_close_pressed() -> void:
 	get_node("Anim").play("TransOut")

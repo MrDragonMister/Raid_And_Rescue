@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dv4npmahb7j5i"]
+[gd_scene load_steps=33 format=3 uid="uid://dv4npmahb7j5i"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_j725e"]
 [ext_resource type="PackedScene" uid="uid://dkxvwbmujc8sm" path="res://scenes/Cage.tscn" id="2_gv3se"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scripts/health_bar.gd" id="10_nf526"]
 [ext_resource type="FontFile" uid="uid://bs4fhxtxfaswr" path="res://assets/fonts/ARIAL.TTF" id="11_bhl01"]
 [ext_resource type="Script" path="res://scripts/debug_bar.gd" id="12_a6ncm"]
+[ext_resource type="PackedScene" uid="uid://clc35d4e278wu" path="res://scenes/inventory.tscn" id="13_h0n10"]
 [ext_resource type="Script" path="res://scripts/cash_label.gd" id="14_040is"]
 [ext_resource type="Texture2D" uid="uid://cvoy0x2sbr8bg" path="res://assets/gold_icon.png" id="15_ugvmn"]
 [ext_resource type="PackedScene" uid="uid://b4vrk6jumsrif" path="res://assets/Wachter_zwaard_texture.glb" id="16_p5ses"]
@@ -124,89 +125,77 @@ size = Vector3(2, 0.1, 2)
 [node name="walls" type="Node3D" parent="world_objects/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
-transform = Transform3D(174.682, 0, 0, 0, 0.711918, 0, 0, 0, 1.67502, 16.6836, 2.865, -3)
-material_override = SubResource("StandardMaterial3D_l71gp")
-use_collision = true
-collision_layer = 3
-size = Vector3(0.15442, 11.5937, 0.112427)
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
-transform = Transform3D(-7.63557e-06, 0, 1.67502, 0, 0.711918, 0, -174.682, 0, -7.32174e-08, 15, 1.986, -8.195)
-material_override = SubResource("StandardMaterial3D_l71gp")
-use_collision = true
-collision_layer = 3
-size = Vector3(0.0604707, 11.5937, 0.112427)
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
-transform = Transform3D(-7.63557e-06, 0, 1.67502, 0, 0.711918, 0, -174.682, 0, -7.32174e-08, -15, 1.986, -8.195)
-material_override = SubResource("StandardMaterial3D_l71gp")
-use_collision = true
-collision_layer = 3
-size = Vector3(0.0604707, 11.5937, 0.112427)
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
-transform = Transform3D(173.23, 0, 0.215474, 0, 0.711918, 0, -22.471, 0, 1.6611, -10, 1.986, -10)
-material_override = SubResource("StandardMaterial3D_l71gp")
-use_collision = true
-collision_layer = 3
-size = Vector3(0.0653916, 11.5937, 0.112427)
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
-transform = Transform3D(12.5987, 0, 1.67066, 0, 0.711918, 0, -174.227, 0, 0.120809, -4.23277, 1.986, -12.1481)
-material_override = SubResource("StandardMaterial3D_l71gp")
-use_collision = true
-collision_layer = 3
-size = Vector3(0.0170803, 11.5937, 0.112427)
-
-[node name="CSGBox3D12" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
-transform = Transform3D(12.5987, 0, 1.67066, 0, 0.711918, 0, -174.227, 0, 0.120809, 4.89839, 1.986, -12.2644)
-material_override = SubResource("StandardMaterial3D_l71gp")
-use_collision = true
-collision_layer = 3
-size = Vector3(0.0157447, 11.5937, 0.112427)
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
-transform = Transform3D(172.679, 0, -0.252902, 0, 0.711918, 0, 26.3742, 0, 1.65582, 10, 1.986, -10.07)
-material_override = SubResource("StandardMaterial3D_l71gp")
-use_collision = true
-collision_layer = 3
-size = Vector3(0.0653916, 11.5937, 0.112427)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
-transform = Transform3D(13.2167, 0, 0, 0, 0.843753, 0, 0, 0, 1.29422, -16.459, 3.46304, -3)
-material_override = SubResource("StandardMaterial3D_l71gp")
-use_collision = true
-collision_layer = 3
-size = Vector3(1.93265, 9.0809, 0.112427)
-
 [node name="CSGBox3D" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
 transform = Transform3D(3.63548, 0, 0, 0, 0.91856, 0, 0, 0, 1.13764, 0.291041, 2.57156, 8.51287)
 material_override = SubResource("StandardMaterial3D_l71gp")
 use_collision = true
-collision_layer = 3
 size = Vector3(15.0305, 9.86621, 0.112427)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
 transform = Transform3D(3.63548, 0, 0, 0, 0.91856, 0, 0, 0, 1.13764, 0.291075, 2.57156, -13.4573)
 material_override = SubResource("StandardMaterial3D_l71gp")
 use_collision = true
-collision_layer = 3
 size = Vector3(15.0305, 9.86621, 0.112427)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
 transform = Transform3D(-1.58912e-07, 0, -3.63537, 0, 0.91856, 0, 1.13767, 0, -4.97277e-08, -29.3547, 2.57156, -2.10054)
 material_override = SubResource("StandardMaterial3D_l71gp")
 use_collision = true
-collision_layer = 3
 size = Vector3(17.984, 9.86621, 0.112427)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
 transform = Transform3D(-1.58912e-07, 0, -3.63537, 0, 0.91856, 0, 1.13767, 0, -4.97277e-08, 30.291, 2.48307, -2.11859)
 material_override = SubResource("StandardMaterial3D_l71gp")
 use_collision = true
-collision_layer = 3
 size = Vector3(18.0743, 9.86621, 0.112427)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
+transform = Transform3D(13.2167, 0, 0, 0, 0.843753, 0, 0, 0, 1.29422, -16.459, 3.46304, -3)
+material_override = SubResource("StandardMaterial3D_l71gp")
+use_collision = true
+size = Vector3(1.93265, 9.0809, 0.112427)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
+transform = Transform3D(174.682, 0, 0, 0, 0.711918, 0, 0, 0, 1.67502, 16.6836, 2.865, -3)
+material_override = SubResource("StandardMaterial3D_l71gp")
+use_collision = true
+size = Vector3(0.15442, 11.5937, 0.112427)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
+transform = Transform3D(-7.63557e-06, 0, 1.67502, 0, 0.711918, 0, -174.682, 0, -7.32174e-08, 15, 1.986, -8.195)
+material_override = SubResource("StandardMaterial3D_l71gp")
+use_collision = true
+size = Vector3(0.0604707, 11.5937, 0.112427)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
+transform = Transform3D(-7.63557e-06, 0, 1.67502, 0, 0.711918, 0, -174.682, 0, -7.32174e-08, -15, 1.986, -8.195)
+material_override = SubResource("StandardMaterial3D_l71gp")
+use_collision = true
+size = Vector3(0.0604707, 11.5937, 0.112427)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
+transform = Transform3D(174.681, 0, 0, 0, 0.711918, 0, 0, 0, 1.67502, -10, 1.986, -11.053)
+material_override = SubResource("StandardMaterial3D_l71gp")
+use_collision = true
+size = Vector3(0.0653916, 11.5937, 0.112427)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
+transform = Transform3D(174.682, 0, 0, 0, 0.711918, 0, 0, 0, 1.67502, 10.7359, 1.986, -11.0531)
+material_override = SubResource("StandardMaterial3D_l71gp")
+use_collision = true
+size = Vector3(0.0653916, 11.5937, 0.112427)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
+transform = Transform3D(12.5987, 0, 1.67066, 0, 0.711918, 0, -174.227, 0, 0.120809, -4.23277, 1.986, -12.1481)
+material_override = SubResource("StandardMaterial3D_l71gp")
+use_collision = true
+size = Vector3(0.0170803, 11.5937, 0.112427)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="world_objects/NavigationRegion3D/walls"]
+transform = Transform3D(12.5987, 0, 1.67066, 0, 0.711918, 0, -174.227, 0, 0.120809, 4.89839, 1.986, -12.2644)
+material_override = SubResource("StandardMaterial3D_l71gp")
+use_collision = true
+size = Vector3(0.0157447, 11.5937, 0.112427)
 
 [node name="towers" type="Node3D" parent="world_objects/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
@@ -228,7 +217,7 @@ radius = 0.6181
 height = 14.301
 
 [node name="CSGCylinder3D9" type="CSGCylinder3D" parent="world_objects/NavigationRegion3D/towers"]
-transform = Transform3D(3, 0, 0, 0, 0.756, 0, 0, 0, 0.936, -15, 2.744, -9.5)
+transform = Transform3D(3, 0, 0, 0, 0.756, 0, 0, 0, 0.936, -15, 2.744, -11.088)
 material_override = SubResource("StandardMaterial3D_f1xio")
 use_collision = true
 collision_layer = 3
@@ -236,7 +225,7 @@ radius = 0.6181
 height = 14.301
 
 [node name="CSGCylinder3D10" type="CSGCylinder3D" parent="world_objects/NavigationRegion3D/towers"]
-transform = Transform3D(3, 0, 0, 0, 0.756, 0, 0, 0, 0.936, 14.9557, 2.744, -9.5)
+transform = Transform3D(3, 0, 0, 0, 0.756, 0, 0, 0, 0.936, 14.9557, 2.744, -11.0883)
 material_override = SubResource("StandardMaterial3D_f1xio")
 use_collision = true
 collision_layer = 3
@@ -367,6 +356,13 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="Inventory" parent="gamegui" instance=ExtResource("13_h0n10")]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 390.0
+offset_right = 788.0
+offset_bottom = 444.0
+
 [node name="health_bar" type="ProgressBar" parent="gamegui"]
 layout_mode = 1
 anchors_preset = 5
@@ -445,6 +441,7 @@ vertical_alignment = 1
 script = ExtResource("14_040is")
 
 [node name="PanelContainer2" type="PanelContainer" parent="gamegui"]
+visible = false
 layout_mode = 0
 offset_left = -911.0
 offset_top = -80.0
@@ -521,16 +518,16 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 6.93347, 0, 8.75286)
 [node name="Wachter_zwaard_texture" parent="." instance=ExtResource("16_p5ses")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -9.47394, 0, 2.02483)
 
-[node name="Wachter_zwaard_texture12" parent="." instance=ExtResource("16_p5ses")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.43616, 0, -22.3019)
-
-[node name="Wachter_zwaard_texture13" parent="." instance=ExtResource("16_p5ses")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 1.49707, 0, -22.3104)
-
 [node name="Wachter_zwaard_texture2" parent="." instance=ExtResource("16_p5ses")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 8.28786, 0, 2.86241)
 
 [node name="alfred" parent="." instance=ExtResource("18_so8x0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23)
+
+[node name="Wachter_zwaard_texture12" parent="." instance=ExtResource("16_p5ses")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.43616, 0, -22.3019)
+
+[node name="Wachter_zwaard_texture13" parent="." instance=ExtResource("16_p5ses")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 1.49707, 0, -22.3104)
 
 [connection signal="freed" from="world_objects/villager" to="world_objects/Cage" method="_on_villager_freed"]

@@ -8,7 +8,7 @@ extends CharacterBody3D
 #var speed = player.speed
 const SPEED: int = 5
 const ACCELERATION: int = 20
-const INTERACT_RANGE: int = 2
+const INTERACT_RANGE: int = 4
 var direction: Vector3 = Vector3.ZERO
 var is_following: bool = false
 signal freed
@@ -20,7 +20,6 @@ func _unhandled_input(_event):
 		game_manager.is_vilager_free = true
 		interact_cooldown.start()
 		freed.emit()
-		print("I've been freed")
 
 func _physics_process(delta):
 	if is_following:

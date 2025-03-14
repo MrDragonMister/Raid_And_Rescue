@@ -7,9 +7,37 @@ extends Node3D
 
 func _ready():
 	# Spawn first enemies
-	spawn_enemy(10, 0, 0)
-	spawn_enemy(-20, 0, 10)
-	spawn_enemy(-20, 0, 15)
+	if Global.level == 1:
+		spawn_enemy(10, 0, 0)
+		spawn_enemy(-20, 0, 10)
+		spawn_enemy(-20, 0, 15)
+	if Global.level == 2:
+		spawn_enemy(-11.49, 0, -12.154)
+		spawn_enemy(0.863, 0, -8.328)
+		spawn_enemy(3.474, 0, 10.794)
+		spawn_enemy(-4.919, 0 , -1.076)
+		spawn_enemy(-11.918, 0, -1.425)
+	if Global.level == 3:
+		spawn_enemy(4.587, 0, 7.336)
+		spawn_enemy(9.409, 0, -15.724)
+		spawn_enemy(-2.894, 0, -26.926)
+		spawn_enemy(2.833, 0, -26.687)
+		spawn_enemy(-5.356, 0, 3.008)
+		spawn_enemy(5.894, 0, -4.434)
+		spawn_enemy(-15.296, 0, -9.464)
+		spawn_enemy(7.917, 0, 1.951)
+	if Global.level == 4:
+		spawn_enemy(-9.24, 0, 9.121)
+		spawn_enemy(2.687, 0, 2.164)
+		spawn_enemy(-1.407, 0, 2.395)
+		spawn_enemy(-3.001, 0, 10.038)
+		spawn_enemy(7.83, 0, 15.435)
+		spawn_enemy(-9.368, 0, 15.898)
+		spawn_enemy(-0.717, 0, 13.566)
+		spawn_enemy(1.291, 0, 9.385)
+		spawn_enemy(6.933, 0, 8.753)
+		spawn_enemy(-9.474, 0, 2.025)
+		spawn_enemy(8.288, 0, 2.862)
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("spawn enemy"):

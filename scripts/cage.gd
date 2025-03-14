@@ -6,13 +6,9 @@ extends StaticBody3D
 
 func _ready():
 	visible = true
-	print("should be lifted: ", should_be_lifted)
-	print("pos: ", position)
-	print("start_y: ", start_y)
 
 func _on_villager_freed():
 	should_be_lifted = true
-	print(should_be_lifted)
 
 func _physics_process(delta):
 	if should_be_lifted and position.y < start_y + 2.5:

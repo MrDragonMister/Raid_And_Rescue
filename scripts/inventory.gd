@@ -1,6 +1,6 @@
 extends Panel
 
-var selectslot = 1
+var selectslot : int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,10 +26,9 @@ func _input(event):
 
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			selectslot = 3 if selectslot == 1 else selectslot - 1
+			selectslot = selectslot % 3 + 1
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			selectslot = 1 if selectslot == 3 else selectslot + 1
-		
+			selectslot = fposmod(selectslot -2, 3) + 1
 		# Focus wisselen na scrollen
 		_update_focus()
 
