@@ -6,7 +6,7 @@ extends Camera3D
 
 
 
-func _process(delta):
+func _process(_delta):
 	Sword.rotation.z += 0.01
 	Axe.rotation.x += 0.01
 	Bow.rotation.x += 0.01

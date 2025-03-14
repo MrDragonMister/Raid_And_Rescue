@@ -85,15 +85,51 @@ font_size = 22
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al8u2"]
 bg_color = Color(0.171185, 0.984307, 2.69532e-06, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.247059, 0, 0.34902)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wi78y"]
 bg_color = Color(0, 0.247059, 0, 0.34902)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.172549, 0.984314, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kq86p"]
 bg_color = Color(1, 0.377991, 0.31005, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.247059, 0, 0, 0.34902)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ulb0n"]
 bg_color = Color(0.247059, 0, 0, 0.34902)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.376471, 0.309804, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_kgbya"]
 viewport_path = NodePath("Control/Icon2")
@@ -178,9 +214,9 @@ autowrap_mode = 3
 [node name="Buy" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 448.0
-offset_top = 820.0
+offset_top = 819.0
 offset_right = 704.0
-offset_bottom = 883.0
+offset_bottom = 882.0
 theme_override_font_sizes/font_size = 24
 theme_override_styles/hover = SubResource("StyleBoxFlat_al8u2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_wi78y")
@@ -188,9 +224,9 @@ text = "Purchase"
 
 [node name="Close" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 1504.0
+offset_left = 1503.0
 offset_top = 148.0
-offset_right = 1632.0
+offset_right = 1631.0
 offset_bottom = 212.0
 theme_override_font_sizes/font_size = 24
 theme_override_styles/hover = SubResource("StyleBoxFlat_kq86p")

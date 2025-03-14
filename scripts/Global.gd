@@ -2,7 +2,7 @@ extends Node
 
 @onready var enemy_spawn_pos: Vector3 = Vector3.ZERO
 @onready var amount_of_enemies: int = 0
-@onready var gold: int = 0
+@onready var gold: int = 10
 @onready var should_play_miss: bool = true
 var level : int = 1
 
@@ -27,7 +27,7 @@ func get_angle_to(from, target) -> float:
 var items = {
 	0: {
 		"Name": "Sword",
-		"Desc": "This is a sword! \nIt you can attack quick with it and does moderate damage.",
+		"Desc": "This is a sword! \nYou can attack quick with it and does moderate damage.",
 		"Cost": 10,
 	},
 	1: {
@@ -39,6 +39,26 @@ var items = {
 		"Name": "Bow",
 		"Desc": "This is a bow! \nYou can shoot arrows with it. It is very handy for ranged combat. \nYou shoot when you press the right mousebutton instead of the left.",
 		"Cost": 10,
+	},
+}
+var inventory = {
+	0: {
+		"Name": "Sword",
+		"Desc": "This is a sword! \nIt you can attack quick with it and does moderate damage.",
+		"Cost": 10,
+		"Level": 1,
+	},
+	1: {
+		"Name": "Axe",
+		"Desc": "This is an axe! \nIt has more range than the sword, but attacks somewhat slower. \nYou can hit enemies behind you too with this.",
+		"Cost": 10,
+		"Level": 1,
+	},
+	2: {
+		"Name": "Bow",
+		"Desc": "This is a bow! \nYou can shoot arrows with it. It is very handy for ranged combat. \nYou shoot when you press the right mousebutton instead of the left.",
+		"Cost": 10,
+		"Level": 1,
 	},
 }
 

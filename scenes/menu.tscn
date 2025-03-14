@@ -1,15 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://cb3nlcngtsxd0"]
+[gd_scene load_steps=12 format=3 uid="uid://cb3nlcngtsxd0"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_4ootf"]
 [ext_resource type="Texture2D" uid="uid://b4bbxlbd4ui6x" path="res://assets/backcircleship.png" id="2_v5b3g"]
 [ext_resource type="Texture2D" uid="uid://7gerdq4g6fka" path="res://assets/gamelogo.png" id="3_2it0q"]
 [ext_resource type="AudioStream" uid="uid://bhlifx0pmjl46" path="res://assets/sounds/ultra-kill-138765.mp3" id="4_uw1fn"]
 [ext_resource type="PackedScene" uid="uid://dwv7ta6fbwwyi" path="res://scenes/weapon_shop.tscn" id="5_6v7a6"]
+[ext_resource type="Texture2D" uid="uid://cvoy0x2sbr8bg" path="res://assets/gold_icon.png" id="6_cmw3j"]
+[ext_resource type="Script" path="res://scripts/cash_label.gd" id="7_to3h3"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fvqsf"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xcp3m"]
 load_path = "res://.godot/imported/ship.png-0b2a8e7064d2d88a0149f9491a8ea676.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u78dj"]
+bg_color = Color(0.403926, 0.358493, 0.0403453, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_wyyqy"]
+font_size = 36
+outline_size = 4
+outline_color = Color(0.301961, 0.301961, 0.301961, 1)
 
 [node name="Node2D" type="Node2D"]
 material = SubResource("CanvasItemMaterial_fvqsf")
@@ -90,6 +104,55 @@ stream = ExtResource("4_uw1fn")
 volume_db = -9.905
 
 [node name="Weapon_shop" parent="." instance=ExtResource("5_6v7a6")]
+
+[node name="gamegui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="gamegui"]
+layout_mode = 0
+offset_left = 618.0
+offset_top = -513.0
+offset_right = 746.0
+offset_bottom = -463.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u78dj")
+
+[node name="MarginContainer" type="MarginContainer" parent="gamegui/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="gamegui/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="gamegui/PanelContainer/MarginContainer/GridContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("6_cmw3j")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="gold" type="Label" parent="gamegui/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Gold: 0"
+label_settings = SubResource("LabelSettings_wyyqy")
+vertical_alignment = 1
+script = ExtResource("7_to3h3")
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Control/Button2" to="." method="_on_button2_pressed"]
