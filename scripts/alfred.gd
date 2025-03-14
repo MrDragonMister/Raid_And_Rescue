@@ -52,7 +52,7 @@ func _process(_delta: float) -> void:
 		if distance_2_player < player.weapon_forward_range and angle_from_player_2_enemy < deg_to_rad(player.weapon_angle_range) and not player.inventory.selectslot == 3:
 			slash_play()
 			Global.should_play_miss = false
-			take_damage(10)
+			take_damage(10, player.inventory.selectslot)
 		elif not player.inventory.selectslot == 3:
 			await get_tree().create_timer(get_process_delta_time()).timeout
 			if Global.should_play_miss:
@@ -112,25 +112,24 @@ func _physics_process(delta: float) -> void:
 					# Removing the arrow from it's group makes it so that multiple collisions
 					# during the same physics frame don't hurt the enemy multiple times from
 					# the same arrow.
-					print(not collision.get_collider().is_released)
 					if not collision.get_collider().is_released:
 						player.is_bow_drawn = false
 						player.timer.start()
-						print("player drawn bow: ", player.is_bow_drawn)
 					collision.get_collider().queue_free()
-					take_damage(10)
+					take_damage(10, 3)
 	
 	move_and_slide()
 
 func _on_attack_cooldown_timeout():
 	attack_ready = true
 	
-func take_damage(amount_of_damage):
-	if health > health_bar.min_value:
-		for i in amount_of_damage:
+func take_damage(amount_of_damage, weapon):
+		var weapon_damage_multiplier_level = Global.inventory[weapon - 1]["Level"]
+		for i in amount_of_damage * weapon_damage_multiplier_level:
 			health -= 1
 			health_bar.value = health
-			await get_tree().create_timer(0.01).timeout
+			if i % weapon_damage_multiplier_level == 0:
+				await get_tree().create_timer(0.01).timeout
 		if health <= health_bar.min_value:
 			enemy_manager.alfred_die()
 			queue_free()
