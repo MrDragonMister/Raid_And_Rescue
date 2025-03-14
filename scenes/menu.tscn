@@ -42,30 +42,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
+offset_left = -370.0
 offset_top = -16.0
-offset_right = 50.0
+offset_right = -270.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Play game"
-metadata/_edit_use_anchors_ = true
-
-[node name="Button2" type="Button" parent="Control"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.3
-anchor_top = 0.5
-anchor_right = 0.3
-anchor_bottom = 0.5
-offset_left = -44.0
-offset_top = -15.5
-offset_right = 44.0
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Gear (werkt niet)"
 metadata/_edit_use_anchors_ = true
 
 [node name="Button3" type="Button" parent="Control"]
@@ -104,6 +87,7 @@ stream = ExtResource("4_uw1fn")
 volume_db = -9.905
 
 [node name="Weapon_shop" parent="." instance=ExtResource("5_6v7a6")]
+visible = false
 
 [node name="gamegui" type="Control" parent="."]
 layout_mode = 3
@@ -155,5 +139,4 @@ vertical_alignment = 1
 script = ExtResource("7_to3h3")
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Control/Button2" to="." method="_on_button2_pressed"]
 [connection signal="pressed" from="Control/Button3" to="." method="_on_button_3_pressed"]

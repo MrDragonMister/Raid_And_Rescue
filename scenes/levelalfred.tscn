@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://dv4npmahb7j5i"]
+[gd_scene load_steps=34 format=3 uid="uid://dv4npmahb7j5i"]
 
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_du3oj"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_j725e"]
-[ext_resource type="PackedScene" uid="uid://dkxvwbmujc8sm" path="res://scenes/Cage.tscn" id="2_gv3se"]
+[ext_resource type="PackedScene" uid="uid://cy83gaiogvyiw" path="res://scenes/Cage.tscn" id="2_gv3se"]
 [ext_resource type="PackedScene" uid="uid://bfeh8xkisbp0y" path="res://assets/Gate.glb" id="3_rb4cf"]
 [ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="4_1645l"]
 [ext_resource type="PackedScene" uid="uid://da25hiyod03sb" path="res://scenes/house.tscn" id="4_alhw8"]
@@ -85,6 +86,7 @@ expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
 [node name="level1" type="Node3D"]
+script = ExtResource("1_du3oj")
 
 [node name="game_manager" type="Node" parent="."]
 script = ExtResource("1_j725e")

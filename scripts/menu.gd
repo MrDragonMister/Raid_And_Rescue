@@ -4,15 +4,16 @@ extends Node2D
 @onready var button: Button = $Control/Button
 
 func _ready():
+	MusicManager.play_music_for_scene(get_tree().current_scene.scene_file_path)
 	death.play()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_node("Weapon_shop").visible = false
 	if Global.level == 1:
-		button.text = "Play game"
+		button.text = "Start playing!"
 	elif Global.level == 5:
-		button.text = "You won, press to restart"
+		button.text = "You won, press to restart!"
 	else:
-		button.text = "Play next level"
+		button.text = "Play next level!"
 
 func _on_button_pressed() -> void:
 	if Global.level == 1:
