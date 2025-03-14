@@ -35,6 +35,7 @@ func _on_buy_pressed() -> void:
 		gold.change_coins(-Global.items[CurrentItem]["Cost"])
 		Global.inventory[CurrentItem]["Level"] += 1
 		print(Global.inventory[CurrentItem]["Level"])
+		Global.items[CurrentItem]["Cost"] += 5
 	else:
 		print("not enough gold")
 	SwitchItem(CurrentItem)

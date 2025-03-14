@@ -2,7 +2,7 @@ extends Node
 
 @onready var enemy_spawn_pos: Vector3 = Vector3.ZERO
 @onready var amount_of_enemies: int = 0
-@onready var gold: int = 10
+@onready var gold: int = 100
 @onready var should_play_miss: bool = true
 var level : int = 1
 
