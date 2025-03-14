@@ -26,6 +26,7 @@ func _ready():
 		spawn_enemy(5.894, 0, -4.434)
 		spawn_enemy(-15.296, 0, -9.464)
 		spawn_enemy(7.917, 0, 1.951)
+		spawn_enemy(-0.09, 0, -24.523)
 	if Global.level == 4:
 		spawn_enemy(-9.24, 0, 9.121)
 		spawn_enemy(2.687, 0, 2.164)

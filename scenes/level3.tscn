@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ijkflhsxe5fo"]
+[gd_scene load_steps=31 format=3 uid="uid://ijkflhsxe5fo"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_j1nd7"]
 [ext_resource type="PackedScene" uid="uid://dkxvwbmujc8sm" path="res://scenes/Cage.tscn" id="2_yfw72"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://scripts/gate.gd" id="3_ll1jg"]
 [ext_resource type="PackedScene" uid="uid://da25hiyod03sb" path="res://scenes/house.tscn" id="3_qul0q"]
 [ext_resource type="PackedScene" uid="uid://c4uk6bgfdo1jq" path="res://scenes/player.tscn" id="4_7wet1"]
-[ext_resource type="PackedScene" uid="uid://b4vrk6jumsrif" path="res://assets/Wachter_zwaard_texture.glb" id="4_ihe42"]
 [ext_resource type="PackedScene" uid="uid://p28slibh3lgd" path="res://scenes/villager.tscn" id="5_m6paw"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="6_gia85"]
 [ext_resource type="PackedScene" uid="uid://cny8rnjsf4uw5" path="res://scenes/enemy.tscn" id="7_u12o8"]
@@ -234,9 +233,6 @@ stream = ExtResource("8_ki5dg")
 
 [node name="moneysound" type="AudioStreamPlayer" parent="world_objects/Enemy_manager"]
 stream = ExtResource("9_rfcry")
-
-[node name="Wachter_zwaard_texture" parent="world_objects" instance=ExtResource("4_ihe42")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.0898457, 0, -24.5228)
 
 [node name="gamegui" type="Control" parent="."]
 layout_mode = 3

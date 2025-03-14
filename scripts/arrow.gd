@@ -1,17 +1,20 @@
 extends CharacterBody3D
 
 @onready var player: CharacterBody3D = $"../../world_objects/Player"
+@onready var inventory: = $"../../gamegui/Inventory"
 const THROW_STRENGTH = 20
 var is_released: bool = false
 
 func _physics_process(delta):
 	if Input.is_action_pressed("interact") and not is_released:
-		position = player.position - player.basis.z
-		position.y = player.position.y + 1.5 - player.basis.z.y
+		position = player.position - player.basis.z + 0.5 * player.basis.x
+		#position.x = player.position.x + 0 *  0.5 * player.basis.x.x
+		position.y = player.position.y + 1.2
 		rotation.y = player.rotation.y
 		rotation.x = player.active_camera.rotation.x
-	if Input.is_action_just_released("interact") and not is_released:
+	if (Input.is_action_just_released("interact") or not inventory.selectslot == 3) and not is_released:
 		is_released = true
+		player.is_bow_drawn = false
 		velocity = player.velocity + -player.basis.z * THROW_STRENGTH
 		# player velocity + direction player is looking
 		

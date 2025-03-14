@@ -1,5 +1,23 @@
 extends CharacterBody3D
 
+@onready var player: CharacterBody3D = $"."
+@onready var head: Node3D = $Head
+@onready var campoint: Node3D = $Head/Campoint
+@onready var enemy: CharacterBody3D  = $"../Enemy_manager/Enemy"
+@onready var timer: Timer = $Attack_cooldown
+@onready var camera1: Camera3D = $Head/Camera3D				#first person
+@onready var camera2: Camera3D = $Head/Campoint/Camera3D2 	#third person
+@onready var cameraf: Camera3D = $Head/Camera3DF			#freecam
+@onready var miss: AudioStreamPlayer = $sounds/miss
+@onready var debug_bar: = $"../../gamegui/debug_bar"
+@onready var game_manager: Node = $"../../game_manager"
+@onready var sword: = $Shortsword
+@onready var axe: = $Axe_Final
+@onready var bow: = $Bow
+@onready var bow_drawn: = $Bow_drawn2
+@onready var inventory: = $"../../gamegui/Inventory"
+@onready var arrow_scene: PackedScene = preload("res://scenes/arrow.tscn")
+
 # player testing needed
 # sfx en in de toekomst mischien nog particles nodig om duidelijk te maken of je raakt of niet
 @export var WEAPON_ANGLE_RANGE: float = 45 # nu nog in graden voor testen, later in rad voor optimalisatie
@@ -9,7 +27,7 @@ const SPEED: int = 5
 const JUMP_VELOCITY: int = 7
 const SENSITIVITY: float = 0.003
 const AIR_SPEED: float = 3
-const JUMP_XZ_ACCELERATION: float = 3
+const JUMP_XZ_ACCELERATION: float = 1.2
 const FREECAM_SPEED: int = 10
 const FREECAM_SENSITIVITY: float = 0.25
 
@@ -23,19 +41,7 @@ var attack_ready: bool = true
 var interacting: bool = false
 var armor_damage_reduction: float = 0 # percentage of base damage, between 0 and 1
 # TODO ^wouldn't directly storing the amount the enemy can damage be more efficient?
-
-@onready var player: CharacterBody3D = $"."
-@onready var head: Node3D = $Head
-@onready var campoint: Node3D = $Head/Campoint
-@onready var enemy: CharacterBody3D  = $"../Enemy_manager/Enemy"
-@onready var timer: Timer = $Attack_cooldown
-@onready var camera1: Camera3D = $Head/Camera3D				#first person
-@onready var camera2: Camera3D = $Head/Campoint/Camera3D2 	#third person
-@onready var cameraf: Camera3D = $Head/Camera3DF			#freecam
-@onready var miss: AudioStreamPlayer = $sounds/miss
-@onready var debug_bar: = $"../../gamegui/debug_bar"
-@onready var game_manager: Node = $"../../game_manager"
-@onready var arrow_scene: PackedScene = preload("res://scenes/arrow.tscn")
+var is_bow_drawn: bool = false
 
 func _ready() -> void:
 	#reset camera
@@ -44,6 +50,10 @@ func _ready() -> void:
 	camera2.current = false
 	cameraf.current = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	sword.visible = true
+	axe.visible = false
+	bow.visible = false
+	bow_drawn.visible = false
 
 func _input(event):
 	if event.is_action_pressed("left_click"):
@@ -73,10 +83,27 @@ func _process(delta: float) -> void:
 		await get_tree().create_timer(get_process_delta_time()).timeout
 		attack_ready = false
 	
-	if Input.is_action_just_pressed("interact") and not interacting and attack_ready: # and bow_is_in_hand
+	if Input.is_action_just_pressed("interact") and not interacting and attack_ready and inventory.selectslot == 3:
 		game_manager.spawn_arrow()
 		timer.start()
 		attack_ready = false
+		is_bow_drawn = true
+	
+	if inventory.selectslot == 1:
+		sword.visible = true
+		axe.visible = false
+		bow.visible = false
+		bow_drawn.visible = false
+	elif inventory.selectslot == 2:
+		sword.visible = false
+		axe.visible = true
+		bow.visible = false
+		bow_drawn.visible = false
+	else:
+		sword.visible = false
+		axe.visible = false
+		bow.visible = not is_bow_drawn
+		bow_drawn.visible = is_bow_drawn
 
 #toggle between 1st and 3rd camera
 func toggle_camera():
