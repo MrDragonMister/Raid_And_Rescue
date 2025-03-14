@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/bodyguard.gd" id="1_lkoeg"]
 [ext_resource type="Texture2D" uid="uid://di3m5nqk4trhq" path="res://assets/Wachter_zwaard_texture_Guard.png" id="2_wd4nc"]
-[ext_resource type="Script" path="res://scenes/animation_player.gd" id="3_w6ey2"]
+[ext_resource type="Script" path="res://scripts/animation_player.gd" id="3_w6ey2"]
 [ext_resource type="AudioStream" uid="uid://8rxcrefsn6is" path="res://assets/sounds/Slash1.wav" id="4_yeh14"]
 [ext_resource type="AudioStream" uid="uid://dttyf1usfjsix" path="res://assets/sounds/Slash2.wav" id="5_unn0p"]
 [ext_resource type="AudioStream" uid="uid://djr58mceawmon" path="res://assets/sounds/Slash3.wav" id="6_5buw7"]

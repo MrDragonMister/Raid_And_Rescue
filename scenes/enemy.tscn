@@ -1,14 +1,15 @@
-[gd_scene load_steps=26 format=4 uid="uid://cny8rnjsf4uw5"]
+[gd_scene load_steps=27 format=4 uid="uid://cny8rnjsf4uw5"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_4h4db"]
 [ext_resource type="Texture2D" uid="uid://di3m5nqk4trhq" path="res://assets/Wachter_zwaard_texture_Guard.png" id="2_w8e8x"]
-[ext_resource type="Script" path="res://scenes/animation_player.gd" id="3_2mpbs"]
+[ext_resource type="Script" path="res://scripts/animation_player.gd" id="3_2mpbs"]
 [ext_resource type="AudioStream" uid="uid://8rxcrefsn6is" path="res://assets/sounds/Slash1.wav" id="3_tvia6"]
 [ext_resource type="AudioStream" uid="uid://dttyf1usfjsix" path="res://assets/sounds/Slash2.wav" id="4_1udhy"]
 [ext_resource type="AudioStream" uid="uid://djr58mceawmon" path="res://assets/sounds/Slash3.wav" id="5_62jkh"]
 [ext_resource type="AudioStream" uid="uid://ws2x5tjywmdn" path="res://assets/sounds/Slash4.wav" id="6_8p5rh"]
 [ext_resource type="AudioStream" uid="uid://3686spnkhh7d" path="res://assets/sounds/miss.mp3" id="8_871po"]
 [ext_resource type="AudioStream" uid="uid://b10rgopct2gd5" path="res://assets/sounds/hurt.mp3" id="9_ui64k"]
+[ext_resource type="AudioStream" uid="uid://bxofxbfeoneu0" path="res://assets/sounds/ding-101377.mp3" id="10_6k15u"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eca12"]
 radius = 0.375
@@ -788,5 +789,8 @@ stream = ExtResource("8_871po")
 
 [node name="dmge" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("9_ui64k")
+
+[node name="Ding-101377" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("10_6k15u")
 
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_timer_timeout"]

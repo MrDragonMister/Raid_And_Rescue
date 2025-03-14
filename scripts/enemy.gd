@@ -16,6 +16,7 @@ extends CharacterBody3D
 @onready var slash4: AudioStreamPlayer = $sounds/slash4
 @onready var hurt: AudioStreamPlayer = $sounds/dmge
 @onready var miss: AudioStreamPlayer = $sounds/miss
+@onready var arrow_hit_ding: = $"sounds/Ding-101377"
 
 const SPEED: int = 3
 const ACCELERATION: int = 10
@@ -114,6 +115,7 @@ func _physics_process(delta: float) -> void:
 					if not collision.get_collider().is_released:
 						player.is_bow_drawn = false
 						player.timer.start()
+						arrow_hit_ding.play()
 						print("player drawn bow: ", player.is_bow_drawn)
 					collision.get_collider().queue_free()
 					take_damage(10)

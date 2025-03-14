@@ -9,6 +9,7 @@ extends CharacterBody3D
 @onready var camera2: Camera3D = $Head/Campoint/Camera3D2 	#third person
 @onready var cameraf: Camera3D = $Head/Camera3DF			#freecam
 @onready var miss: AudioStreamPlayer = $sounds/miss
+@onready var bow_loading: = $sounds/bow_loading
 @onready var debug_bar: = $"../../gamegui/debug_bar"
 @onready var game_manager: Node = $"../../game_manager"
 @onready var sword: = $Shortsword

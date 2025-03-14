@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyk8221urfbf1"]
+[gd_scene load_steps=6 format=3 uid="uid://dyk8221urfbf1"]
 
 [ext_resource type="Script" path="res://scripts/arrow.gd" id="1_bueas"]
 [ext_resource type="ArrayMesh" uid="uid://b5kstgp6oy6xa" path="res://assets/Arrow4.obj" id="2_2rgge"]
+[ext_resource type="AudioStream" uid="uid://dhvtfttgf3r5k" path="res://assets/sounds/bow-release-bow-and-arrow-4-101936.mp3" id="3_ghr51"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_la73l"]
 height = 1.48495
@@ -23,3 +24,6 @@ shape = SubResource("CylinderShape3D_la73l")
 transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0.0101306, 0, 0.379281)
 mesh = ExtResource("2_2rgge")
 surface_material_override/0 = SubResource("StandardMaterial3D_ccdad")
+
+[node name="bow_release" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ghr51")

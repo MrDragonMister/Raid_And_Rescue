@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @onready var player: CharacterBody3D = $"../../world_objects/Player"
 @onready var inventory: = $"../../gamegui/Inventory"
+@onready var bow_release: = $bow_release
 const THROW_STRENGTH = 20
 var is_released: bool = false
 
@@ -17,6 +18,7 @@ func _physics_process(delta):
 		player.is_bow_drawn = false
 		player.timer.start()
 		velocity = player.velocity + -player.basis.z * THROW_STRENGTH
+		bow_release.play()
 		# player velocity + direction player is looking
 		
 		#velocity *= 1 - abs(clamp(player.active_camera.rotation.x * 2 / PI, -1, 1))

@@ -1,14 +1,10 @@
-[gd_scene load_steps=23 format=4 uid="uid://c4uk6bgfdo1jq"]
+[gd_scene load_steps=19 format=4 uid="uid://c4uk6bgfdo1jq"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_yoyyw"]
 [ext_resource type="PackedScene" uid="uid://7g31pa5hi3av" path="res://scenes/shortsword.tscn" id="2_yinf0"]
 [ext_resource type="Script" path="res://scripts/mesh_instance_3d.gd" id="3_151dt"]
 [ext_resource type="AudioStream" uid="uid://3686spnkhh7d" path="res://assets/sounds/miss.mp3" id="4_2fvi7"]
-[ext_resource type="AudioStream" uid="uid://b10rgopct2gd5" path="res://assets/sounds/hurt.mp3" id="5_gbdga"]
-[ext_resource type="AudioStream" uid="uid://8rxcrefsn6is" path="res://assets/sounds/Slash1.wav" id="6_c81xg"]
-[ext_resource type="AudioStream" uid="uid://dttyf1usfjsix" path="res://assets/sounds/Slash2.wav" id="7_nlu1p"]
-[ext_resource type="AudioStream" uid="uid://djr58mceawmon" path="res://assets/sounds/Slash3.wav" id="8_p6rme"]
-[ext_resource type="AudioStream" uid="uid://ws2x5tjywmdn" path="res://assets/sounds/Slash4.wav" id="9_5plgg"]
+[ext_resource type="AudioStream" uid="uid://lmiuhm2u0aau" path="res://assets/sounds/bow-loading-38752.mp3" id="8_niql2"]
 [ext_resource type="PackedScene" uid="uid://byo0tou50spi" path="res://assets/Bow_drawn2.glb" id="10_0pqjm"]
 [ext_resource type="PackedScene" uid="uid://bs1adtcgw10sn" path="res://assets/Bow.glb" id="11_tvuvi"]
 [ext_resource type="PackedScene" uid="uid://dpu7hdof5ulei" path="res://assets/Axe_Final.glb" id="12_ib3g1"]
@@ -572,23 +568,11 @@ script = ExtResource("3_151dt")
 
 [node name="sounds" type="Node" parent="."]
 
-[node name="Slash1" type="AudioStreamPlayer" parent="sounds"]
-stream = ExtResource("6_c81xg")
-
-[node name="Slash2" type="AudioStreamPlayer" parent="sounds"]
-stream = ExtResource("7_nlu1p")
-
-[node name="Slash3" type="AudioStreamPlayer" parent="sounds"]
-stream = ExtResource("8_p6rme")
-
-[node name="Slash4" type="AudioStreamPlayer" parent="sounds"]
-stream = ExtResource("9_5plgg")
-
 [node name="miss" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("4_2fvi7")
 
-[node name="hurt" type="AudioStreamPlayer" parent="sounds"]
-stream = ExtResource("5_gbdga")
+[node name="bow_loading" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("8_niql2")
 
 [node name="Attack_cooldown" type="Timer" parent="."]
 process_callback = 0
