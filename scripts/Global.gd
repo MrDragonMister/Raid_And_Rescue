@@ -4,7 +4,7 @@ extends Node
 @onready var amount_of_enemies: int = 0
 @onready var amount_of_bodyguards: int = 0
 @onready var amount_of_alfred: int = 0
-@onready var gold: int = 100
+@onready var gold: int = 1
 @onready var should_play_miss: bool = true
 var level : int = 1
 
@@ -34,7 +34,7 @@ var items = {
 	},
 	1: {
 		"Name": "Axe",
-		"Desc": "This is an axe! \nIt has more range than the sword, but attacks somewhat slower. \nYou can hit enemies behind you too with this.",
+		"Desc": "This is an axe! \nIt has more range than the sword, but attacks slower. \nYou can hit enemies all around you.",
 		"Cost": 10,
 	},
 	2: {

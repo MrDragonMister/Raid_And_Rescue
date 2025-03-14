@@ -18,7 +18,6 @@ func _ready():
 func _on_close_pressed() -> void:
 	Click.play()
 	get_node("Anim").play("TransOut")
-	print("transout")
 
 func SwitchItem(select):
 	for i in range(Global.items.size()):
@@ -37,7 +36,6 @@ func _on_buy_pressed() -> void:
 	if Global.gold >= Global.items[CurrentItem]["Cost"]:
 		gold.change_coins(-Global.items[CurrentItem]["Cost"])
 		Global.inventory[CurrentItem]["Level"] += 1
-		print(Global.inventory[CurrentItem]["Level"])
 		Global.items[CurrentItem]["Cost"] += 5
 	else:
 		print("not enough gold")

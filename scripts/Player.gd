@@ -62,14 +62,14 @@ func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#switch camera input
-	if Input.is_action_just_pressed("switch_camera"):
-		toggle_camera()
-	if Input.is_action_just_pressed("freecam"):
-		free_camera()
-	if cameraf.current:
-		freecam_movement(delta)
+#	if Input.is_action_just_pressed("switch_camera"):
+#		toggle_camera()
+#	if Input.is_action_just_pressed("freecam"):
+#		free_camera()
+#	if cameraf.current:
+#		freecam_movement(delta)
 	
 	# This needs to be in process if the code is 'is_action_pressed' so it's checked every frame
 	# 'is_action_JUST_pressed' is more efficient since it can be put in unhandled input, which isn't checked every frame
@@ -125,7 +125,6 @@ func toggle_camera():
 #activate freecam
 func free_camera():
 	pass
-	"""
 	camera1.current = active_camera == cameraf # toggle what camera is true
 	cameraf.current = active_camera != cameraf
 	if active_camera == cameraf:
@@ -135,7 +134,7 @@ func free_camera():
 		cameraf.rotation_degrees = player.rotation_degrees
 		active_camera = cameraf	
 	camera2.current = false		# waarom weet ik niet, maar zonder deze regel loopt een enemy niet als je er op staat
-	"""
+	
 
 #freecam movement
 func freecam_movement(delta: float) -> void:

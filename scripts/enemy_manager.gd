@@ -47,8 +47,9 @@ func _ready():
 		spawn_bodyguard(2.436, 0, -22.302)
 
 func _unhandled_input(_event):
-	if Input.is_action_just_pressed("spawn enemy"):
-		spawn_enemy(randi_range(-10, 10), 0, randi_range(-10, 10))
+	pass
+#	if Input.is_action_just_pressed("spawn enemy"):
+#		spawn_enemy(randi_range(-10, 10), 0, randi_range(-10, 10))
 	
 func spawn_enemy(x, y, z):
 	var mob = enemy_scene.instantiate()
@@ -65,7 +66,7 @@ func spawn_alfred(x, y, z):
 func spawn_bodyguard(x, y, z):
 	Global.enemy_spawn_pos = Vector3(x, y, z)
 	add_child(bodyguard_scene.instantiate())
-	Global.amount_of_alfred += 1
+	Global.amount_of_bodyguards += 1
 
 func enemy_die():
 	explosion.play()
