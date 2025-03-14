@@ -19,7 +19,7 @@ extends CharacterBody3D
 
 const SPEED: int = 3
 const ACCELERATION: int = 10
-const ENEMY_WEAPON_FORWARD_RANGE: int = 1
+const ENEMY_WEAPON_FORWARD_RANGE: int = 2
 const PLAYER_SEEKING_RANGE: int = 15
 
 var health : int = 100
@@ -47,7 +47,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("attack") and player.attack_ready:
 		var angle_from_player_2_enemy = Global.get_angle_to(player, self)
 		var distance_2_player = (position - player.position).length()
-		if distance_2_player < player.WEAPON_FORWARD_RANGE and angle_from_player_2_enemy < deg_to_rad(player.WEAPON_ANGLE_RANGE):
+		if distance_2_player < player.weapon_forward_range and angle_from_player_2_enemy < deg_to_rad(player.weapon_angle_range) and not player.inventory.selectslot == 3:
 			slash_play()
 			Global.should_play_miss = false
 			if health > health_bar.min_value:
@@ -58,7 +58,7 @@ func _process(_delta: float) -> void:
 				if health <= health_bar.min_value:
 					enemy_manager.enemy_die()
 					queue_free()
-		else:
+		elif not player.inventory.selectslot == 3:
 			await get_tree().create_timer(get_process_delta_time()).timeout
 			if Global.should_play_miss:
 				miss.play()
@@ -70,7 +70,7 @@ func _unhandled_input(_envent):
 func _physics_process(delta: float) -> void:
 	# Attacking
 	# the enemy always looks at the player so an angle check is not needed
-	if attack_ready and not going_to_home_pos and nav.distance_to_target() <= ENEMY_WEAPON_FORWARD_RANGE:
+	if attack_ready and not going_to_home_pos and (position - player.position).length() <= ENEMY_WEAPON_FORWARD_RANGE:
 		attack_ready = false
 		enemy_animation.attack()
 		timer.start()
@@ -101,7 +101,7 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector3.ZERO
 		else:
 			velocity = velocity.move_toward(direction * SPEED, ACCELERATION * delta)
-		if not going_to_home_pos and nav.distance_to_target() < ENEMY_WEAPON_FORWARD_RANGE:
+		if not going_to_home_pos and nav.distance_to_target() < 1:
 			velocity = Vector3.ZERO
 	else:
 		# Add the gravity.

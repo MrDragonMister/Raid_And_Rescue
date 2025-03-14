@@ -20,8 +20,8 @@ extends CharacterBody3D
 
 # player testing needed
 # sfx en in de toekomst mischien nog particles nodig om duidelijk te maken of je raakt of niet
-@export var WEAPON_ANGLE_RANGE: float = 45 # nu nog in graden voor testen, later in rad voor optimalisatie
-@export var WEAPON_FORWARD_RANGE: float = 2
+var weapon_angle_range: float = 45 # nu nog in graden voor testen, later in rad voor optimalisatie
+var weapon_forward_range: float = 2
 
 const SPEED: int = 5
 const JUMP_VELOCITY: int = 7
@@ -94,11 +94,17 @@ func _process(delta: float) -> void:
 		axe.visible = false
 		bow.visible = false
 		bow_drawn.visible = false
+		weapon_angle_range = 45
+		weapon_forward_range = 2
+		timer.wait_time = 1
 	elif inventory.selectslot == 2:
 		sword.visible = false
 		axe.visible = true
 		bow.visible = false
 		bow_drawn.visible = false
+		weapon_angle_range = 360
+		weapon_forward_range = 3
+		timer.wait_time = 1.5
 	else:
 		sword.visible = false
 		axe.visible = false
