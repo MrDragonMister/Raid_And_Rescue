@@ -19,7 +19,7 @@ extends CharacterBody3D
 
 const SPEED: int = 3
 const ACCELERATION: int = 10
-const ENEMY_WEAPON_FORWARD_RANGE: int = 4
+const ENEMY_WEAPON_FORWARD_RANGE: int = 2
 const PLAYER_SEEKING_RANGE: int = 15
 
 var health : int = 100
