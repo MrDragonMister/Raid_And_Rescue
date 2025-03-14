@@ -192,7 +192,7 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 0.5, 5.29647, 0.0467987, 1.8
 [node name="houses" type="Node3D" parent="world_objects/NavigationRegion3D"]
 
 [node name="house" parent="world_objects/NavigationRegion3D/houses" instance=ExtResource("3_qul0q")]
-transform = Transform3D(-0.756582, 0, 1.72629, 0, 1, 0, -1.27666, 0, -1.02304, -22.4641, 0, 4.1871)
+transform = Transform3D(0.7791, 0, -1.70788, 0, 1, 0, 1.26304, 0, 1.05349, -22.4641, 0, 4.1871)
 
 [node name="house2" parent="world_objects/NavigationRegion3D/houses" instance=ExtResource("3_qul0q")]
 transform = Transform3D(0.203189, 0, 1.98965, 0, 1.5, 0, -1.98965, 0, 0.203189, 21.5167, 3.8147e-06, 1.85433)
@@ -210,10 +210,10 @@ transform = Transform3D(-0.906897, 0, 0.421352, 0, 1, 0, -0.421352, 0, -0.906897
 transform = Transform3D(-0.353488, 0, 1.12334, 0, 1.4, 0, -0.821146, 0, -0.483576, 20.4644, -3.8147e-06, -17.8956)
 
 [node name="house7" parent="world_objects/NavigationRegion3D/houses" instance=ExtResource("3_qul0q")]
-transform = Transform3D(0.48108, 0, 0.876676, 0, 1, 0, -0.876676, 0, 0.48108, -19.7676, 0, -19.9111)
+transform = Transform3D(-0.596462, 0, -0.80264, 0, 1, 0, 0.80264, 0, -0.596462, -19.7676, 0, -19.9111)
 
 [node name="house8" parent="world_objects/NavigationRegion3D/houses" instance=ExtResource("3_qul0q")]
-transform = Transform3D(0.896834, 0, 0.442368, 0, 1, 0, -0.442368, 0, 0.896834, -12.7148, 0, -30.9163)
+transform = Transform3D(-0.74951, 0, -0.661993, 0, 1, 0, 0.661993, 0, -0.74951, -12.7148, 0, -30.9163)
 
 [node name="house9" parent="world_objects/NavigationRegion3D/houses" instance=ExtResource("3_qul0q")]
 transform = Transform3D(0.254374, 0, 0.996398, 0, 1, 0, -2.9892, 0, 0.0847911, -5.63821, 0, -10.5127)

@@ -188,7 +188,7 @@ height = 15.1261
 [node name="houses" type="Node3D" parent="world_objects/NavigationRegion3D"]
 
 [node name="house" parent="world_objects/NavigationRegion3D/houses" instance=ExtResource("2_h8crc")]
-transform = Transform3D(-0.97941, 0, 1.50758, 0, 1, 0, -1.11492, 0, -1.32435, -19.292, 0, 15.5198)
+transform = Transform3D(0.97941, 0, -1.50758, 0, 1, 0, 1.11492, 0, 1.32435, -19.292, 0, 15.5198)
 
 [node name="house2" parent="world_objects/NavigationRegion3D/houses" instance=ExtResource("2_h8crc")]
 transform = Transform3D(0.203189, 0, 4.37524, 0, 1.951, 0, -1.98965, 0, 0.446812, 15.4902, 0, -0.104963)
@@ -206,7 +206,7 @@ transform = Transform3D(0.99984, 0, -0.0149908, 0, 2, 0, 0.0178888, 0, 0.837866,
 transform = Transform3D(-0.906897, 0, 0.421352, 0, 1, 0, -0.421352, 0, -0.906897, 10.4302, 0, -19.604)
 
 [node name="house5" parent="world_objects/NavigationRegion3D/houses/house5" instance=ExtResource("2_h8crc")]
-transform = Transform3D(-0.906897, 0, 0.421352, 0, 1, 0, -0.421352, 0, -0.906897, -10.261, 0, 0.932261)
+transform = Transform3D(0.884109, 0, -0.467282, 0, 1, 0, 0.467282, 0, 0.884109, -10.261, 0, 0.932262)
 
 [node name="house6" parent="world_objects/NavigationRegion3D/houses" instance=ExtResource("2_h8crc")]
 transform = Transform3D(0.996493, 0, -0.114471, 0, 1.566, 0, 0.0836779, 0, 1.3632, 0.318601, -3.8147e-06, -19.1769)

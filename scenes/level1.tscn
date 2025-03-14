@@ -366,6 +366,7 @@ WASD to walk
 spacebar to jump
 left-click to attack
 right-click to shoot arrow
+E to interact
 shift + esc to quit game
 _____________________________"
 label_settings = SubResource("LabelSettings_1x25p")
