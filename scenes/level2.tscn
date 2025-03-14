@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://scripts/cash_label.gd" id="13_hyrst"]
 [ext_resource type="PackedScene" uid="uid://cy83gaiogvyiw" path="res://scenes/Cage.tscn" id="14_42xjl"]
 [ext_resource type="Texture2D" uid="uid://cvoy0x2sbr8bg" path="res://assets/gold_icon.png" id="15_qxsy3"]
-[ext_resource type="PackedScene" uid="uid://clc35d4e278wu" path="res://scenes/inventory.tscn" id="16_brcoe"]
+[ext_resource type="PackedScene" uid="uid://dil372tllpt78" path="res://scenes/inventory.tscn" id="16_brcoe"]
 [ext_resource type="PackedScene" uid="uid://bfeh8xkisbp0y" path="res://assets/Gate.glb" id="16_rga3d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j2cf6"]
@@ -82,7 +82,7 @@ expand_margin_top = 5.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
-[node name="level1" type="Node3D"]
+[node name="level2" type="Node3D"]
 script = ExtResource("1_ue885")
 
 [node name="game_manager" type="Node" parent="."]

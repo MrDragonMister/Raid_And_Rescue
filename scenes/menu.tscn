@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b4bbxlbd4ui6x" path="res://assets/backcircleship.png" id="2_v5b3g"]
 [ext_resource type="Texture2D" uid="uid://7gerdq4g6fka" path="res://assets/gamelogo.png" id="3_2it0q"]
 [ext_resource type="AudioStream" uid="uid://bhlifx0pmjl46" path="res://assets/sounds/ultra-kill-138765.mp3" id="4_uw1fn"]
-[ext_resource type="PackedScene" uid="uid://d1385clksisa6" path="res://scenes/weapon_shop.tscn" id="5_6v7a6"]
+[ext_resource type="PackedScene" uid="uid://dwv7ta6fbwwyi" path="res://scenes/weapon_shop.tscn" id="5_6v7a6"]
 [ext_resource type="Texture2D" uid="uid://cvoy0x2sbr8bg" path="res://assets/gold_icon.png" id="6_cmw3j"]
 [ext_resource type="Script" path="res://scripts/cash_label.gd" id="7_to3h3"]
 

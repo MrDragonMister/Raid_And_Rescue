@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=4 uid="uid://c4uk6bgfdo1jq"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_yoyyw"]
-[ext_resource type="PackedScene" path="res://scenes/shortsword.tscn" id="2_yinf0"]
+[ext_resource type="PackedScene" uid="uid://7g31pa5hi3av" path="res://scenes/shortsword.tscn" id="2_yinf0"]
 [ext_resource type="Script" path="res://scripts/mesh_instance_3d.gd" id="3_151dt"]
 [ext_resource type="AudioStream" uid="uid://3686spnkhh7d" path="res://assets/sounds/miss.mp3" id="4_2fvi7"]
 [ext_resource type="AudioStream" uid="uid://b10rgopct2gd5" path="res://assets/sounds/hurt.mp3" id="5_gbdga"]
