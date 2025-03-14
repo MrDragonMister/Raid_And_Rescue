@@ -27,7 +27,7 @@ const SPEED: int = 5
 const JUMP_VELOCITY: int = 7
 const SENSITIVITY: float = 0.003
 const AIR_SPEED: float = 3
-const JUMP_XZ_ACCELERATION: float = 3
+const JUMP_XZ_ACCELERATION: float = 1.2
 const FREECAM_SPEED: int = 10
 const FREECAM_SENSITIVITY: float = 0.25
 

@@ -473,6 +473,7 @@ viewport_path = NodePath("SubViewport")
 [node name="bodyguard" type="CharacterBody3D"]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 0, 0)
 collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_lkoeg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

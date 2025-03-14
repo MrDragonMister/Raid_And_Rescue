@@ -20,7 +20,7 @@ extends CharacterBody3D
 const SPEED: int = 3
 const ACCELERATION: int = 10
 const ENEMY_WEAPON_FORWARD_RANGE: int = 2
-const PLAYER_SEEKING_RANGE: int = 100
+const PLAYER_SEEKING_RANGE: int = 15
 
 var health : int = 200
 var attack_ready: bool = true
@@ -35,6 +35,8 @@ func _ready():
 	health_bar.value = health
 	position = Global.enemy_spawn_pos
 	health_bar.max_value = 200
+	health_bar.update_health_bar_text()
+	
 
 func _process(_delta: float) -> void:
 	# Get the camera from the current viewport
