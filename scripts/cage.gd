@@ -16,6 +16,7 @@ func _physics_process(delta):
 	if position.y >= start_y + 2.5:
 		visible = false
 		speed.y = 0
+		set_collision_layer_value(1, false)
 		# position.y = move_toward(start_y, start_y + 5, delta)
 		
 	move_and_collide(speed)
