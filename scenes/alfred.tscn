@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cur4q24dvuelj"]
+[gd_scene load_steps=27 format=4 uid="uid://cur4q24dvuelj"]
 
 [ext_resource type="Texture2D" uid="uid://bya6m3vpx0jfj" path="res://assets/Alfred_Guard.png" id="1_5xed5"]
 [ext_resource type="Script" path="res://scripts/alfred.gd" id="1_vbsig"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://ws2x5tjywmdn" path="res://assets/sounds/Slash4.wav" id="5_1sadu"]
 [ext_resource type="AudioStream" uid="uid://3686spnkhh7d" path="res://assets/sounds/miss.mp3" id="6_kg72u"]
 [ext_resource type="AudioStream" uid="uid://b10rgopct2gd5" path="res://assets/sounds/hurt.mp3" id="7_hkxvi"]
+[ext_resource type="AudioStream" uid="uid://bxofxbfeoneu0" path="res://assets/sounds/ding-101377.mp3" id="10_2ngli"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0vb4p"]
 radius = 0.375
@@ -788,5 +789,8 @@ stream = ExtResource("6_kg72u")
 
 [node name="dmge" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("7_hkxvi")
+
+[node name="Ding-101377" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("10_2ngli")
 
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

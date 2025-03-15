@@ -4,6 +4,7 @@ extends Node
 @onready var debug_bar: ProgressBar = $"../gamegui/debug_bar"
 @onready var arrow_scene: PackedScene = preload("res://scenes/arrow.tscn")
 @onready var health: int = 100
+
 var is_vilager_free: bool = false
 
 func _ready():
@@ -12,6 +13,9 @@ func _ready():
 func _process(_delta: float) -> void:
 	if health_bar.value <= 0 or Input.is_action_just_pressed("die"):
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+		Global.amount_of_alfred = 0
+		Global.amount_of_enemies = 0
+		Global.amount_of_bodyguards = 0
 
 func spawn_arrow():
 	var arrow = arrow_scene.instantiate()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cs337pu58qhkl"]
+[gd_scene load_steps=27 format=4 uid="uid://cs337pu58qhkl"]
 
 [ext_resource type="Script" path="res://scripts/bodyguard.gd" id="1_lkoeg"]
 [ext_resource type="Texture2D" uid="uid://di3m5nqk4trhq" path="res://assets/Wachter_zwaard_texture_Guard.png" id="2_wd4nc"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://ws2x5tjywmdn" path="res://assets/sounds/Slash4.wav" id="7_da8yw"]
 [ext_resource type="AudioStream" uid="uid://3686spnkhh7d" path="res://assets/sounds/miss.mp3" id="8_fgg36"]
 [ext_resource type="AudioStream" uid="uid://b10rgopct2gd5" path="res://assets/sounds/hurt.mp3" id="9_fqdb3"]
+[ext_resource type="AudioStream" uid="uid://bxofxbfeoneu0" path="res://assets/sounds/ding-101377.mp3" id="10_wbwhl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mwacm"]
 radius = 0.375
@@ -789,5 +790,8 @@ stream = ExtResource("8_fgg36")
 
 [node name="dmge" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("9_fqdb3")
+
+[node name="Ding-101377" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("10_wbwhl")
 
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

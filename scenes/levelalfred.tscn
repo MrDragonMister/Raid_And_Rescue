@@ -386,6 +386,7 @@ text = "					  100/100"
 scroll_active = false
 
 [node name="debug_bar" type="ProgressBar" parent="gamegui"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

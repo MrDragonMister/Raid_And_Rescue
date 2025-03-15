@@ -28,7 +28,7 @@ func _on_button_pressed() -> void:
 		get_tree().change_scene_to_file("res://scenes/levelalfred.tscn")
 	if Global.level == 5:
 		Global.level = 1
-		Global.gold = 0
+		Global.gold = 1
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 
